@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <rect width="200" height="100" fill="none"/>
+  <circle cx="100" cy="45" r="30" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+  <circle cx="100" cy="45" r="26" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <path d="M100,19 L100,45 L74,45 A26,26 0 0,1 100,19Z" fill="#0066B1"/>
+  <path d="M100,71 L100,45 L126,45 A26,26 0 0,1 100,71Z" fill="#0066B1"/>
+  <path d="M100,19 L100,45 L126,45 A26,26 0 0,0 100,19Z" fill="white"/>
+  <path d="M100,71 L100,45 L74,45 A26,26 0 0,0 100,71Z" fill="white"/>
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a" text-anchor="middle">BMW</text>
+</svg>

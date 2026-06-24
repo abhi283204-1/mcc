@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <rect width="200" height="100" fill="none"/>
+  <circle cx="100" cy="45" r="30" fill="none" stroke="#1a1a1a" stroke-width="3.5"/>
+  <circle cx="100" cy="45" r="26" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="100" y1="19" x2="100" y2="45" stroke="#1a1a1a" stroke-width="3"/>
+  <line x1="100" y1="45" x2="77" y2="67" stroke="#1a1a1a" stroke-width="3"/>
+  <line x1="100" y1="45" x2="123" y2="67" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="100" y="92" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1a1a1a" text-anchor="middle" letter-spacing="1">MERCEDES-BENZ</text>
+</svg>
