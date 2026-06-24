@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 const categories = [
-  { name: "Car Repair & Services", icon: "/images/Icons/car-service.svg", href: "#", active: false },
+  { name: "Car Repair & Services", icon: "/images/Icons/car-service.svg", href: "/services/car-services", active: false },
   { name: "Denting & Painting", icon: "/images/Icons/painting.svg", href: "#", active: false },
   { name: "AC Service & Repair", icon: "/images/Icons/ac-service.svg", href: "/services/ac-service-repair", active: true },
   { name: "Detailing Services", icon: "/images/Icons/detailing.svg", href: "#", active: false },

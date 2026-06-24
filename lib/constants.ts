@@ -15,7 +15,7 @@ export const STATS = [
 ];
 
 export const SERVICES = [
-  { title: "Car Services", icon: "Car", img: "/images/Icons/car-service.svg" },
+  { title: "Car Services", icon: "Car", img: "/images/Icons/car-service.svg", href: "/services/car-services" },
   { title: "AC Service & Repair", img: "/images/Icons/ac-service.svg", href: "/services/ac-service-repair" },
   { title: "Denting & Painting", img: "/images/Icons/painting.svg" },
   { title: "Car Spa & Cleaning", img: "/images/Icons/car-wash.svg" },
@@ -122,7 +122,7 @@ export const FOOTER_LINKS = {
     { label: "Contact Us", href: "/contact" },
   ],
   services: [
-    { label: "Car Services", href: "#services" },
+    { label: "Car Services", href: "/services/car-services" },
     { label: "AC Service & Repair", href: "/services/ac-service-repair" },
     { label: "Denting & Painting", href: "#services" },
     { label: "Car Spa & Cleaning", href: "#services" },
