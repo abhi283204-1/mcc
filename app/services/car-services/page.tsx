@@ -27,7 +27,7 @@ const scheduledPackages = [
     includes: ["Engine Oil Replacement", "Oil Filter Replacement", "Air Filter Cleaning", "Coolant Top-up", "Wiper Fluid Replacement", "Battery Water Top-up", "Interior Vacuuming", "Car Wash", "Brake Inspection"],
     price: 2099,
     originalPrice: 3178,
-    image: "/images/Icons/car-service.svg",
+    image: "/images/Icons/basic-service.jpeg",
   },
   {
     name: "Standard Service",
@@ -40,7 +40,7 @@ const scheduledPackages = [
     includes: ["Basic Service Inclusions", "Front Brake Pads Inspection", "Spark Plug Cleaning", "Car Scanning", "Fuel Filter Check", "AC Gas Top-up", "AC Filter Cleaning", "Suspension Inspection", "Tyre Rotation"],
     price: 3999,
     originalPrice: 5378,
-    image: "/images/Icons/car-service.svg",
+    image: "/images/Icons/standard-service.jpeg",
   },
   {
     name: "Comprehensive Service",
@@ -53,7 +53,7 @@ const scheduledPackages = [
     includes: ["Standard Service Inclusions", "Transmission Fluid Replacement", "Brake Fluid Replacement", "Coolant Flush & Replace", "Throttle Body Cleaning", "Fuel Injector Cleaning", "Wheel Alignment", "Wheel Balancing", "Complete Underbody Wash"],
     price: 5999,
     originalPrice: 8308,
-    image: "/images/Icons/car-service.svg",
+    image: "/images/Icons/Comprehensive-Service.jpeg",
   },
 ];
 
@@ -68,6 +68,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Brake Pads Removal", "New Brake Pads Installation", "Brake Performance Check"],
     price: 1299,
     originalPrice: 2048,
+    image: "/images/Icons/front-break-pads.jpeg",
   },
   {
     name: "Rear Brake Shoes",
@@ -79,6 +80,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Brake Shoes Removal", "New Brake Shoes Installation", "Brake Performance Check"],
     price: 1599,
     originalPrice: 2398,
+    image: "/images/Icons/rear-break-shoes.jpeg",
   },
   {
     name: "Front Brake Discs",
@@ -91,6 +93,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Disc Removal", "New Brake Disc Installation", "Brake Performance Check"],
     price: 2499,
     originalPrice: 3499,
+    image: "/images/Icons/break-disc.jpeg",
   },
   {
     name: "Caliper Pin Replacement",
@@ -102,6 +105,7 @@ const brakeMaintenancePackages = [
     includes: ["Caliper Inspection", "Old Pin Removal", "New Caliper Pin Fitting", "Brake Performance Test"],
     price: 899,
     originalPrice: 1299,
+    image: "/images/Icons/Caliper-Pin.jpeg",
   },
   {
     name: "Disc Turning",
@@ -114,6 +118,7 @@ const brakeMaintenancePackages = [
     includes: ["Disc Inspection", "Disc Turning/Resurfacing", "Brake Performance Check"],
     price: 999,
     originalPrice: 1499,
+    image: "/images/Icons/disc-turning.jpeg",
   },
   {
     name: "Handbrake Wire Replacement",
@@ -125,6 +130,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Wire Removal", "New Handbrake Wire Fitting", "Handbrake Adjustment"],
     price: 799,
     originalPrice: 1199,
+    image: "/images/Icons/handbreak-wire.jpeg",
   },
   {
     name: "Brake Drums Turning",
@@ -137,6 +143,7 @@ const brakeMaintenancePackages = [
     includes: ["Drum Inspection", "Drum Turning/Resurfacing", "Brake Performance Check"],
     price: 999,
     originalPrice: 1499,
+    image: "/images/Icons/break-drum-turning.jpeg",
   },
   {
     name: "Wheel Cylinder Replacement",
@@ -148,6 +155,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Cylinder Removal", "New Wheel Cylinder Fitting", "Brake Fluid Top-up"],
     price: 1299,
     originalPrice: 1899,
+    image: "/images/Icons/wheel-cylinder.jpeg",
   },
 ];
 
@@ -163,7 +171,7 @@ export default function CarServicesPage() {
             {/* LEFT COLUMN */}
             <div>
               <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
-                Car Services in Delhi
+                Car Services in Ghaziabad
               </h1>
               <p className="text-gray-500 text-[15px] mb-8">
                 Your trusted local <span className="font-semibold text-gray-900">car service specialist</span> serving Delhi with premium scheduled car service & brake maintenance.

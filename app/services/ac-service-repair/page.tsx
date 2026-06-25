@@ -27,7 +27,7 @@ const servicePackages = [
     includes: ["AC Vent Cleaning", "AC Inspection", "AC Gas (upto 400 gms)", "Condenser Cleaning", "AC Filter Cleaning"],
     price: 2499,
     originalPrice: 3332,
-    image: "/images/Icons/ac-service.svg",
+    image: "/images/Icons/regular-ac-service.jpeg",
   },
   {
     name: "High Performance AC Service",
@@ -40,7 +40,7 @@ const servicePackages = [
     includes: ["AC Vent Cleaning", "AC Leak Test", "Dashboard Removing Refitting", "Dashboard Cleaning", "AC Gas (Upto 600gms)"],
     price: 3499,
     originalPrice: 4999,
-    image: "/images/Icons/ac-service.svg",
+    image: "/images/Icons/hight-performance-ac-service.jpeg",
   },
 ];
 
@@ -55,6 +55,7 @@ const fitments = [
     includes: ["Old Belt Removal", "New V-Belt Fitting", "Tension Adjustment"],
     price: 1499,
     originalPrice: 1999,
+    image: "/images/Icons/v-belt.jpeg",
   },
   {
     name: "Compressor Replacement",
@@ -66,6 +67,7 @@ const fitments = [
     includes: ["Old Compressor Removal", "New Compressor Installation", "AC Gas Top-up", "Leak Test"],
     price: 5999,
     originalPrice: 7999,
+    image: "/images/Icons/compressor.jpeg",
   },
   {
     name: "Condenser Replacement",
@@ -77,6 +79,7 @@ const fitments = [
     includes: ["Old Condenser Removal", "New Condenser Fitting", "AC Gas Refill", "Performance Check"],
     price: 4499,
     originalPrice: 5999,
+    image: "/images/Icons/Condenser.jpg",
   },
   {
     name: "Cooling Coil Replacement",
@@ -88,6 +91,31 @@ const fitments = [
     includes: ["Dashboard Removal", "Old Coil Removal", "New Cooling Coil Fitting", "AC Gas Refill", "Leak Test"],
     price: 4999,
     originalPrice: 6499,
+    image: "/images/Icons/car-cooling-coils.jpg",
+  },
+  {
+    name: "Heating Coil Replacement",
+    duration: "Takes 8 Hours",
+    warranty: "3 Months Warranty",
+    details: 148,
+    recommended: false,
+    description: "Prevents engine overheating due to faulty heating coil",
+    includes: ["Old Heating Coil Removal", "New Heating Coil Fitting", "Coolant Refill", "Leak Test"],
+    price: 3999,
+    originalPrice: 5499,
+    image: "/images/Icons/car-heater-core.jpeg",
+  },
+  {
+    name: "AC Blower Motor Replacement",
+    duration: "Takes 8 Hours",
+    warranty: "1 Month Warranty",
+    details: 155,
+    recommended: false,
+    description: "When AC blower is not working or making noise",
+    includes: ["Old Blower Motor Removal", "New Blower Motor Installation", "Wiring Check", "Performance Test"],
+    price: 2999,
+    originalPrice: 3999,
+    image: "/images/Icons/ac-blower-motor.jpg",
   },
 ];
 
@@ -102,6 +130,7 @@ const radiator = [
     includes: ["Coolant Drain", "Radiator Flush", "Fresh Coolant Refill"],
     price: 1299,
     originalPrice: 1799,
+    image: "/images/Icons/reverse-flushing-a-radiator.png",
   },
   {
     name: "Radiator Fan Motor Replacement",
@@ -113,6 +142,7 @@ const radiator = [
     includes: ["Old Motor Removal", "New Fan Motor Fitting", "Wiring Check"],
     price: 2999,
     originalPrice: 3999,
+    image: "/images/Icons/car-radiator-fan-motor.jpeg",
   },
   {
     name: "Radiator Replacement",
@@ -124,6 +154,7 @@ const radiator = [
     includes: ["Old Radiator Removal", "New Radiator Installation", "Coolant Refill", "Leak Test"],
     price: 3999,
     originalPrice: 5499,
+    image: "/images/Icons/radiator-replacement.jpeg",
   },
 ];
 
@@ -137,6 +168,7 @@ const under49 = [
     description: "Complete AC system diagnostic check",
     includes: ["AC Performance Check", "Gas Pressure Test", "Leak Detection"],
     price: 49,
+    image: "/images/Icons/ac-inspection.jpeg",
   },
 ];
 
@@ -150,6 +182,7 @@ const under99 = [
     description: "Improves AC cooling efficiency",
     includes: ["Condenser Water Wash", "Dirt & Debris Removal", "Airflow Check"],
     price: 99,
+    image: "/images/Icons/ac-condencer-cleaning.jpeg",
   },
 ];
 
@@ -163,6 +196,7 @@ const under199 = [
     description: "Reduces belt noise & extends life",
     includes: ["Belt Inspection", "Lubrication Application", "Tension Check"],
     price: 199,
+    image: "/images/Icons/drive-belt.jpeg",
   },
 ];
 

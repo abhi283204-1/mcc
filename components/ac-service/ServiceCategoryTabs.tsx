@@ -7,14 +7,14 @@ import { useRef } from "react";
 
 const categories = [
   { name: "Car Repair & Services", icon: "/images/Icons/car-service.svg", href: "/services/car-services", active: false },
-  { name: "Denting & Painting", icon: "/images/Icons/painting.svg", href: "#", active: false },
+  { name: "Denting & Painting", icon: "/images/Icons/painting.svg", href: "/services/denting-painting", active: false },
   { name: "AC Service & Repair", icon: "/images/Icons/ac-service.svg", href: "/services/ac-service-repair", active: true },
-  { name: "Detailing Services", icon: "/images/Icons/detailing.svg", href: "#", active: false },
-  { name: "Car Spa & Cleaning", icon: "/images/Icons/car-wash.svg", href: "#", active: false },
-  { name: "Clutch & Body Parts", icon: "/images/Icons/clutch.svg", href: "#", active: false },
-  { name: "Suspension & Fitments", icon: "/images/Icons/suspension.svg", href: "#", active: false },
-  { name: "Tyres & Wheel Care", icon: "/images/Icons/tyre.svg", href: "#", active: false },
-  { name: "Batteries", icon: "/images/Icons/battery.svg", href: "#", active: false },
+  { name: "Detailing Services", icon: "/images/Icons/detailing.svg", href: "/services/car-detailing", active: false },
+  { name: "Car Spa & Cleaning", icon: "/images/Icons/car-wash.svg", href: "/services/car-spa-cleaning", active: false },
+  { name: "Clutch & Body Parts", icon: "/images/Icons/clutch.svg", href: "/services/clutch-body-parts", active: false },
+  { name: "Suspension & Fitments", icon: "/images/Icons/suspension.svg", href: "/services/suspension-fitments", active: false },
+  { name: "Tyres & Wheel Care", icon: "/images/Icons/tyre.svg", href: "/services/tyres-wheel-care", active: false },
+  { name: "Batteries", icon: "/images/Icons/battery.svg", href: "/services/batteries", active: false },
 ];
 
 export default function ServiceCategoryTabs() {
