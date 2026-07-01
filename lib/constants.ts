@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   { label: "Services", href: "#services" },
   { label: "Brands", href: "#brands" },
   { label: "About Us", href: "#why-choose-us" },
@@ -33,12 +33,12 @@ export const SERVICES = [
 ];
 
 export const BEFORE_AFTER = [
-  { title: "Dent Removal", before: "/images/before-after1.jpeg", after: "/images/before-after1.jpeg" },
-  { title: "Ceramic Coating", before: "/images/befor-after2.jpeg", after: "/images/befor-after2.jpeg" },
-  { title: "Car Detailing", before: "/images/before-after3.jpeg", after: "/images/before-after3.jpeg" },
-  { title: "Dent Removal", before: "/images/before-after1.jpeg", after: "/images/before-after1.jpeg" },
-  { title: "Ceramic Coating", before: "/images/befor-after2.jpeg", after: "/images/befor-after2.jpeg" },
-  { title: "Car Detailing", before: "/images/before-after3.jpeg", after: "/images/before-after3.jpeg" },
+  { title: "Dent Removal", before: "/images/before2.jpg", after: "/images/after2.jpg" },
+  { title: "Ceramic Coating", before: "/images/before3.jpg", after: "/images/after3.jpg" },
+  { title: "Car Detailing", before: "/images/before2.jpg", after: "/images/after1.jpg" },
+  { title: "Dent Removal", before: "/images/before3.jpg", after: "/images/after2.jpg" },
+  { title: "Ceramic Coating", before: "/images/before2.jpg", after: "/images/after3.jpg" },
+  { title: "Car Detailing", before: "/images/before3.jpg", after: "/images/after1.jpg" },
 ];
 
 export const WHY_CHOOSE_US = [

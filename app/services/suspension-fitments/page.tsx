@@ -27,7 +27,7 @@ const steering = [
     includes: ["EPS Module Inspection", "Module Repair", "Calibration", "Steering Test"],
     price: 3999,
     originalPrice: 5499,
-    image: "/images/Icons/suspension.svg",
+    image: "/images/eps.jpg",
   },
   {
     name: "Steering Rack Repair",
@@ -39,7 +39,7 @@ const steering = [
     includes: ["Rack Inspection", "Seal Replacement", "Rack Repair", "Power Steering Fluid Top-up", "Test Drive"],
     price: 4499,
     originalPrice: 5999,
-    image: "/images/Icons/suspension.svg",
+    image: "/images/srr.jpeg",
   },
 ];
 
