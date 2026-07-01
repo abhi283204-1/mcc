@@ -38,14 +38,11 @@ const galleryImages: GalleryImage[] = [
   { src: "/images/srr.jpeg", alt: "Steering rack repair", category: "Services" },
 
   // Workshop
+  { src: "/images/workshop1.jpeg", alt: "Mittal Car Care workshop", category: "Workshop" },
+  { src: "/images/workshop2.jpeg", alt: "Workshop service area", category: "Workshop" },
+  { src: "/images/workshop3.jpeg", alt: "Workshop equipment", category: "Workshop" },
+  { src: "/images/workshop4.jpeg", alt: "Workshop interior", category: "Workshop" },
   { src: "/images/our-team.jpg", alt: "Our team at Mittal Car Care", category: "Workshop" },
-  { src: "/images/desktop-final.jpg", alt: "Mittal Car Care workshop", category: "Workshop" },
-  { src: "/images/Icons/desktop-final (1).jpg", alt: "Workshop interior", category: "Workshop" },
-  { src: "/images/Icons/desktop-final (3).jpg", alt: "Workshop equipment", category: "Workshop" },
-  { src: "/images/customer-1.jpg", alt: "Happy customer 1", category: "Workshop" },
-  { src: "/images/customer-2.jpg", alt: "Happy customer 2", category: "Workshop" },
-  { src: "/images/customer-3.jpg", alt: "Happy customer 3", category: "Workshop" },
-  { src: "/images/customer-4.jpg", alt: "Happy customer 4", category: "Workshop" },
 ];
 
 export default function GalleryPage() {
