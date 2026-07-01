@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "#services" },
-  { label: "Brands", href: "#brands" },
+  { label: "Brands", href: "/#brands" },
   { label: "About Us", href: "#why-choose-us" },
   { label: "Gallery", href: "#before-after" },
   { label: "Contact Us", href: "#footer" },
@@ -118,7 +118,7 @@ export const FOOTER_LINKS = {
     { label: "Services", href: "#services" },
     { label: "About Us", href: "/about" },
     { label: "Gallery", href: "#before-after" },
-    { label: "Brands", href: "#brands" },
+    { label: "Brands", href: "/#brands" },
     { label: "Contact Us", href: "/contact" },
   ],
   services: [
