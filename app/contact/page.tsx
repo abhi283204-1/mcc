@@ -86,7 +86,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const whatsappNumber = "918800752884";
+    const whatsappNumber = "919873370404";
     const text = `🚗 *New Service Enquiry - Mittal Car Care*\n\n👤 *Name:* ${formData.name}\n📞 *Phone:* ${formData.phone}\n📧 *Email:* ${formData.email || "N/A"}\n🚘 *Car Brand:* ${formData.carBrand || "N/A"}\n🔧 *Service:* ${formData.service || "N/A"}\n💬 *Message:* ${formData.message || "N/A"}`;
 
     const encodedText = encodeURIComponent(text);
