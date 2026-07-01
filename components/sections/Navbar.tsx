@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +44,7 @@ export default function Navbar() {
             <Phone className="w-4 h-4 text-primary" />
             <span className="text-gray-600">+91 98733 70404</span>
           </a>
-          <Button size="sm">Book Service</Button>
+          <Link href="/contact#enquiry-form"><Button size="sm">Book Service</Button></Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -65,7 +66,7 @@ export default function Navbar() {
               <a href="tel:+919873370404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
                 <Phone className="w-4 h-4 text-primary" /> +91 98733 70404
               </a>
-              <Button className="w-full">Book Service</Button>
+              <Link href="/contact#enquiry-form"><Button className="w-full">Book Service</Button></Link>
             </div>
           </nav>
         </div>

@@ -80,7 +80,7 @@ export default function Navbar() {
               </div>
             </div>
             <Link
-              href="#book"
+              href="/contact#enquiry-form"
               className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-[13px] font-semibold px-5 h-[44px] rounded-lg hover:bg-blue-700 transition-colors"
             >
               <CalendarCheck size={15} />
@@ -145,7 +145,7 @@ export default function Navbar() {
                   +91 98733 70404
                 </a>
                 <Link
-                  href="#book"
+                  href="/contact#enquiry-form"
                   className="flex items-center justify-center gap-2 w-full bg-[#0A5BFF] text-white font-semibold py-3 rounded-lg text-sm"
                 >
                   <CalendarCheck size={15} />
