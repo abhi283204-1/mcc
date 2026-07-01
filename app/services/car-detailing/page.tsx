@@ -8,7 +8,6 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
-import MobileBottomNav from "@/components/MobileBottomNav";
 
 export const metadata: Metadata = {
   title: "Car Detailing Services in Ghaziabad | Mittal Car Care",
@@ -202,7 +201,6 @@ export default function CarDetailingPage() {
         <Areas />
       </main>
       <Footer />
-      <MobileBottomNav />
     </>
   );
 }

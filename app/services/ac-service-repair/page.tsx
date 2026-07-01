@@ -8,7 +8,6 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
-import MobileBottomNav from "@/components/MobileBottomNav";
 
 export const metadata: Metadata = {
   title: "AC Service & Repair in Delhi | Mittal Car Care",
@@ -281,7 +280,6 @@ export default function ACServicePage() {
         <Areas />
       </main>
       <Footer />
-      <MobileBottomNav />
     </>
   );
 }

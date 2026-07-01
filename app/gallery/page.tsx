@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/Footer";
-import MobileBottomNav from "@/components/MobileBottomNav";
 
 const categories = ["All", "Before & After", "Services", "Workshop"] as const;
 
@@ -182,7 +181,6 @@ export default function GalleryPage() {
         </AnimatePresence>
       </main>
       <Footer />
-      <MobileBottomNav />
     </>
   );
 }

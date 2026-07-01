@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/CartContext";
 import ScrollToHash from "@/components/ScrollToHash";
+import MobileBottomNav from "@/components/MobileBottomNav";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartProvider>
           <ScrollToHash />
           {children}
+          <MobileBottomNav />
         </CartProvider>
       </body>
     </html>
