@@ -52,7 +52,7 @@ export default function HeroBanner() {
 
   const handleSubmit = () => {
     const msg = `New Lead:\nName: ${name}\nMobile: ${mobile}\nBrand: ${brand}\nModel: ${model}\nFuel: ${fuel}`;
-    const url = `https://wa.me/918800752884?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/919873370404?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   };
   return (

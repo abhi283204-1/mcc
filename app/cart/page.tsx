@@ -222,7 +222,7 @@ export default function CartPage() {
                     <button onClick={() => {
                       const orderTotal = couponApplied ? total - 500 : total;
                       const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${days[selectedDate].full}%0ATime: ${selectedSlot}%0AAddress: ${locality} ${flatNo}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}`;
-                      window.open(`https://wa.me/918800752884?text=${message}`, "_blank");
+                      window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
                       router.push("/order");
                     }} className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-lg flex items-center gap-2 transition-colors">
                       Place Order <ArrowRight size={18} />
