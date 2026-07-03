@@ -17,6 +17,13 @@ import {
   Car,
   Phone as PhoneIcon,
   Users,
+  X,
+  ClipboardCheck,
+  Receipt,
+  UserX,
+  Percent,
+  MapPin,
+  ThumbsUp,
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
@@ -59,6 +66,15 @@ const trustBadges = [
 ];
 
 const checklist = ["Certified Technicians", "Genuine Spare Parts", "Modern Equipment", "Affordable Pricing", "Insurance Assistance", "Fast Delivery"];
+
+const comparisonFeatures = [
+  { icon: ClipboardCheck, title: "Quality Checks to Deliver the Best Service", local: false, mittal: true, authorized: true },
+  { icon: Receipt, title: "Genuine Parts with Guaranteed Bill", local: false, mittal: true, authorized: true },
+  { icon: UserX, title: "No Middlemen Commission or Service Incentives", local: false, mittal: true, authorized: false },
+  { icon: Percent, title: "Discounts on Services", local: true, mittal: true, authorized: false },
+  { icon: MapPin, title: "Free Pickup & Drop", local: false, mittal: true, authorized: false },
+  { icon: ThumbsUp, title: "Honest Guidance with No False Selling", local: false, mittal: true, authorized: false },
+];
 
 export default function AboutPage() {
   return (
@@ -205,6 +221,143 @@ export default function AboutPage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* COMPARISON SECTION */}
+        <section className="py-14 md:py-20 bg-gray-50">
+          <div className="max-w-[1280px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Why Customers Choose Mittal Car Care</h2>
+              <p className="text-gray-500 mt-3 max-w-xl mx-auto text-sm">Compare our service quality with local workshops and authorized service centers.</p>
+            </div>
+
+            {/* Desktop Comparison */}
+            <div className="hidden lg:block">
+              {/* Column Headers */}
+              <div className="grid grid-cols-[1fr_1fr_1fr_1fr] gap-4 mb-6">
+                <div />
+                <div className="bg-white border border-gray-200 rounded-2xl p-5 text-center shadow-sm">
+                  <p className="text-sm font-bold text-gray-900">Local Workshop</p>
+                </div>
+                <div className="bg-[#0A5BFF] rounded-2xl p-5 text-center shadow-lg shadow-blue-200">
+                  <p className="text-sm font-bold text-white">Mittal Car Care</p>
+                </div>
+                <div className="bg-white border border-gray-200 rounded-2xl p-5 text-center shadow-sm">
+                  <p className="text-sm font-bold text-gray-900">Authorized Service Center</p>
+                </div>
+              </div>
+
+              {/* Comparison Rows */}
+              {comparisonFeatures.map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="grid grid-cols-[1fr_1fr_1fr_1fr] gap-4 mb-4"
+                >
+                  <div className="bg-white border border-gray-100 rounded-2xl p-5 flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-[#0A5BFF]/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon size={18} className="text-[#0A5BFF]" />
+                    </div>
+                    <p className="text-sm font-semibold text-gray-900">{feature.title}</p>
+                  </div>
+                  <div className="bg-white border border-gray-100 rounded-2xl p-5 flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                    {feature.local ? (
+                      <CheckCircle2 size={22} className="text-green-500" />
+                    ) : (
+                      <X size={22} className="text-red-400" />
+                    )}
+                  </div>
+                  <div className="bg-[#0A5BFF] rounded-2xl p-5 flex items-center justify-center shadow-lg shadow-blue-200 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                    {feature.mittal ? (
+                      <CheckCircle2 size={22} className="text-white" />
+                    ) : (
+                      <X size={22} className="text-white/50" />
+                    )}
+                  </div>
+                  <div className="bg-white border border-gray-100 rounded-2xl p-5 flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                    {feature.authorized ? (
+                      <CheckCircle2 size={22} className="text-green-500" />
+                    ) : (
+                      <X size={22} className="text-red-400" />
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile Comparison - Stacked Cards */}
+            <div className="lg:hidden space-y-4">
+              {comparisonFeatures.map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+                    <div className="w-10 h-10 rounded-xl bg-[#0A5BFF]/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon size={18} className="text-[#0A5BFF]" />
+                    </div>
+                    <p className="text-sm font-bold text-gray-900">{feature.title}</p>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="text-center">
+                      <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Local</p>
+                      <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center bg-gray-50">
+                        {feature.local ? (
+                          <CheckCircle2 size={18} className="text-green-500" />
+                        ) : (
+                          <X size={18} className="text-red-400" />
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-[10px] font-semibold text-[#0A5BFF] uppercase mb-2">Mittal</p>
+                      <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center bg-[#0A5BFF]">
+                        {feature.mittal ? (
+                          <CheckCircle2 size={18} className="text-white" />
+                        ) : (
+                          <X size={18} className="text-white/50" />
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Authorized</p>
+                      <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center bg-gray-50">
+                        {feature.authorized ? (
+                          <CheckCircle2 size={18} className="text-green-500" />
+                        ) : (
+                          <X size={18} className="text-red-400" />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Below Comparison */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-12 bg-gradient-to-r from-[#0A5BFF] to-[#0047CC] rounded-2xl px-6 md:px-12 py-10 md:py-12 text-center"
+            >
+              <h3 className="text-xl md:text-2xl font-bold text-white">Get Premium Service at Honest Prices</h3>
+              <p className="text-blue-100 mt-2 text-sm max-w-md mx-auto">Experience the Mittal Car Care difference — quality work, genuine parts, and zero hidden charges.</p>
+              <Link href="#book" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl mt-6 hover:bg-gray-50 transition-colors shadow-lg">
+                <CalendarCheck size={16} /> Book Your Service Now
+              </Link>
+            </motion.div>
           </div>
         </section>
 

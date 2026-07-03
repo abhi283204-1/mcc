@@ -42,6 +42,9 @@ const galleryImages: GalleryImage[] = [
   { src: "/images/workshop3.jpeg", alt: "Workshop equipment", category: "Workshop" },
   { src: "/images/workshop4.jpeg", alt: "Workshop interior", category: "Workshop" },
   { src: "/images/our-team.jpg", alt: "Our team at Mittal Car Care", category: "Workshop" },
+  { src: "/images/gallery1.jpg", alt: "Gallery image 1", category: "Workshop" },
+  { src: "/images/gallery2.jpg", alt: "Gallery image 2", category: "Workshop" },
+  { src: "/images/gallery3.jpg", alt: "Gallery image 3", category: "Workshop" },
 ];
 
 export default function GalleryPage() {
