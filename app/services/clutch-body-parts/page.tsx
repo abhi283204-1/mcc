@@ -26,7 +26,7 @@ const clutch = [
     includes: ["Old Clutch Removal", "New Clutch Plate & Pressure Plate", "Bearing Replacement", "Clutch Adjustment", "Test Drive"],
     price: 4999,
     originalPrice: 6999,
-    image: "/images/Icons/clutch.svg",
+    image: "/images/clutch.jpeg",
   },
   {
     name: "Flywheel Replacement",
@@ -38,7 +38,7 @@ const clutch = [
     includes: ["Gearbox Removal", "Old Flywheel Removal", "New Flywheel Fitting", "Clutch Reassembly", "Test Drive"],
     price: 5999,
     originalPrice: 7999,
-    image: "/images/Icons/clutch.svg",
+    image: "/images/flywheel-replacement.jpeg",
   },
   {
     name: "Clutch Bearing Replacement",
@@ -50,7 +50,7 @@ const clutch = [
     includes: ["Gearbox Removal", "Old Bearing Removal", "New Bearing Installation", "Reassembly", "Test Drive"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/clutch.svg",
+    image: "/images/clutch-bearing.jpeg",
   },
   {
     name: "Flywheel Turning",
@@ -62,7 +62,7 @@ const clutch = [
     includes: ["Flywheel Inspection", "Flywheel Resurfacing", "Clutch Reassembly", "Test Drive"],
     price: 1999,
     originalPrice: 2999,
-    image: "/images/Icons/clutch.svg",
+    image: "/images/flywheel-turning.jpeg",
   },
   {
     name: "Clutch Overhaul",
@@ -75,7 +75,7 @@ const clutch = [
     includes: ["Gearbox Removal", "Clutch Inspection", "Worn Part Replacement", "Reassembly & Adjustment", "Test Drive"],
     price: 3499,
     originalPrice: 4999,
-    image: "/images/Icons/clutch.svg",
+    image: "/images/clutch-overhall.jpeg",
   },
 ];
 
@@ -90,6 +90,7 @@ const bodyParts = [
     includes: ["Old Bumper Removal", "New Bumper Fitting", "Paint Match & Application", "Final Inspection"],
     price: 3999,
     originalPrice: 5499,
+    image: "/images/frontBumper-Replacement.jpeg",
   },
   {
     name: "Rear Bumper Replacement",
@@ -101,6 +102,7 @@ const bodyParts = [
     includes: ["Old Bumper Removal", "New Bumper Fitting", "Paint Match & Application", "Final Inspection"],
     price: 3999,
     originalPrice: 5499,
+    image: "/images/rear-bumper.jpeg",
   },
   {
     name: "Fender Replacement",
@@ -112,6 +114,7 @@ const bodyParts = [
     includes: ["Old Fender Removal", "New Fender Installation", "Paint & Color Match", "Alignment Check"],
     price: 4499,
     originalPrice: 5999,
+    image: "/images/fender.jpeg",
   },
   {
     name: "Bonnet Replacement",
@@ -123,6 +126,7 @@ const bodyParts = [
     includes: ["Old Bonnet Removal", "New Bonnet Installation", "Paint & Color Match", "Hinge Alignment"],
     price: 5999,
     originalPrice: 7999,
+    image: "/images/bonnet.jpeg",
   },
   {
     name: "Boot Replacement",
@@ -134,6 +138,7 @@ const bodyParts = [
     includes: ["Old Boot Removal", "New Boot Installation", "Paint & Color Match", "Lock & Hinge Check"],
     price: 4999,
     originalPrice: 6999,
+    image: "/images/boot.jpeg",
   },
   {
     name: "Left Front Door Replacement",
@@ -145,6 +150,7 @@ const bodyParts = [
     includes: ["Old Door Removal", "New Door Installation", "Paint & Color Match", "Window & Lock Alignment"],
     price: 6999,
     originalPrice: 8999,
+    image: "/images/leftFrontDoor.jpeg",
   },
   {
     name: "Left Rear Door Replacement",
@@ -156,6 +162,7 @@ const bodyParts = [
     includes: ["Old Door Removal", "New Door Installation", "Paint & Color Match", "Window & Lock Alignment"],
     price: 6999,
     originalPrice: 8999,
+    image: "/images/LeftRearDoor.jpeg",
   },
   {
     name: "Right Front Door Replacement",
@@ -167,6 +174,7 @@ const bodyParts = [
     includes: ["Old Door Removal", "New Door Installation", "Paint & Color Match", "Window & Lock Alignment"],
     price: 6999,
     originalPrice: 8999,
+    image: "/images/RightFrontDoor.jpeg",
   },
   {
     name: "Right Rear Door Replacement",
@@ -178,6 +186,7 @@ const bodyParts = [
     includes: ["Old Door Removal", "New Door Installation", "Paint & Color Match", "Window & Lock Alignment"],
     price: 6999,
     originalPrice: 8999,
+    image: "/images/RightRearDoor.jpeg",
   },
 ];
 

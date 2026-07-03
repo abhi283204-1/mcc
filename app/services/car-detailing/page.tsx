@@ -26,7 +26,7 @@ const polishing = [
     includes: ["Exterior Wash", "Clay Bar Treatment", "3M Rubbing Compound", "3M Polishing", "Wax Protection Layer"],
     price: 2299,
     originalPrice: 3299,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/ultra-shine-polising.jpeg",
   },
 ];
 
@@ -42,7 +42,7 @@ const ceramicCoating = [
     includes: ["Deep Wash & Decontamination", "Paint Correction", "Ceramic Coat Application", "Curing & Inspection", "Final Buff & QC"],
     price: 9999,
     originalPrice: 14999,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/ceremic-coating.jpeg",
   },
   {
     name: "Meguiar's Ceramic Coating",
@@ -55,7 +55,7 @@ const ceramicCoating = [
     includes: ["Deep Wash & Decontamination", "Paint Correction", "Meguiar's Ceramic Coat Application", "Curing & Inspection", "Final Buff & QC"],
     price: 12999,
     originalPrice: 17999,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/ceremic-coating.jpeg",
   },
 ];
 
@@ -70,7 +70,7 @@ const teflonCoating = [
     includes: ["Exterior Wash", "Surface Decontamination", "Meguiar's Teflon Application", "Buff & Shine", "Final Inspection"],
     price: 3499,
     originalPrice: 4999,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/teflon-coating.jpeg",
   },
   {
     name: "3M™ Teflon Coating",
@@ -82,7 +82,7 @@ const teflonCoating = [
     includes: ["Exterior Wash", "Surface Decontamination", "3M Teflon Application", "Buff & Shine", "Final Inspection"],
     price: 2999,
     originalPrice: 4499,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/teflon-coating.jpeg",
   },
 ];
 
@@ -98,7 +98,7 @@ const ppf = [
     includes: ["Surface Preparation", "Paint Correction", "PPF Application", "Edge Sealing", "Final Inspection & QC"],
     price: 35999,
     originalPrice: 45999,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/ppf-film.jpeg",
   },
 ];
 
@@ -114,7 +114,7 @@ const antiRustCoating = [
     includes: ["Underbody Wash", "Surface Preparation", "Anti-Rust Coating Application", "Drying & Inspection"],
     price: 1999,
     originalPrice: 2999,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/underbody-coating.jpeg",
   },
   {
     name: "Silencer Coating",
@@ -126,7 +126,7 @@ const antiRustCoating = [
     includes: ["Silencer Cleaning", "Surface Prep", "Anti-Rust Coating (2 Layers)", "Heat Resistance Check"],
     price: 1499,
     originalPrice: 2199,
-    image: "/images/Icons/detailing.svg",
+    image: "/images/silencer-coating.jpeg",
   },
 ];
 

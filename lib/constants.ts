@@ -22,14 +22,12 @@ export const SERVICES = [
   { title: "Tyres & Wheel Care", img: "/images/Icons/tyre.svg", href: "/services/tyres-wheel-care" },
   { title: "Batteries", img: "/images/Icons/battery.svg", href: "/services/batteries" },
   { title: "Detailing Services", img: "/images/Icons/detailing.svg", href: "/services/car-detailing" },
-  { title: "Car Inspections", img: "/images/Icons/vehicle-inspection.svg" },
-  { title: "Windshield & Lights", img: "/images/Icons/wiper.svg" },
+  { title: "Car Inspections", img: "/images/Icons/vehicle-inspection.svg", href: "/services/car-inspections" },
+  { title: "Windshield & Lights", img: "/images/Icons/wiper.svg", href: "/services/windshields-lights" },
   { title: "Suspension & Fitments", img: "/images/Icons/suspension.svg", href: "/services/suspension-fitments" },
   { title: "Clutch & Body Parts", img: "/images/Icons/clutch.svg", href: "/services/clutch-body-parts" },
-  { title: "Engine Repair", img: "/images/Icons/car-engine.svg" },
-  { title: "Ceramic Coating", img: "/images/Icons/ceramic-coating.svg" },
-  { title: "Pick Up & Drop", img: "/images/Icons/pick-droup.svg" },
-  { title: "Insurance Claims", img: "/images/Icons/insurance-claim.svg" },
+  { title: "SOS Service", img: "/images/Icons/pick-droup.svg", href: "/services/sos-service" },
+  { title: "Insurance Claims", img: "/images/Icons/insurance-claim.svg", href: "/services/insurance-claims" },
 ];
 
 export const BEFORE_AFTER = [
@@ -120,6 +118,10 @@ export const FOOTER_LINKS = {
     { label: "Gallery", href: "#before-after" },
     { label: "Brands", href: "/#brands" },
     { label: "Contact Us", href: "/contact" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Return & Refund Policy", href: "/return-refund-policy" },
+    { label: "Exchange Policy", href: "/exchange-policy" },
   ],
   services: [
     { label: "Car Services", href: "/services/car-services" },
@@ -129,14 +131,13 @@ export const FOOTER_LINKS = {
     { label: "Tyres & Wheel Care", href: "/services/tyres-wheel-care" },
     { label: "Batteries", href: "/services/batteries" },
     { label: "Detailing Services", href: "/services/car-detailing" },
-    { label: "Car Inspections", href: "#services" },
-    { label: "Windshield & Lights", href: "#services" },
+    { label: "Car Inspections", href: "/services/car-inspections" },
+    { label: "Windshield & Lights", href: "/services/windshields-lights" },
     { label: "Suspension & Fitments", href: "/services/suspension-fitments" },
     { label: "Clutch & Body Parts", href: "/services/clutch-body-parts" },
-    { label: "Engine Repair", href: "#services" },
     { label: "Ceramic Coating", href: "/services/car-detailing" },
-    { label: "Pick Up & Drop", href: "#services" },
-    { label: "Insurance Claims", href: "#services" },
+    { label: "SOS Service", href: "/services/sos-service" },
+    { label: "Insurance Claims", href: "/services/insurance-claims" },
   ],
 };
 

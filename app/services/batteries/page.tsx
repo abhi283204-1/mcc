@@ -26,7 +26,7 @@ const amaron = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 4600,
     originalPrice: 5499,
-    image: "/images/Icons/battery.svg",
+    image: "/images/amaron.jpeg",
   },
   {
     name: "Amaron (72 Months Warranty)",
@@ -38,7 +38,7 @@ const amaron = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 5499,
     originalPrice: 6499,
-    image: "/images/Icons/battery.svg",
+    image: "/images/amaron72.jpeg",
   },
 ];
 
@@ -53,7 +53,7 @@ const exide = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 4299,
     originalPrice: 5199,
-    image: "/images/Icons/battery.svg",
+    image: "/images/exide55.jpeg",
   },
   {
     name: "Exide (66 Months Warranty)",
@@ -65,7 +65,7 @@ const exide = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 5299,
     originalPrice: 6299,
-    image: "/images/Icons/battery.svg",
+    image: "/images/exide66.jpeg",
   },
 ];
 
@@ -80,7 +80,7 @@ const livguard = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 3999,
     originalPrice: 4799,
-    image: "/images/Icons/battery.svg",
+    image: "/images/livguard66.jpeg",
   },
   {
     name: "Livguard (72 Months Warranty)",
@@ -92,7 +92,7 @@ const livguard = [
     includes: ["Old Battery Removal", "New Battery Installation", "Terminal Cleaning", "Charging System Check"],
     price: 4799,
     originalPrice: 5699,
-    image: "/images/Icons/battery.svg",
+    image: "/images/livguard72.jpeg",
   },
 ];
 
@@ -107,7 +107,7 @@ const alternator = [
     includes: ["Old Alternator Removal", "New Alternator Installation", "Belt Adjustment", "Charging Output Test"],
     price: 3999,
     originalPrice: 5499,
-    image: "/images/Icons/battery.svg",
+    image: "/images/alternator-replacement.jpeg",
   },
   {
     name: "Alternator Repair",
@@ -119,7 +119,7 @@ const alternator = [
     includes: ["Alternator Inspection", "Brush & Bearing Replacement", "Regulator Check", "Charging Output Test"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/battery.svg",
+    image: "/images/alternator-repair.jpeg",
   },
 ];
 

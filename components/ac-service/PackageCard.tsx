@@ -29,7 +29,7 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
     }
   };
   return (
-    <div className={`relative rounded-2xl border bg-white overflow-hidden ${recommended ? "border-primary shadow-md" : "border-gray-200"}`}>
+    <div className={`relative rounded-2xl border bg-white overflow-hidden border-gray-200 hover:border-primary hover:shadow-md transition-all`}>
       {/* Badge */}
       {badge && (
         <div className="bg-green-600 text-white text-xs font-bold px-3 py-1 inline-block rounded-br-lg">

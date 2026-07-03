@@ -26,7 +26,7 @@ const apolloTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 3999,
     originalPrice: 4799,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/appolo-tyre.jpeg",
   },
 ];
 
@@ -41,7 +41,7 @@ const mrfTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 4299,
     originalPrice: 5199,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/mrfzvtv.jpeg",
   },
 ];
 
@@ -56,7 +56,7 @@ const jkTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 3499,
     originalPrice: 4299,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/jktyre.jpeg",
   },
 ];
 
@@ -71,7 +71,7 @@ const bridgestoneTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 4499,
     originalPrice: 5299,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/bringstone.jpeg",
   },
   {
     name: "Bridgestone B250",
@@ -83,7 +83,7 @@ const bridgestoneTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 4799,
     originalPrice: 5699,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/bringstone.jpeg",
   },
 ];
 
@@ -98,7 +98,7 @@ const goodyearTyres = [
     includes: ["Tyre Fitting", "Wheel Balancing", "Valve Replacement", "Old Tyre Disposal"],
     price: 4199,
     originalPrice: 4999,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/goodyear.jpeg",
   },
 ];
 
@@ -114,7 +114,7 @@ const wheelCare = [
     includes: ["Wheel Alignment", "Wheel Balancing", "Tyre Rotation", "Tyre Pressure Check", "Visual Inspection"],
     price: 1049,
     originalPrice: 1499,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/wheelcare.jpeg",
   },
   {
     name: "Mud Flaps",
@@ -126,7 +126,7 @@ const wheelCare = [
     includes: ["Old Flap Removal (if any)", "New Mud Flap Fitting", "Alignment Check"],
     price: 599,
     originalPrice: 899,
-    image: "/images/Icons/tyre.svg",
+    image: "/images/mudflaps.jpeg",
   },
 ];
 

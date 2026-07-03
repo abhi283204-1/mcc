@@ -26,7 +26,7 @@ const spa = [
     includes: ["Seat Shampooing", "Dashboard & Console Cleaning", "Carpet Deep Cleaning", "Anti-Bacterial Treatment", "Interior Vacuuming"],
     price: 1099,
     originalPrice: 1599,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/interior-spa.jpeg",
   },
   {
     name: "Deep All Round Spa",
@@ -39,7 +39,7 @@ const spa = [
     includes: ["Full Interior Dry Cleaning", "Seat & Carpet Shampooing", "Dashboard Polishing", "Exterior Rubbing & Polishing", "Engine Bay Cleaning", "Anti-Bacterial Treatment"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/deep-spa.jpeg",
   },
   {
     name: "Premium Top Wash",
@@ -51,7 +51,7 @@ const spa = [
     includes: ["Exterior Foam Wash", "Hand Drying", "Tyre Cleaning", "Glass Cleaning"],
     price: 499,
     originalPrice: 799,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/top-wash.jpeg",
   },
   {
     name: "Car Wash & Wax",
@@ -63,7 +63,7 @@ const spa = [
     includes: ["Exterior Foam Wash", "Hand Drying", "Wax Coat Application", "Tyre Dressing", "Glass Cleaning"],
     price: 899,
     originalPrice: 1299,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/car-wash-wax.jpeg",
   },
   {
     name: "Car Rubbing & Polishing",
@@ -75,7 +75,7 @@ const spa = [
     includes: ["Exterior Wash", "Clay Bar Treatment", "Rubbing Compound", "Machine Polishing", "Wax Protection Layer"],
     price: 2299,
     originalPrice: 3299,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/car-rubbing.jpeg",
   },
   {
     name: "Rat / Pest Repellent Treatment",
@@ -87,7 +87,7 @@ const spa = [
     includes: ["Underbody Inspection", "Anti-Rodent Spray Application", "Engine Bay Treatment", "Cabin Treatment"],
     price: 699,
     originalPrice: 999,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/rat-repellent.jpeg",
   },
 ];
 
@@ -103,7 +103,7 @@ const winterSpecial = [
     includes: ["Full Interior Dry Cleaning", "Seat & Carpet Shampooing", "Exterior Rubbing & Polishing", "Dashboard & Console Detailing", "Engine Bay Cleaning", "Tyre Dressing"],
     price: 3499,
     originalPrice: 4999,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/360deepclean.jpeg",
   },
 ];
 
@@ -118,7 +118,7 @@ const sunroof = [
     includes: ["Sunroof Track Cleaning", "Lubrication & Greasing", "Drain Tube Cleaning", "Seal Inspection", "Operation Test"],
     price: 1499,
     originalPrice: 2199,
-    image: "/images/Icons/car-wash.svg",
+    image: "/images/sunroof-service.jpeg",
   },
 ];
 
