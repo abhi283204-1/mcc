@@ -102,7 +102,7 @@ export default function AboutPage() {
               We provide professional car repair, detailing, diagnostics, denting-painting and premium car care services with transparency, genuine parts, and expert technicians.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="flex gap-3 mt-6">
-              <Link href="#book" className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#0047CC] transition-colors">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#0047CC] transition-colors">
                 <CalendarCheck size={16} /> Book Service
               </Link>
               <Link href="#footer" className="inline-flex items-center gap-2 bg-white text-gray-900 text-sm font-semibold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
@@ -333,7 +333,7 @@ export default function AboutPage() {
             >
               <h3 className="text-xl md:text-2xl font-bold text-white">Get Premium Service at Honest Prices</h3>
               <p className="text-blue-100 mt-2 text-sm max-w-md mx-auto">Experience the Mittal Car Care difference — quality work, genuine parts, and zero hidden charges.</p>
-              <Link href="#book" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl mt-6 hover:bg-gray-50 transition-colors shadow-lg">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl mt-6 hover:bg-gray-50 transition-colors shadow-lg">
                 <CalendarCheck size={16} /> Book Your Service Now
               </Link>
             </motion.div>
@@ -451,7 +451,7 @@ export default function AboutPage() {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="bg-gradient-to-r from-[#0A5BFF] to-[#0047CC] rounded-2xl px-6 md:px-12 py-12 md:py-16 text-center">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Experience Premium Car Care Services Today</h2>
               <p className="text-blue-100 mt-3 max-w-md mx-auto text-sm">Book your car service with trusted experts at Mittal Car Care.</p>
-              <Link href="#book" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl mt-8 hover:bg-gray-50 transition-colors shadow-lg">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl mt-8 hover:bg-gray-50 transition-colors shadow-lg">
                 <CalendarCheck size={16} /> Book Service Now
               </Link>
             </motion.div>
