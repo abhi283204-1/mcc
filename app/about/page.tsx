@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 import {
   Wrench,
   Shield,
-  Cpu,
   Truck,
   IndianRupee,
-  Heart,
   CheckCircle2,
   CalendarCheck,
   Search,
@@ -33,15 +31,6 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
 };
-
-const whyChooseCards = [
-  { icon: Wrench, title: "Experienced Mechanics", desc: "Skilled & certified professionals with years of expertise in multi-brand car repairs." },
-  { icon: Shield, title: "Genuine Parts", desc: "100% genuine OEM spare parts sourced directly from authorized dealers." },
-  { icon: Cpu, title: "Advanced Diagnostics", desc: "State-of-the-art diagnostic tools for accurate issue detection." },
-  { icon: Truck, title: "Fast Delivery", desc: "On-time delivery with quality assurance on every service." },
-  { icon: IndianRupee, title: "Affordable Pricing", desc: "Premium quality services at transparent and fair prices." },
-  { icon: Heart, title: "Customer Satisfaction", desc: "98% customer satisfaction rate with personalized care." },
-];
 
 const processSteps = [
   { icon: CalendarCheck, step: "01", title: "Book Service", desc: "Choose your service and schedule a convenient appointment online or via call." },
