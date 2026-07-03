@@ -203,29 +203,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 3. WHY CHOOSE US */}
-        <section className="py-14 md:py-20 bg-white">
-          <div className="max-w-[1280px] mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Why Customers Choose Mittal Car Care</h2>
-              <p className="text-gray-500 mt-3 max-w-lg mx-auto text-sm">Professional automotive services with quality, trust and transparency.</p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whyChooseCards.map((card, i) => (
-                <motion.div key={card.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="group border border-gray-100 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(10,91,255,0.08)] transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl border-2 border-[#0A5BFF]/20 flex items-center justify-center mb-4 group-hover:bg-[#0A5BFF]/5 transition-colors">
-                    <card.icon size={22} className="text-[#0A5BFF]" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{card.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* COMPARISON SECTION */}
-        <section className="py-14 md:py-20 bg-gray-50">
+        <section className="py-14 md:py-20 bg-white">
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Why Customers Choose Mittal Car Care</h2>
