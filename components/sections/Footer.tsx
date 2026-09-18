@@ -136,7 +136,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className="border-t border-gray-800">
         <div className="container mx-auto max-w-7xl px-4 py-4">
-          <p className="text-center text-sm text-white">© 2025 Mittal Car Care. All Rights Reserved.</p>
+          <p className="text-center text-sm text-white">© {new Date().getFullYear()} Mittal Car Care. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

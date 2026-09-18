@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in the values before running locally or deploying.
+
+| Variable | Description |
+|---|---|
+| `GMAIL_APP_PASSWORD` | Gmail App Password for the sender account. Generate at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords). Never commit this value. |
+| `GMAIL_FROM_EMAIL` | The Gmail address used as the email sender (must match the app password account). |
+| `BUSINESS_EMAIL` | The recipient email address that receives new order notifications (e.g. `mittalcarscanning@gmail.com`). |
+
+These variables are used exclusively server-side in `app/api/send-order/route.ts` and are never exposed to the browser.

@@ -148,5 +148,5 @@ export const CONTACT_INFO = {
   phones: ["+91 9873370404", "+91 9873492828", "+91 9650407276"],
   workingHours: "9:30 AM – 7:00 PM",
   workingDays: "Monday – Sunday (Tuesday Closed)",
-  socials: { facebook: "#", instagram: "#", whatsapp: "#", youtube: "#" },
+  socials: { facebook: "#", instagram: "#", whatsapp: "https://wa.me/919873370404", youtube: "#" },
 };

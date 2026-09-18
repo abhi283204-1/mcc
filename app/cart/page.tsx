@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/CartContext";
 import { X, ShieldCheck, ChevronRight, ArrowRight, MapPin, ArrowLeft } from "lucide-react";
@@ -18,6 +18,14 @@ export default function CartPage() {
   const [locality, setLocality] = useState("");
   const [flatNo, setFlatNo] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  // P0-2: prevent duplicate submissions
+  const isSubmitting = useRef(false);
+
+  // P1-6: saved address data (matches the address shown in the UI)
+  const SAVED_ADDRESS = {
+    locality: "Lalkuan, Lucknow, Uttar Pradesh, India",
+    flatNo: "104",
+  };
 
   const days = Array.from({ length: 6 }, (_, i) => {
     const d = new Date();
@@ -159,7 +167,12 @@ export default function CartPage() {
                       <MapPin size={16} className="text-gray-400 mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-gray-600">Lalkuan, Lucknow, Uttar Pradesh, India, 104, ,</p>
                     </div>
-                    <button className="border border-gray-800 text-gray-800 font-semibold text-sm px-6 py-2 rounded hover:bg-gray-50 transition-colors">
+                    <button
+                      onClick={() => {
+                        setLocality(SAVED_ADDRESS.locality);
+                        setFlatNo(SAVED_ADDRESS.flatNo);
+                      }}
+                      className="border border-gray-800 text-gray-800 font-semibold text-sm px-6 py-2 rounded hover:bg-gray-50 transition-colors">
                       SELECT
                     </button>
                   </div>
@@ -219,10 +232,41 @@ export default function CartPage() {
                   </div>
 
                   <div className="flex justify-end mt-8">
-                    <button onClick={() => {
+                    <button onClick={async () => {
+                      // P0-2: prevent duplicate submissions
+                      if (isSubmitting.current) return;
+                      isSubmitting.current = true;
+
                       const orderTotal = couponApplied ? total - 500 : total;
+
+                      // Build order payload
+                      const orderData = {
+                        car: selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected",
+                        items: items.map(i => ({ name: i.name, price: i.price })),
+                        date: days[selectedDate].full,
+                        timeSlot: selectedSlot,
+                        address: `${name ? name + " | " : ""}${mobile ? mobile + " | " : ""}${locality} ${flatNo}`.trim(),
+                        paymentMethod,
+                        total: orderTotal,
+                      };
+
+                      // P0-2: call /api/send-order — failure must NOT block WhatsApp flow
+                      try {
+                        await fetch("/api/send-order", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(orderData),
+                        });
+                      } catch {
+                        // Email failure is non-blocking — continue to WhatsApp
+                        console.warn("Order email could not be sent. Continuing with WhatsApp flow.");
+                      }
+
+                      // Open WhatsApp order message (existing flow — preserved)
                       const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${days[selectedDate].full}%0ATime: ${selectedSlot}%0AAddress: ${locality} ${flatNo}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}`;
                       window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
+
+                      isSubmitting.current = false;
                       router.push("/order");
                     }} className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-lg flex items-center gap-2 transition-colors">
                       Place Order <ArrowRight size={18} />
