@@ -18,7 +18,18 @@ interface PackageCardProps {
   image?: string;
 }
 
-export default function PackageCard({ name, duration, warranty, recommended, badge, description, includes, price, originalPrice, image }: PackageCardProps) {
+export default function PackageCard({
+  name,
+  duration,
+  warranty,
+  recommended,
+  badge,
+  description,
+  includes,
+  price,
+  originalPrice,
+  image,
+}: PackageCardProps) {
   const router = useRouter();
   const { addItem } = useCart();
 
@@ -28,14 +39,16 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
       router.push("/cart");
     }
   };
+
   return (
-    <div className={`relative rounded-2xl border bg-white overflow-hidden border-gray-200 hover:border-primary hover:shadow-md transition-all`}>
+    <div className="relative rounded-2xl border bg-white overflow-hidden border-gray-200 hover:border-primary hover:shadow-md transition-all">
       {/* Badge */}
       {badge && (
         <div className="bg-green-600 text-white text-xs font-bold px-3 py-1 inline-block rounded-br-lg">
           {badge}
         </div>
       )}
+
       {recommended && !badge && (
         <div className="bg-primary text-white text-xs font-bold px-3 py-1 inline-flex items-center gap-1 rounded-br-lg">
           <Award size={12} /> RECOMMENDED
@@ -48,14 +61,21 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
           {/* Image */}
           {image && (
             <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-gray-100">
-              <img src={image} alt={name} className="w-full h-full object-cover" />
+              <img
+                src={image}
+                alt={name}
+                className="w-full h-full object-cover"
+              />
             </div>
           )}
 
           {/* Content */}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
-              <h3 className="font-bold text-gray-900 text-base md:text-lg">{name}</h3>
+              <h3 className="font-bold text-gray-900 text-base md:text-lg">
+                {name}
+              </h3>
+
               <span className="hidden md:flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full whitespace-nowrap">
                 <Clock size={12} /> {duration}
               </span>
@@ -67,6 +87,22 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
               <span>• {warranty}</span>
               {description && <span>• {description}</span>}
             </div>
+
+            {/* Price */}
+            {typeof price === "number" && (
+              <div className="flex items-center gap-2 mt-3">
+                <span className="text-xl md:text-2xl font-bold text-gray-900">
+                  ₹{price.toLocaleString("en-IN")}
+                </span>
+
+                {typeof originalPrice === "number" &&
+                  originalPrice > price && (
+                    <span className="text-sm md:text-base text-gray-400 line-through">
+                      ₹{originalPrice.toLocaleString("en-IN")}
+                    </span>
+                  )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -74,8 +110,14 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
         {includes && includes.length > 0 && (
           <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
             {includes.map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-sm text-gray-700">
-                <CheckCircle2 size={14} className="text-green-500 flex-shrink-0" />
+              <span
+                key={item}
+                className="flex items-center gap-1.5 text-sm text-gray-700"
+              >
+                <CheckCircle2
+                  size={14}
+                  className="text-green-500 flex-shrink-0"
+                />
                 {item}
               </span>
             ))}
@@ -84,11 +126,14 @@ export default function PackageCard({ name, duration, warranty, recommended, bad
 
         {/* Bottom: CTA */}
         <div className="flex items-center justify-end mt-4 pt-4 border-t border-gray-100">
-          <button onClick={handleAddToCart} className="bg-white border-2 border-primary text-primary text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors">
+          <button
+            onClick={handleAddToCart}
+            disabled={!price}
+            className="bg-white border-2 border-primary text-primary text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             + ADD TO CART
           </button>
         </div>
-
       </div>
     </div>
   );
