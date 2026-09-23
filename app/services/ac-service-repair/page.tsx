@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/Footer";
@@ -8,6 +9,7 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import { getMccServiceByTitle } from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "AC Service & Repair in Delhi | Mittal Car Care",
@@ -199,7 +201,24 @@ const under199 = [
   },
 ];
 
-export default function ACServicePage() {
+export default async function ACServicePage() {
+  const wpHeatingCoil = await getMccServiceByTitle("Heating Coil Replacement");
+
+  const mergedFitments = fitments.map((pkg) => {
+    if (pkg.name !== "Heating Coil Replacement" || !wpHeatingCoil) {
+      return pkg;
+    }
+
+    return {
+      ...pkg,
+      price: wpHeatingCoil.price ?? pkg.price,
+      originalPrice: wpHeatingCoil.original_price ?? pkg.originalPrice,
+      duration: wpHeatingCoil.duration ?? pkg.duration,
+      warranty: wpHeatingCoil.warranty ?? pkg.warranty,
+      recommended: wpHeatingCoil.recommended,
+      description: wpHeatingCoil.short_description ?? pkg.description,
+    };
+  });
   return (
     <>
       <Navbar />
@@ -230,9 +249,9 @@ export default function ACServicePage() {
               {/* AC Fitments */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">AC Fitments</h2>
               <div className="space-y-4 mb-10">
-                {fitments.map((pkg) => (
-                  <PackageCard key={pkg.name} {...pkg} />
-                ))}
+                {mergedFitments.map((pkg) => (
+  <PackageCard key={pkg.name} {...pkg} />
+))}
               </div>
 
               {/* Radiator */}
