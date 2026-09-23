@@ -9,8 +9,11 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
-import { getMccServiceByTitle } from "@/lib/mcc-api";
-
+import {
+  getMccServices,
+  mergePackagesWithMccServices,
+  mergePackageWithMccService,
+} from "@/lib/mcc-api";
 export const metadata: Metadata = {
   title: "AC Service & Repair in Delhi | Mittal Car Care",
   description: "Professional AC service, gas refilling, compressor repair and cooling system diagnostics for all car brands in Delhi.",
@@ -202,23 +205,22 @@ const under199 = [
 ];
 
 export default async function ACServicePage() {
-  const wpHeatingCoil = await getMccServiceByTitle("Heating Coil Replacement");
+  const mccServices = await getMccServices();
 
-  const mergedFitments = fitments.map((pkg) => {
-    if (pkg.name !== "Heating Coil Replacement" || !wpHeatingCoil) {
-      return pkg;
-    }
+const mergedServicePackages = mergePackagesWithMccServices(
+  servicePackages,
+  mccServices
+);
 
-    return {
-      ...pkg,
-      price: wpHeatingCoil.price ?? pkg.price,
-      originalPrice: wpHeatingCoil.original_price ?? pkg.originalPrice,
-      duration: wpHeatingCoil.duration ?? pkg.duration,
-      warranty: wpHeatingCoil.warranty ?? pkg.warranty,
-      recommended: wpHeatingCoil.recommended,
-      description: wpHeatingCoil.short_description ?? pkg.description,
-    };
-  });
+const wpHeatingCoil = mccServices.find(
+  (service) =>
+    service.title.trim().toLowerCase() ===
+    "heating coil replacement"
+);
+
+const mergedFitments = fitments.map((pkg) =>
+  mergePackageWithMccService(pkg, wpHeatingCoil ?? null)
+);
   return (
     <>
       <Navbar />
@@ -241,7 +243,7 @@ export default async function ACServicePage() {
               {/* Service Packages */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Service Packages</h2>
               <div className="space-y-4 mb-10">
-                {servicePackages.map((pkg) => (
+                {mergedServicePackages.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

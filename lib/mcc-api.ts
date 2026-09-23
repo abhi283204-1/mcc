@@ -93,3 +93,53 @@ export async function getMccServiceByTitle(
     ) ?? null
   );
 }
+
+export interface MccPackage {
+  name: string;
+  duration: string;
+  warranty: string;
+  details: number;
+  recommended?: boolean;
+  badge?: string;
+  description?: string;
+  includes?: string[];
+  price?: number;
+  originalPrice?: number;
+  image?: string;
+}
+
+export function mergePackageWithMccService(
+  pkg: MccPackage,
+  service: MccService | null
+): MccPackage {
+  if (!service) {
+    return pkg;
+  }
+
+  return {
+    ...pkg,
+    price: service.price ?? pkg.price,
+    originalPrice: service.original_price ?? pkg.originalPrice,
+    duration: service.duration ?? pkg.duration,
+    warranty: service.warranty ?? pkg.warranty,
+    recommended: service.recommended,
+    badge: service.badge ?? pkg.badge,
+    description: service.short_description ?? pkg.description,
+    image: service.image_url ?? pkg.image,
+  };
+}
+
+export function mergePackagesWithMccServices(
+  packages: MccPackage[],
+  services: MccService[]
+): MccPackage[] {
+  return packages.map((pkg) => {
+    const normalizedTitle = pkg.name.trim().toLowerCase();
+
+    const service = services.find(
+      (item) => item.title.trim().toLowerCase() === normalizedTitle
+    );
+
+    return mergePackageWithMccService(pkg, service ?? null);
+  });
+}
