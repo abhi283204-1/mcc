@@ -11,8 +11,9 @@ import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
 import {
   getMccServices,
-  mergePackagesWithMccServices,
+  getActiveMccService,
   mergePackageWithMccService,
+  type MccPackage,
 } from "@/lib/mcc-api";
 export const metadata: Metadata = {
   title: "AC Service & Repair in Delhi | Mittal Car Care",
@@ -207,20 +208,23 @@ const under199 = [
 export default async function ACServicePage() {
   const mccServices = await getMccServices();
 
-const mergedServicePackages = mergePackagesWithMccServices(
-  servicePackages,
-  mccServices
-);
+const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+  packages
+    .map((pkg) => {
+      const service = getActiveMccService(pkg.name, mccServices);
+      return mergePackageWithMccService(pkg, service);
+    })
+    .filter((pkg) => {
+      const service = getActiveMccService(pkg.name, mccServices);
+      return service !== null;
+    });
 
-const wpHeatingCoil = mccServices.find(
-  (service) =>
-    service.title.trim().toLowerCase() ===
-    "heating coil replacement"
-);
-
-const mergedFitments = fitments.map((pkg) =>
-  mergePackageWithMccService(pkg, wpHeatingCoil ?? null)
-);
+const mergedServicePackages = mergeActivePackages(servicePackages);
+const mergedFitments = mergeActivePackages(fitments);
+const mergedRadiator = mergeActivePackages(radiator);
+const mergedUnder49 = mergeActivePackages(under49);
+const mergedUnder99 = mergeActivePackages(under99);
+const mergedUnder199 = mergeActivePackages(under199);
   return (
     <>
       <Navbar />
@@ -243,8 +247,7 @@ const mergedFitments = fitments.map((pkg) =>
               {/* Service Packages */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Service Packages</h2>
               <div className="space-y-4 mb-10">
-                {mergedServicePackages.map((pkg) => (
-                  <PackageCard key={pkg.name} {...pkg} />
+                {mergedServicePackages.map((pkg) => (                  <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
 
@@ -259,7 +262,7 @@ const mergedFitments = fitments.map((pkg) =>
               {/* Radiator */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Radiator</h2>
               <div className="space-y-4 mb-10">
-                {radiator.map((pkg) => (
+                {mergedRadiator.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -267,7 +270,7 @@ const mergedFitments = fitments.map((pkg) =>
               {/* Under 49 */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Under 49</h2>
               <div className="space-y-4 mb-10">
-                {under49.map((pkg) => (
+                {mergedUnder49.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -275,7 +278,7 @@ const mergedFitments = fitments.map((pkg) =>
               {/* Under 99 */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Under 99</h2>
               <div className="space-y-4 mb-10">
-                {under99.map((pkg) => (
+               {mergedUnder99.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -283,7 +286,7 @@ const mergedFitments = fitments.map((pkg) =>
               {/* Under 199 */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Under 199</h2>
               <div className="space-y-4">
-                {under199.map((pkg) => (
+                {mergedUnder199.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

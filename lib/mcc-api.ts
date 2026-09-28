@@ -8,6 +8,7 @@ export interface MccService {
   warranty: string | null;
   badge: string | null;
   recommended: boolean;
+  is_active: boolean;
   short_description: string | null;
   features: string[];
   image_url: string | null;
@@ -28,25 +29,54 @@ export async function getMccServices(): Promise<MccService[]> {
   }
 
   try {
-    const response = await fetch(`${MCC_API_URL}/services`, {
+    const firstResponse = await fetch(`${MCC_API_URL}/services`, {
       cache: "no-store",
     });
 
-    if (!response.ok) {
+    if (!firstResponse.ok) {
       console.error(
-        `MCC services API failed: ${response.status} ${response.statusText}`
+        `MCC services API failed: ${firstResponse.status} ${firstResponse.statusText}`
       );
       return [];
     }
 
-    const data = await response.json();
+    const firstPage = await firstResponse.json();
 
-    if (!Array.isArray(data)) {
+    if (!Array.isArray(firstPage)) {
       console.error("MCC services API returned an invalid response.");
       return [];
     }
 
-    return data;
+    const totalPages = Number(
+      firstResponse.headers.get("X-WP-TotalPages") ?? "1"
+    );
+
+    if (totalPages <= 1) {
+      return firstPage;
+    }
+
+    const remainingPages = await Promise.all(
+      Array.from({ length: totalPages - 1 }, (_, index) => {
+        const page = index + 2;
+
+        return fetch(`${MCC_API_URL}/services?page=${page}`, {
+          cache: "no-store",
+        }).then(async (response) => {
+          if (!response.ok) {
+            console.error(
+              `MCC services API page ${page} failed: ${response.status}`
+            );
+            return [];
+          }
+
+          const data = await response.json();
+
+          return Array.isArray(data) ? data : [];
+        });
+      })
+    );
+
+    return [firstPage, ...remainingPages].flat();
   } catch (error) {
     console.error("Failed to fetch MCC services:", error);
     return [];
@@ -128,7 +158,20 @@ export function mergePackageWithMccService(
     image: service.image_url ?? pkg.image,
   };
 }
+export function getActiveMccService(
+  title: string,
+  services: MccService[]
+): MccService | null {
+  const normalizedTitle = title.trim().toLowerCase();
 
+  return (
+    services.find(
+      (service) =>
+        service.title.trim().toLowerCase() === normalizedTitle &&
+        service.is_active
+    ) ?? null
+  );
+}
 export function mergePackagesWithMccServices(
   packages: MccPackage[],
   services: MccService[]
