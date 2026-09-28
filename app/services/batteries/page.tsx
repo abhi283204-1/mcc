@@ -1,3 +1,10 @@
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
+
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/Footer";
@@ -123,7 +130,24 @@ const alternator = [
   },
 ];
 
-export default function BatteriesPage() {
+export default async function BatteriesPage() {
+    const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedAmaron = mergeActivePackages(amaron);
+  const mergedExide = mergeActivePackages(exide);
+  const mergedLivguard = mergeActivePackages(livguard);
+  const mergedAlternator = mergeActivePackages(alternator);
   return (
     <>
       <Navbar />
@@ -144,7 +168,7 @@ export default function BatteriesPage() {
               {/* Amaron */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Amaron</h2>
               <div className="space-y-4 mb-10">
-                {amaron.map((pkg) => (
+                {mergedAmaron.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -152,7 +176,7 @@ export default function BatteriesPage() {
               {/* Exide */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Exide</h2>
               <div className="space-y-4 mb-10">
-                {exide.map((pkg) => (
+                {mergedExide.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -160,7 +184,7 @@ export default function BatteriesPage() {
               {/* Livguard */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Livguard</h2>
               <div className="space-y-4 mb-10">
-                {livguard.map((pkg) => (
+                {mergedLivguard.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -168,7 +192,7 @@ export default function BatteriesPage() {
               {/* Alternator */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Alternator</h2>
               <div className="space-y-4">
-                {alternator.map((pkg) => (
+                {mergedAlternator.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
