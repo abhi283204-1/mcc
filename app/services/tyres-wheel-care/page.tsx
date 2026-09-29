@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Tyres & Wheel Care in Ghaziabad | Mittal Car Care",
@@ -130,7 +136,27 @@ const wheelCare = [
   },
 ];
 
-export default function TyresWheelCarePage() {
+export default async function TyresWheelCarePage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedApolloTyres = mergeActivePackages(apolloTyres);
+  const mergedMrfTyres = mergeActivePackages(mrfTyres);
+  const mergedJkTyres = mergeActivePackages(jkTyres);
+  const mergedBridgestoneTyres = mergeActivePackages(bridgestoneTyres);
+  const mergedGoodyearTyres = mergeActivePackages(goodyearTyres);
+  const mergedWheelCare = mergeActivePackages(wheelCare);
   return (
     <>
       <Navbar />
@@ -151,7 +177,7 @@ export default function TyresWheelCarePage() {
               {/* Apollo */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Apollo</h2>
               <div className="space-y-4 mb-10">
-                {apolloTyres.map((pkg) => (
+                {mergedApolloTyres.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -159,7 +185,7 @@ export default function TyresWheelCarePage() {
               {/* MRF */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">MRF</h2>
               <div className="space-y-4 mb-10">
-                {mrfTyres.map((pkg) => (
+                {mergedMrfTyres.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -167,7 +193,7 @@ export default function TyresWheelCarePage() {
               {/* JK */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">JK</h2>
               <div className="space-y-4 mb-10">
-                {jkTyres.map((pkg) => (
+                {mergedJkTyres.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -175,7 +201,7 @@ export default function TyresWheelCarePage() {
               {/* Bridgestone */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Bridgestone</h2>
               <div className="space-y-4 mb-10">
-                {bridgestoneTyres.map((pkg) => (
+                {mergedBridgestoneTyres.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -183,7 +209,7 @@ export default function TyresWheelCarePage() {
               {/* GoodYear */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">GoodYear</h2>
               <div className="space-y-4 mb-10">
-                {goodyearTyres.map((pkg) => (
+                {mergedGoodyearTyres.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -191,7 +217,7 @@ export default function TyresWheelCarePage() {
               {/* Wheel Care Services */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Wheel Care Services</h2>
               <div className="space-y-4">
-                {wheelCare.map((pkg) => (
+                {mergedWheelCare.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

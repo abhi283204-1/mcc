@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Suspension & Fitments in Ghaziabad | Mittal Car Care",
@@ -238,7 +244,24 @@ const fitments = [
   },
 ];
 
-export default function SuspensionFitmentsPage() {
+export default async function SuspensionFitmentsPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedSteering = mergeActivePackages(steering);
+  const mergedSuspension = mergeActivePackages(suspension);
+  const mergedFitments = mergeActivePackages(fitments);
   return (
     <>
       <Navbar />
@@ -259,7 +282,7 @@ export default function SuspensionFitmentsPage() {
               {/* Steering */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Steering</h2>
               <div className="space-y-4 mb-10">
-                {steering.map((pkg) => (
+                {mergedSteering.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -267,7 +290,7 @@ export default function SuspensionFitmentsPage() {
               {/* Suspension */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Suspension</h2>
               <div className="space-y-4 mb-10">
-                {suspension.map((pkg) => (
+                {mergedSuspension.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -275,7 +298,7 @@ export default function SuspensionFitmentsPage() {
               {/* Fitments */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Fitments</h2>
               <div className="space-y-4">
-                {fitments.map((pkg) => (
+                {mergedFitments.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

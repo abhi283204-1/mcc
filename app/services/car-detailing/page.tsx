@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Car Detailing Services in Ghaziabad | Mittal Car Care",
@@ -130,7 +136,26 @@ const antiRustCoating = [
   },
 ];
 
-export default function CarDetailingPage() {
+export default async function CarDetailingPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedPolishing = mergeActivePackages(polishing);
+  const mergedCeramicCoating = mergeActivePackages(ceramicCoating);
+  const mergedTeflonCoating = mergeActivePackages(teflonCoating);
+  const mergedPpf = mergeActivePackages(ppf);
+  const mergedAntiRustCoating = mergeActivePackages(antiRustCoating);
   return (
     <>
       <Navbar />
@@ -151,7 +176,7 @@ export default function CarDetailingPage() {
               {/* Polishing */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Polishing</h2>
               <div className="space-y-4 mb-10">
-                {polishing.map((pkg) => (
+                {mergedPolishing.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -159,7 +184,7 @@ export default function CarDetailingPage() {
               {/* Ceramic Coating */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Ceramic Coating</h2>
               <div className="space-y-4 mb-10">
-                {ceramicCoating.map((pkg) => (
+                {mergedCeramicCoating.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -167,7 +192,7 @@ export default function CarDetailingPage() {
               {/* Teflon Coating */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Teflon Coating</h2>
               <div className="space-y-4 mb-10">
-                {teflonCoating.map((pkg) => (
+                {mergedTeflonCoating.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -175,7 +200,7 @@ export default function CarDetailingPage() {
               {/* PPF */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">PPF</h2>
               <div className="space-y-4 mb-10">
-                {ppf.map((pkg) => (
+                {mergedPpf.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -183,7 +208,7 @@ export default function CarDetailingPage() {
               {/* Anti Rust Coating */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Anti Rust Coating</h2>
               <div className="space-y-4">
-                {antiRustCoating.map((pkg) => (
+                {mergedAntiRustCoating.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

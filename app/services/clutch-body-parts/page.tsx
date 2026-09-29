@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Clutch & Body Parts in Ghaziabad | Mittal Car Care",
@@ -190,7 +196,23 @@ const bodyParts = [
   },
 ];
 
-export default function ClutchBodyPartsPage() {
+export default async function ClutchBodyPartsPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedClutch = mergeActivePackages(clutch);
+  const mergedBodyParts = mergeActivePackages(bodyParts);
   return (
     <>
       <Navbar />
@@ -211,7 +233,7 @@ export default function ClutchBodyPartsPage() {
               {/* Clutch */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Clutch</h2>
               <div className="space-y-4 mb-10">
-                {clutch.map((pkg) => (
+                {mergedClutch.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -219,7 +241,7 @@ export default function ClutchBodyPartsPage() {
               {/* Body Parts */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Body Parts</h2>
               <div className="space-y-4">
-                {bodyParts.map((pkg) => (
+                {mergedBodyParts.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

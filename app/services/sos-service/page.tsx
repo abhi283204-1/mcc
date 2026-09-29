@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "SOS Service in Ghaziabad | Mittal Car Care",
@@ -188,7 +194,22 @@ const sosServices = [
   },
 ];
 
-export default function SOSServicePage() {
+export default async function SOSServicePage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedSosServices = mergeActivePackages(sosServices);
   return (
     <>
       <Navbar />
@@ -209,7 +230,7 @@ export default function SOSServicePage() {
               {/* SOS Services */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Emergency Services</h2>
               <div className="space-y-4">
-                {sosServices.map((pkg) => (
+                {mergedSosServices.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

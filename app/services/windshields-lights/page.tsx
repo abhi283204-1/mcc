@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Windshields & Lights in Ghaziabad | Mittal Car Care",
@@ -112,7 +118,25 @@ const sideMirror = [
   },
 ];
 
-export default function WindshieldsLightsPage() {
+export default async function WindshieldsLightsPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedWindshields = mergeActivePackages(windshields);
+  const mergedGlasses = mergeActivePackages(glasses);
+  const mergedLights = mergeActivePackages(lights);
+  const mergedSideMirror = mergeActivePackages(sideMirror);
   return (
     <>
       <Navbar />
@@ -133,7 +157,7 @@ export default function WindshieldsLightsPage() {
               {/* Windshields */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Windshields</h2>
               <div className="space-y-4 mb-10">
-                {windshields.map((pkg) => (
+                {mergedWindshields.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -141,7 +165,7 @@ export default function WindshieldsLightsPage() {
               {/* Glasses */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Glasses</h2>
               <div className="space-y-4 mb-10">
-                {glasses.map((pkg) => (
+                {mergedGlasses.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -149,7 +173,7 @@ export default function WindshieldsLightsPage() {
               {/* Lights */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Lights</h2>
               <div className="space-y-4 mb-10">
-                {lights.map((pkg) => (
+                {mergedLights.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -157,7 +181,7 @@ export default function WindshieldsLightsPage() {
               {/* Side Mirror */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Side Mirror</h2>
               <div className="space-y-4">
-                {sideMirror.map((pkg) => (
+                {mergedSideMirror.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

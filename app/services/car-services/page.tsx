@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Car Services in Delhi | Mittal Car Care",
@@ -158,7 +164,23 @@ const brakeMaintenancePackages = [
   },
 ];
 
-export default function CarServicesPage() {
+export default async function CarServicesPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedScheduledPackages = mergeActivePackages(scheduledPackages);
+  const mergedBrakeMaintenancePackages = mergeActivePackages(brakeMaintenancePackages);
   return (
     <>
       <Navbar />
@@ -179,7 +201,7 @@ export default function CarServicesPage() {
               {/* Scheduled Packages */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Scheduled Packages</h2>
               <div className="space-y-4 mb-10">
-                {scheduledPackages.map((pkg) => (
+                {mergedScheduledPackages.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -187,7 +209,7 @@ export default function CarServicesPage() {
               {/* Brake Maintenance */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Brake Maintenance</h2>
               <div className="space-y-4">
-                {brakeMaintenancePackages.map((pkg) => (
+                {mergedBrakeMaintenancePackages.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

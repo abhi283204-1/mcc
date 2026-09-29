@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Car Spa & Cleaning in Ghaziabad | Mittal Car Care",
@@ -122,7 +128,24 @@ const sunroof = [
   },
 ];
 
-export default function CarSpaCleaning() {
+export default async function CarSpaCleaning() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedSpa = mergeActivePackages(spa);
+  const mergedWinterSpecial = mergeActivePackages(winterSpecial);
+  const mergedSunroof = mergeActivePackages(sunroof);
   return (
     <>
       <Navbar />
@@ -143,7 +166,7 @@ export default function CarSpaCleaning() {
               {/* Spa */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Spa</h2>
               <div className="space-y-4 mb-10">
-                {spa.map((pkg) => (
+                {mergedSpa.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -151,7 +174,7 @@ export default function CarSpaCleaning() {
               {/* Winter Special */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Winter Special</h2>
               <div className="space-y-4 mb-10">
-                {winterSpecial.map((pkg) => (
+                {mergedWinterSpecial.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -159,7 +182,7 @@ export default function CarSpaCleaning() {
               {/* Sunroof */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Sunroof</h2>
               <div className="space-y-4">
-                {sunroof.map((pkg) => (
+                {mergedSunroof.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

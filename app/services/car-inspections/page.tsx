@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Car Inspection & Diagnostics in Ghaziabad | Mittal Car Care",
@@ -130,7 +136,23 @@ const radiator = [
   },
 ];
 
-export default function CarInspectionsPage() {
+export default async function CarInspectionsPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedInspections = mergeActivePackages(inspections);
+  const mergedRadiator = mergeActivePackages(radiator);
   return (
     <>
       <Navbar />
@@ -151,7 +173,7 @@ export default function CarInspectionsPage() {
               {/* Inspections */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Inspections</h2>
               <div className="space-y-4 mb-10">
-                {inspections.map((pkg) => (
+                {mergedInspections.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -159,7 +181,7 @@ export default function CarInspectionsPage() {
               {/* Radiator */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Radiator</h2>
               <div className="space-y-4">
-                {radiator.map((pkg) => (
+                {mergedRadiator.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

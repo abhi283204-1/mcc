@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Denting & Painting in Ghaziabad | Mittal Car Care",
@@ -226,7 +232,27 @@ const alloyPaint = [
   },
 ];
 
-export default function DentingPaintingPage() {
+export default async function DentingPaintingPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedFrontSide = mergeActivePackages(frontSide);
+  const mergedRearSide = mergeActivePackages(rearSide);
+  const mergedLeftSide = mergeActivePackages(leftSide);
+  const mergedRightSide = mergeActivePackages(rightSide);
+  const mergedWholeBody = mergeActivePackages(wholeBody);
+  const mergedAlloyPaint = mergeActivePackages(alloyPaint);
   return (
     <>
       <Navbar />
@@ -247,7 +273,7 @@ export default function DentingPaintingPage() {
               {/* Front Side */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Front Side</h2>
               <div className="space-y-4 mb-10">
-                {frontSide.map((pkg) => (
+                {mergedFrontSide.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -255,7 +281,7 @@ export default function DentingPaintingPage() {
               {/* Rear Side */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Rear Side</h2>
               <div className="space-y-4 mb-10">
-                {rearSide.map((pkg) => (
+                {mergedRearSide.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -263,7 +289,7 @@ export default function DentingPaintingPage() {
               {/* Left Side */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Left Side</h2>
               <div className="space-y-4 mb-10">
-                {leftSide.map((pkg) => (
+                {mergedLeftSide.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -271,7 +297,7 @@ export default function DentingPaintingPage() {
               {/* Right Side */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Right Side</h2>
               <div className="space-y-4 mb-10">
-                {rightSide.map((pkg) => (
+                {mergedRightSide.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -279,7 +305,7 @@ export default function DentingPaintingPage() {
               {/* Whole Body */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Whole Body</h2>
               <div className="space-y-4 mb-10">
-                {wholeBody.map((pkg) => (
+                {mergedWholeBody.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -287,7 +313,7 @@ export default function DentingPaintingPage() {
               {/* Alloy Paint */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Alloy Paint</h2>
               <div className="space-y-4">
-                {alloyPaint.map((pkg) => (
+                {mergedAlloyPaint.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>

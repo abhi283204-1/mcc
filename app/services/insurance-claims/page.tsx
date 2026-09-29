@@ -8,6 +8,12 @@ import VideoReviews from "@/components/sections/VideoReviews";
 import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Areas from "@/components/sections/Areas";
+import {
+  getMccServices,
+  getActiveMccService,
+  mergePackageWithMccService,
+  type MccPackage,
+} from "@/lib/mcc-api";
 
 export const metadata: Metadata = {
   title: "Insurance Claims in Ghaziabad | Mittal Car Care",
@@ -188,7 +194,25 @@ const inspection = [
   },
 ];
 
-export default function InsuranceClaimsPage() {
+export default async function InsuranceClaimsPage() {
+
+  const mccServices = await getMccServices();
+
+  const mergeActivePackages = (packages: MccPackage[]): MccPackage[] =>
+    packages
+      .map((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return mergePackageWithMccService(pkg, service);
+      })
+      .filter((pkg) => {
+        const service = getActiveMccService(pkg.name, mccServices);
+        return service !== null;
+      });
+
+  const mergedKnowYourPolicy = mergeActivePackages(knowYourPolicy);
+  const mergedAccidentalRepairs = mergeActivePackages(accidentalRepairs);
+  const mergedTheftLost = mergeActivePackages(theftLost);
+  const mergedInspection = mergeActivePackages(inspection);
   return (
     <>
       <Navbar />
@@ -209,7 +233,7 @@ export default function InsuranceClaimsPage() {
               {/* Know Your Policy */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Know Your Policy</h2>
               <div className="space-y-4 mb-10">
-                {knowYourPolicy.map((pkg) => (
+                {mergedKnowYourPolicy.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -217,7 +241,7 @@ export default function InsuranceClaimsPage() {
               {/* Accidental Repairs */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Accidental Repairs</h2>
               <div className="space-y-4 mb-10">
-                {accidentalRepairs.map((pkg) => (
+                {mergedAccidentalRepairs.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -225,7 +249,7 @@ export default function InsuranceClaimsPage() {
               {/* Theft / Lost */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Theft / Lost</h2>
               <div className="space-y-4 mb-10">
-                {theftLost.map((pkg) => (
+                {mergedTheftLost.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
@@ -233,7 +257,7 @@ export default function InsuranceClaimsPage() {
               {/* Inspection */}
               <h2 className="text-xl font-bold text-gray-900 mb-4">Inspection</h2>
               <div className="space-y-4">
-                {inspection.map((pkg) => (
+                {mergedInspection.map((pkg) => (
                   <PackageCard key={pkg.name} {...pkg} />
                 ))}
               </div>
