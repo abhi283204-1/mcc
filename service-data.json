@@ -1,0 +1,2743 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-29T19:48:28.482Z",
+  "services": [
+    {
+      "serviceSlug": "ac-service-repair",
+      "name": "AC Service & Repair",
+      "sections": [
+        {
+          "name": "Service Packages",
+          "packages": [
+            {
+              "name": "Regular AC Service",
+              "price": 2499,
+              "originalPrice": 3332,
+              "duration": "Takes 4 Hours",
+              "warranty": "500 Kms or 1 Month Warranty",
+              "badge": "FREE AC UNIT INSPECTION",
+              "recommended": false,
+              "description": "Every 5,000 Kms or 3 Months (Recommended)",
+              "includes": [
+                "AC Vent Cleaning",
+                "AC Inspection",
+                "AC Gas (upto 400 gms)",
+                "Condenser Cleaning",
+                "AC Filter Cleaning"
+              ]
+            },
+            {
+              "name": "High Performance AC Service",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1,000 Kms or 1 Month Warranty",
+              "badge": "FREE AC GAS",
+              "recommended": true,
+              "description": "Every 10,000 Kms or 1 Year (Recommended)",
+              "includes": [
+                "AC Vent Cleaning",
+                "AC Leak Test",
+                "Dashboard Removing Refitting",
+                "Dashboard Cleaning",
+                "AC Gas (Upto 600gms)"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AC Fitments",
+          "packages": [
+            {
+              "name": "V-Belt Replacement",
+              "price": 1499,
+              "originalPrice": 1999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Recommended when belt is worn or cracked",
+              "includes": [
+                "Old Belt Removal",
+                "New V-Belt Fitting",
+                "Tension Adjustment"
+              ]
+            },
+            {
+              "name": "Compressor Replacement",
+              "price": 5999,
+              "originalPrice": 7999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "When AC is not cooling due to compressor failure",
+              "includes": [
+                "Old Compressor Removal",
+                "New Compressor Installation",
+                "AC Gas Top-up",
+                "Leak Test"
+              ]
+            },
+            {
+              "name": "Condenser Replacement",
+              "price": 4499,
+              "originalPrice": 5999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Required when condenser is damaged or leaking",
+              "includes": [
+                "Old Condenser Removal",
+                "New Condenser Fitting",
+                "AC Gas Refill",
+                "Performance Check"
+              ]
+            },
+            {
+              "name": "Cooling Coil Replacement",
+              "price": 4999,
+              "originalPrice": 6499,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "When cooling coil is damaged causing AC gas leakage",
+              "includes": [
+                "Dashboard Removal",
+                "Old Coil Removal",
+                "New Cooling Coil Fitting",
+                "AC Gas Refill",
+                "Leak Test"
+              ]
+            },
+            {
+              "name": "Heating Coil Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 8 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine overheating due to faulty heating coil",
+              "includes": [
+                "Old Heating Coil Removal",
+                "New Heating Coil Fitting",
+                "Coolant Refill",
+                "Leak Test"
+              ]
+            },
+            {
+              "name": "AC Blower Motor Replacement",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "When AC blower is not working or making noise",
+              "includes": [
+                "Old Blower Motor Removal",
+                "New Blower Motor Installation",
+                "Wiring Check",
+                "Performance Test"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radiator",
+          "packages": [
+            {
+              "name": "Radiator Flush & Clean",
+              "price": 1299,
+              "originalPrice": 1799,
+              "duration": "Takes 2 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Removes rust & deposits for better cooling",
+              "includes": [
+                "Coolant Drain",
+                "Radiator Flush",
+                "Fresh Coolant Refill"
+              ]
+            },
+            {
+              "name": "Radiator Fan Motor Replacement",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "When fan motor is not working causing overheating",
+              "includes": [
+                "Old Motor Removal",
+                "New Fan Motor Fitting",
+                "Wiring Check"
+              ]
+            },
+            {
+              "name": "Radiator Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Required when radiator is cracked or leaking",
+              "includes": [
+                "Old Radiator Removal",
+                "New Radiator Installation",
+                "Coolant Refill",
+                "Leak Test"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Under 49",
+          "packages": [
+            {
+              "name": "AC Inspection",
+              "price": 49,
+              "originalPrice": null,
+              "duration": "Takes 1 Hour",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Complete AC system diagnostic check",
+              "includes": [
+                "AC Performance Check",
+                "Gas Pressure Test",
+                "Leak Detection"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Under 99",
+          "packages": [
+            {
+              "name": "AC Condenser Cleaning",
+              "price": 99,
+              "originalPrice": null,
+              "duration": "Takes 1 Hour",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves AC cooling efficiency",
+              "includes": [
+                "Condenser Water Wash",
+                "Dirt & Debris Removal",
+                "Airflow Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Under 199",
+          "packages": [
+            {
+              "name": "Drive Belt Lubrication",
+              "price": 199,
+              "originalPrice": null,
+              "duration": "Takes 1 Hour",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Reduces belt noise & extends life",
+              "includes": [
+                "Belt Inspection",
+                "Lubrication Application",
+                "Tension Check"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "batteries",
+      "name": "Batteries",
+      "sections": [
+        {
+          "name": "Amaron",
+          "packages": [
+            {
+              "name": "Amaron (55 Months Warranty)",
+              "price": 4600,
+              "originalPrice": 5499,
+              "duration": "Free Installation",
+              "warranty": "55 Months Warranty",
+              "badge": "RECOMMENDED",
+              "recommended": true,
+              "description": "35 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            },
+            {
+              "name": "Amaron (72 Months Warranty)",
+              "price": 5499,
+              "originalPrice": 6499,
+              "duration": "Free Installation",
+              "warranty": "66 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "35 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Exide",
+          "packages": [
+            {
+              "name": "Exide (55 Months Warranty)",
+              "price": 4299,
+              "originalPrice": 5199,
+              "duration": "Free Installation",
+              "warranty": "55 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "40 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            },
+            {
+              "name": "Exide (66 Months Warranty)",
+              "price": 5299,
+              "originalPrice": 6299,
+              "duration": "Free Installation",
+              "warranty": "66 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "35 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Livguard",
+          "packages": [
+            {
+              "name": "Livguard (60 Months Warranty)",
+              "price": 3999,
+              "originalPrice": 4799,
+              "duration": "Free Installation",
+              "warranty": "60 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "35 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            },
+            {
+              "name": "Livguard (72 Months Warranty)",
+              "price": 4799,
+              "originalPrice": 5699,
+              "duration": "Free Installation",
+              "warranty": "72 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "35 Amp Hour • Free of cost installation",
+              "includes": [
+                "Old Battery Removal",
+                "New Battery Installation",
+                "Terminal Cleaning",
+                "Charging System Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Alternator",
+          "packages": [
+            {
+              "name": "Alternator Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves battery life",
+              "includes": [
+                "Old Alternator Removal",
+                "New Alternator Installation",
+                "Belt Adjustment",
+                "Charging Output Test"
+              ]
+            },
+            {
+              "name": "Alternator Repair",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 6 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves battery life",
+              "includes": [
+                "Alternator Inspection",
+                "Brush & Bearing Replacement",
+                "Regulator Check",
+                "Charging Output Test"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "car-detailing",
+      "name": "Detailing Services",
+      "sections": [
+        {
+          "name": "Polishing",
+          "packages": [
+            {
+              "name": "3M™ Car Rubbing & Polishing",
+              "price": 2299,
+              "originalPrice": 3299,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "3M ULTRA SHINE POLISHING",
+              "recommended": true,
+              "description": "Every 6 Months Recommended",
+              "includes": [
+                "Exterior Wash",
+                "Clay Bar Treatment",
+                "3M Rubbing Compound",
+                "3M Polishing",
+                "Wax Protection Layer"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ceramic Coating",
+          "packages": [
+            {
+              "name": "Ceramic Coating",
+              "price": 9999,
+              "originalPrice": 14999,
+              "duration": "Takes 3 Days",
+              "warranty": "1 Year Warranty",
+              "badge": "FREE ALL ROUND CLEANING",
+              "recommended": false,
+              "description": "Complete paint protection with hydrophobic layer",
+              "includes": [
+                "Deep Wash & Decontamination",
+                "Paint Correction",
+                "Ceramic Coat Application",
+                "Curing & Inspection",
+                "Final Buff & QC"
+              ]
+            },
+            {
+              "name": "Meguiar's Ceramic Coating",
+              "price": 12999,
+              "originalPrice": 17999,
+              "duration": "Takes 3 Days",
+              "warranty": "1 Year Warranty",
+              "badge": "FREE INTERIOR SPA",
+              "recommended": false,
+              "description": "Complete paint protection with premium Meguiar's products",
+              "includes": [
+                "Deep Wash & Decontamination",
+                "Paint Correction",
+                "Meguiar's Ceramic Coat Application",
+                "Curing & Inspection",
+                "Final Buff & QC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Teflon Coating",
+          "packages": [
+            {
+              "name": "Meguiar's Teflon Coating",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 24 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Every 1 Year Recommended",
+              "includes": [
+                "Exterior Wash",
+                "Surface Decontamination",
+                "Meguiar's Teflon Application",
+                "Buff & Shine",
+                "Final Inspection"
+              ]
+            },
+            {
+              "name": "3M™ Teflon Coating",
+              "price": 2999,
+              "originalPrice": 4499,
+              "duration": "Takes 24 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Every 1 Year Recommended",
+              "includes": [
+                "Exterior Wash",
+                "Surface Decontamination",
+                "3M Teflon Application",
+                "Buff & Shine",
+                "Final Inspection"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PPF",
+          "packages": [
+            {
+              "name": "PPF - Paint Protection Film",
+              "price": 35999,
+              "originalPrice": 45999,
+              "duration": "Takes 6 Days",
+              "warranty": "1 Year Warranty",
+              "badge": "FREE INTERIOR SPA",
+              "recommended": false,
+              "description": "Complete paint protection with ultra shine polish",
+              "includes": [
+                "Surface Preparation",
+                "Paint Correction",
+                "PPF Application",
+                "Edge Sealing",
+                "Final Inspection & QC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Anti Rust Coating",
+          "packages": [
+            {
+              "name": "Anti Rust Underbody Coating",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 24 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "MONSOON SPECIAL",
+              "recommended": false,
+              "description": "Protects underbody from rust & corrosion",
+              "includes": [
+                "Underbody Wash",
+                "Surface Preparation",
+                "Anti-Rust Coating Application",
+                "Drying & Inspection"
+              ]
+            },
+            {
+              "name": "Silencer Coating",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Takes 6 Hours",
+              "warranty": "3 Months Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "2 layers of protection for silencer",
+              "includes": [
+                "Silencer Cleaning",
+                "Surface Prep",
+                "Anti-Rust Coating (2 Layers)",
+                "Heat Resistance Check"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "car-inspections",
+      "name": "Car Inspections",
+      "sections": [
+        {
+          "name": "Inspections",
+          "packages": [
+            {
+              "name": "Second Hand Car Inspection",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "USED CAR BUYERS",
+              "recommended": true,
+              "description": "Complete pre-purchase inspection for used cars",
+              "includes": [
+                "50 Points Check",
+                "Detailed Health Card",
+                "Onsite Car Valuation",
+                "Engine & Transmission Check",
+                "Test Drive Inspection"
+              ]
+            },
+            {
+              "name": "Car Inspection / Diagnostics",
+              "price": 499,
+              "originalPrice": 899,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "FREE CAR INSPECTION",
+              "recommended": false,
+              "description": "Comprehensive diagnostics with upfront estimate",
+              "includes": [
+                "Test Drive Inspection",
+                "25 Points Checklist",
+                "Upfront Estimate",
+                "Visual Inspection",
+                "Fault Code Reading"
+              ]
+            },
+            {
+              "name": "Road Trip Inspection",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Ensure your car is road-trip ready",
+              "includes": [
+                "50 Points Check List",
+                "Detailed Health Card",
+                "Tyre & Brake Inspection",
+                "Fluid Level Check",
+                "AC & Electrical Check"
+              ]
+            },
+            {
+              "name": "Engine Scanning",
+              "price": 599,
+              "originalPrice": 999,
+              "duration": "Takes 3 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "OEM-level engine diagnostics",
+              "includes": [
+                "OEM Scanning",
+                "Code Reset",
+                "Fault Detection",
+                "Performance Report"
+              ]
+            },
+            {
+              "name": "Car Fluids Check",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes 3 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Complete fluid level & quality inspection",
+              "includes": [
+                "Engine Oil Check",
+                "Coolant Level Check",
+                "Brake Fluid Inspection",
+                "Transmission Fluid Check",
+                "Power Steering Fluid Check"
+              ]
+            },
+            {
+              "name": "Complete Suspension Inspection",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Detailed suspension health check",
+              "includes": [
+                "25 Points Check",
+                "Upfront Estimate",
+                "Shock Absorber Test",
+                "Bushing & Mount Inspection",
+                "Steering Linkage Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radiator",
+          "packages": [
+            {
+              "name": "Radiator Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine overheating - Spare Part Price Only",
+              "includes": [
+                "Old Radiator Removal",
+                "New Radiator Installation",
+                "Coolant Refill",
+                "Leak Test",
+                "Temperature Check"
+              ]
+            },
+            {
+              "name": "Radiator Fan Motor Replacement",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine overheating - Labour Included",
+              "includes": [
+                "Old Fan Motor Removal",
+                "New Fan Motor Installation",
+                "Wiring Check",
+                "Temperature Test"
+              ]
+            },
+            {
+              "name": "Radiator Flush & Clean",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 2 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine overheating",
+              "includes": [
+                "Coolant Drain",
+                "System Flush",
+                "Fresh Coolant Refill",
+                "Leak Inspection"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "car-services",
+      "name": "Car Services",
+      "sections": [
+        {
+          "name": "Scheduled Packages",
+          "packages": [
+            {
+              "name": "Basic Service",
+              "price": 2099,
+              "originalPrice": 3178,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "EVERY 5000 KMS / 3 MONTHS",
+              "recommended": false,
+              "description": "Every 5,000 Kms or 3 Months (Recommended)",
+              "includes": [
+                "Engine Oil Replacement",
+                "Oil Filter Replacement",
+                "Air Filter Cleaning",
+                "Coolant Top-up",
+                "Wiper Fluid Replacement",
+                "Battery Water Top-up",
+                "Interior Vacuuming",
+                "Car Wash",
+                "Brake Inspection"
+              ]
+            },
+            {
+              "name": "Standard Service",
+              "price": 3999,
+              "originalPrice": 5378,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "FREE AC GAS TOP-UP",
+              "recommended": true,
+              "description": "Every 10,000 Kms or 6 Months (Recommended)",
+              "includes": [
+                "Basic Service Inclusions",
+                "Front Brake Pads Inspection",
+                "Spark Plug Cleaning",
+                "Car Scanning",
+                "Fuel Filter Check",
+                "AC Gas Top-up",
+                "AC Filter Cleaning",
+                "Suspension Inspection",
+                "Tyre Rotation"
+              ]
+            },
+            {
+              "name": "Comprehensive Service",
+              "price": 5999,
+              "originalPrice": 8308,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "EVERY 20000 KMS / 1 YEAR",
+              "recommended": false,
+              "description": "Every 20,000 Kms or 1 Year (Recommended)",
+              "includes": [
+                "Standard Service Inclusions",
+                "Transmission Fluid Replacement",
+                "Brake Fluid Replacement",
+                "Coolant Flush & Replace",
+                "Throttle Body Cleaning",
+                "Fuel Injector Cleaning",
+                "Wheel Alignment",
+                "Wheel Balancing",
+                "Complete Underbody Wash"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Brake Maintenance",
+          "packages": [
+            {
+              "name": "Front Brake Pads",
+              "price": 1299,
+              "originalPrice": 2048,
+              "duration": "Takes 3 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For Both Front Wheels - Labour Included",
+              "includes": [
+                "Old Brake Pads Removal",
+                "New Brake Pads Installation",
+                "Brake Performance Check"
+              ]
+            },
+            {
+              "name": "Rear Brake Shoes",
+              "price": 1599,
+              "originalPrice": 2398,
+              "duration": "Takes 3 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For Both Rear Wheels - Labour Included",
+              "includes": [
+                "Old Brake Shoes Removal",
+                "New Brake Shoes Installation",
+                "Brake Performance Check"
+              ]
+            },
+            {
+              "name": "Front Brake Discs",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 5 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "NEW",
+              "recommended": false,
+              "description": "Cost For Single Wheel",
+              "includes": [
+                "Old Disc Removal",
+                "New Brake Disc Installation",
+                "Brake Performance Check"
+              ]
+            },
+            {
+              "name": "Caliper Pin Replacement",
+              "price": 899,
+              "originalPrice": 1299,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevent Brake Failure - Cost For Single Wheel",
+              "includes": [
+                "Caliper Inspection",
+                "Old Pin Removal",
+                "New Caliper Pin Fitting",
+                "Brake Performance Test"
+              ]
+            },
+            {
+              "name": "Disc Turning",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Labour",
+              "badge": "NEW",
+              "recommended": false,
+              "description": "For Both Front Wheels",
+              "includes": [
+                "Disc Inspection",
+                "Disc Turning/Resurfacing",
+                "Brake Performance Check"
+              ]
+            },
+            {
+              "name": "Handbrake Wire Replacement",
+              "price": 799,
+              "originalPrice": 1199,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Ensures proper handbrake function",
+              "includes": [
+                "Old Wire Removal",
+                "New Handbrake Wire Fitting",
+                "Handbrake Adjustment"
+              ]
+            },
+            {
+              "name": "Brake Drums Turning",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Labour",
+              "badge": "NEW",
+              "recommended": false,
+              "description": "For Both Rear Wheels",
+              "includes": [
+                "Drum Inspection",
+                "Drum Turning/Resurfacing",
+                "Brake Performance Check"
+              ]
+            },
+            {
+              "name": "Wheel Cylinder Replacement",
+              "price": 1299,
+              "originalPrice": 1899,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents Brake Failure",
+              "includes": [
+                "Old Cylinder Removal",
+                "New Wheel Cylinder Fitting",
+                "Brake Fluid Top-up"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "car-spa-cleaning",
+      "name": "car-spa-cleaning",
+      "sections": [
+        {
+          "name": "Spa",
+          "packages": [
+            {
+              "name": "Car Interior Spa",
+              "price": 1099,
+              "originalPrice": 1599,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "FREE CAR INSPECTION",
+              "recommended": false,
+              "description": "Interior wet cleaning with deep sanitisation",
+              "includes": [
+                "Seat Shampooing",
+                "Dashboard & Console Cleaning",
+                "Carpet Deep Cleaning",
+                "Anti-Bacterial Treatment",
+                "Interior Vacuuming"
+              ]
+            },
+            {
+              "name": "Deep All Round Spa",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "INCLUDES EXTERIOR POLISHING",
+              "recommended": true,
+              "description": "Complete interior dry cleaning + exterior polishing",
+              "includes": [
+                "Full Interior Dry Cleaning",
+                "Seat & Carpet Shampooing",
+                "Dashboard Polishing",
+                "Exterior Rubbing & Polishing",
+                "Engine Bay Cleaning",
+                "Anti-Bacterial Treatment"
+              ]
+            },
+            {
+              "name": "Premium Top Wash",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Preserves your vehicle's paint and finish",
+              "includes": [
+                "Exterior Foam Wash",
+                "Hand Drying",
+                "Tyre Cleaning",
+                "Glass Cleaning"
+              ]
+            },
+            {
+              "name": "Car Wash & Wax",
+              "price": 899,
+              "originalPrice": 1299,
+              "duration": "Takes 3 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Preserves your vehicle's paint and finish",
+              "includes": [
+                "Exterior Foam Wash",
+                "Hand Drying",
+                "Wax Coat Application",
+                "Tyre Dressing",
+                "Glass Cleaning"
+              ]
+            },
+            {
+              "name": "Car Rubbing & Polishing",
+              "price": 2299,
+              "originalPrice": 3299,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Ultra shine polishing - Every 6 Months Recommended",
+              "includes": [
+                "Exterior Wash",
+                "Clay Bar Treatment",
+                "Rubbing Compound",
+                "Machine Polishing",
+                "Wax Protection Layer"
+              ]
+            },
+            {
+              "name": "Rat / Pest Repellent Treatment",
+              "price": 699,
+              "originalPrice": 999,
+              "duration": "Takes 3 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Protects car wiring & interiors from pests",
+              "includes": [
+                "Underbody Inspection",
+                "Anti-Rodent Spray Application",
+                "Engine Bay Treatment",
+                "Cabin Treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Winter Special",
+          "packages": [
+            {
+              "name": "360° Deep Cleaning",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "DESIGNED FOR FESTIVITIES",
+              "recommended": false,
+              "description": "Includes dry cleaning + rubbing & polishing",
+              "includes": [
+                "Full Interior Dry Cleaning",
+                "Seat & Carpet Shampooing",
+                "Exterior Rubbing & Polishing",
+                "Dashboard & Console Detailing",
+                "Engine Bay Cleaning",
+                "Tyre Dressing"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sunroof",
+          "packages": [
+            {
+              "name": "Sunroof Service",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Every 1 Year Recommended",
+              "includes": [
+                "Sunroof Track Cleaning",
+                "Lubrication & Greasing",
+                "Drain Tube Cleaning",
+                "Seal Inspection",
+                "Operation Test"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "clutch-body-parts",
+      "name": "Clutch & Body Parts",
+      "sections": [
+        {
+          "name": "Clutch",
+          "packages": [
+            {
+              "name": "Clutch Set Replacement",
+              "price": 4999,
+              "originalPrice": 6999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "FREE 50 POINT INSPECTION",
+              "recommended": false,
+              "description": "Improved pickup and mileage - Labour + Spare Part Rates",
+              "includes": [
+                "Old Clutch Removal",
+                "New Clutch Plate & Pressure Plate",
+                "Bearing Replacement",
+                "Clutch Adjustment",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Flywheel Replacement",
+              "price": 5999,
+              "originalPrice": 7999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves performance - Spare Part Price Only",
+              "includes": [
+                "Gearbox Removal",
+                "Old Flywheel Removal",
+                "New Flywheel Fitting",
+                "Clutch Reassembly",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Clutch Bearing Replacement",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves gear shifting - Spare Part Price Only",
+              "includes": [
+                "Gearbox Removal",
+                "Old Bearing Removal",
+                "New Bearing Installation",
+                "Reassembly",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Flywheel Turning",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves gear shifting",
+              "includes": [
+                "Flywheel Inspection",
+                "Flywheel Resurfacing",
+                "Clutch Reassembly",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Clutch Overhaul",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty on Labour",
+              "badge": "FREE CAR WASH",
+              "recommended": false,
+              "description": "Complete clutch system overhaul - Labour Rates Only",
+              "includes": [
+                "Gearbox Removal",
+                "Clutch Inspection",
+                "Worn Part Replacement",
+                "Reassembly & Adjustment",
+                "Test Drive"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Body Parts",
+          "packages": [
+            {
+              "name": "Front Bumper Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Bumper Removal",
+                "New Bumper Fitting",
+                "Paint Match & Application",
+                "Final Inspection"
+              ]
+            },
+            {
+              "name": "Rear Bumper Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Bumper Removal",
+                "New Bumper Fitting",
+                "Paint Match & Application",
+                "Final Inspection"
+              ]
+            },
+            {
+              "name": "Fender Replacement",
+              "price": 4499,
+              "originalPrice": 5999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Fender Removal",
+                "New Fender Installation",
+                "Paint & Color Match",
+                "Alignment Check"
+              ]
+            },
+            {
+              "name": "Bonnet Replacement",
+              "price": 5999,
+              "originalPrice": 7999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Bonnet Removal",
+                "New Bonnet Installation",
+                "Paint & Color Match",
+                "Hinge Alignment"
+              ]
+            },
+            {
+              "name": "Boot Replacement",
+              "price": 4999,
+              "originalPrice": 6999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Boot Removal",
+                "New Boot Installation",
+                "Paint & Color Match",
+                "Lock & Hinge Check"
+              ]
+            },
+            {
+              "name": "Left Front Door Replacement",
+              "price": 6999,
+              "originalPrice": 8999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Door Removal",
+                "New Door Installation",
+                "Paint & Color Match",
+                "Window & Lock Alignment"
+              ]
+            },
+            {
+              "name": "Left Rear Door Replacement",
+              "price": 6999,
+              "originalPrice": 8999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Door Removal",
+                "New Door Installation",
+                "Paint & Color Match",
+                "Window & Lock Alignment"
+              ]
+            },
+            {
+              "name": "Right Front Door Replacement",
+              "price": 6999,
+              "originalPrice": 8999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Door Removal",
+                "New Door Installation",
+                "Paint & Color Match",
+                "Window & Lock Alignment"
+              ]
+            },
+            {
+              "name": "Right Rear Door Replacement",
+              "price": 6999,
+              "originalPrice": 8999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Genuine spare parts • 100% paint match guarantee",
+              "includes": [
+                "Old Door Removal",
+                "New Door Installation",
+                "Paint & Color Match",
+                "Window & Lock Alignment"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "denting-painting",
+      "name": "Denting & Painting",
+      "sections": [
+        {
+          "name": "Front Side",
+          "packages": [
+            {
+              "name": "Front Bumper Paint",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "100% COLOR MATCH",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair (if any)",
+                "Surface Preparation",
+                "Primer Application",
+                "Paint Color Matching",
+                "Clear Coat Finish"
+              ]
+            },
+            {
+              "name": "Bonnet Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Sanding & Primer",
+                "Base Coat Application",
+                "Clear Coat & Polish"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rear Side",
+          "packages": [
+            {
+              "name": "Rear Bumper Paint",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair (if any)",
+                "Surface Preparation",
+                "Primer Application",
+                "Paint Color Matching",
+                "Clear Coat Finish"
+              ]
+            },
+            {
+              "name": "Boot Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Surface Prep & Primer",
+                "Color Matching",
+                "Paint & Clear Coat"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Left Side",
+          "packages": [
+            {
+              "name": "Left Fender Paint",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair",
+                "Surface Preparation",
+                "Primer & Paint",
+                "Clear Coat Finish"
+              ]
+            },
+            {
+              "name": "Left Front Door Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Sanding & Primer",
+                "Color Match Paint",
+                "Clear Coat & Polish"
+              ]
+            },
+            {
+              "name": "Left Rear Door Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Sanding & Primer",
+                "Color Match Paint",
+                "Clear Coat & Polish"
+              ]
+            },
+            {
+              "name": "Left Quarter Panel Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair",
+                "Surface Prep",
+                "Primer & Paint Application",
+                "Clear Coat"
+              ]
+            },
+            {
+              "name": "Left Running Board Paint",
+              "price": 1999,
+              "originalPrice": 2799,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Scratch Filling",
+                "Primer Coat",
+                "Paint Application",
+                "Clear Coat Finish"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Right Side",
+          "packages": [
+            {
+              "name": "Right Fender Paint",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair",
+                "Surface Preparation",
+                "Primer & Paint",
+                "Clear Coat Finish"
+              ]
+            },
+            {
+              "name": "Right Front Door Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Sanding & Primer",
+                "Color Match Paint",
+                "Clear Coat & Polish"
+              ]
+            },
+            {
+              "name": "Right Rear Door Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Removal",
+                "Sanding & Primer",
+                "Color Match Paint",
+                "Clear Coat & Polish"
+              ]
+            },
+            {
+              "name": "Right Quarter Panel Paint",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Dent Repair",
+                "Surface Prep",
+                "Primer & Paint Application",
+                "Clear Coat"
+              ]
+            },
+            {
+              "name": "Right Running Board Paint",
+              "price": 1999,
+              "originalPrice": 2799,
+              "duration": "Takes 24 Hours",
+              "warranty": "2 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Durable & long lasting finish",
+              "includes": [
+                "Scratch Filling",
+                "Primer Coat",
+                "Paint Application",
+                "Clear Coat Finish"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Whole Body",
+          "packages": [
+            {
+              "name": "Full Body Dent Paint",
+              "price": 25999,
+              "originalPrice": 34999,
+              "duration": "Takes 8 Days",
+              "warranty": "2 Years Warranty",
+              "badge": "FREE DEEP ALL ROUND CLEANING",
+              "recommended": true,
+              "description": "100% color match with durable & long lasting finish",
+              "includes": [
+                "Full Body Dent Repair",
+                "Complete Surface Prep",
+                "Primer Application",
+                "Base & Clear Coat",
+                "Final Polishing & QC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Alloy Paint",
+          "packages": [
+            {
+              "name": "Alloy Wheel Paint",
+              "price": 799,
+              "originalPrice": 1199,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Year Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Price for one wheel only • Alloy preservation",
+              "includes": [
+                "Surface Cleaning",
+                "Scratch Removal",
+                "Primer Application",
+                "Paint & Clear Coat"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "insurance-claims",
+      "name": "Insurance Claims",
+      "sections": [
+        {
+          "name": "Know Your Policy",
+          "packages": [
+            {
+              "name": "Know Your Policy",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Call Within 2 Hours",
+              "warranty": "No Warranty",
+              "badge": "FREE CONSULTATION",
+              "recommended": false,
+              "description": "Get clarity on your insurance policy & claim process",
+              "includes": [
+                "Policy Review",
+                "Claim Intimation Guidance",
+                "Coverage Details Explanation",
+                "Documentation Assistance"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Accidental Repairs",
+          "packages": [
+            {
+              "name": "Accidental Denting & Painting",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "CASHLESS AVAILABLE",
+              "recommended": true,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Denting & Repair Work",
+                "Painting & Finishing",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Fire Damage Assistance",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "CASHLESS AVAILABLE",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Damage Assessment",
+                "Repair & Restoration",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Car Flood Damage",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "CASHLESS AVAILABLE",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Water Damage Assessment",
+                "Engine & Electrical Check",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Windshield Replacement (Insured)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless doorstep service",
+              "includes": [
+                "Doorstep Service Available",
+                "ISI Approved Windshield",
+                "Cashless Facility",
+                "Insurance Claim Processing"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Theft / Lost",
+          "packages": [
+            {
+              "name": "Tyres & Wheel Replacement (Insured)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "CASHLESS AVAILABLE",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Tyre & Wheel Replacement",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Battery Replacement (Insured)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Battery Replacement",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Key Replacement (Insured)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "Key Replacement & Programming",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "ECM Replacement (Insured)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 24 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For insured vehicles - Cashless facility available",
+              "includes": [
+                "Free Pickup & Drop",
+                "Dedicated Service Buddy",
+                "ECM Replacement & Programming",
+                "Insurance Claim Processing"
+              ]
+            },
+            {
+              "name": "Car Theft Claim",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Consultation",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "For insured vehicles - Complete claim assistance",
+              "includes": [
+                "Claim Intimation",
+                "Document Consultation",
+                "Co-ordination with Insurance Company",
+                "Follow-up & Settlement"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Inspection",
+          "packages": [
+            {
+              "name": "Doorstep Accidental Inspection",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "25 points checklist at your doorstep",
+              "includes": [
+                "25 Points Checklist",
+                "Damage Assessment",
+                "Repair Estimate",
+                "Claim Guidance"
+              ]
+            },
+            {
+              "name": "Towing (For Insured Vehicles)",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Free Towing",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Cashless towing facility for insured vehicles",
+              "includes": [
+                "Free Towing",
+                "Cashless Facility",
+                "Safe Vehicle Transport"
+              ]
+            },
+            {
+              "name": "Insurance Claim Inspection",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "FREE PICKUP & DROP",
+              "recommended": false,
+              "description": "Complete inspection with real-time claim tracking",
+              "includes": [
+                "Free Pick Up & Drop",
+                "Dedicated Service Buddy",
+                "Real Time Claim Tracking",
+                "Detailed Inspection Report"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "sos-service",
+      "name": "SOS Service",
+      "sections": [
+        {
+          "name": "Emergency Services",
+          "packages": [
+            {
+              "name": "Tyre Puncture",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "ROADSIDE ASSISTANCE",
+              "recommended": false,
+              "description": "Car tyre puncture & air filling assistance",
+              "includes": [
+                "Car Tyre Puncture Assistance",
+                "Tyre Air Filling Assistance",
+                "Tyre Inspection",
+                "Doorstep Service"
+              ]
+            },
+            {
+              "name": "Fuel Assistance",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Convenient doorstep fuel delivery",
+              "includes": [
+                "Fuel Delivery",
+                "Doorstep Refuelling",
+                "Quick Assistance"
+              ]
+            },
+            {
+              "name": "Battery Jumpstart",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "DOORSTEP SERVICE",
+              "recommended": true,
+              "description": "Available at your doorstep",
+              "includes": [
+                "Battery Jumpstart",
+                "Battery Health Check",
+                "Terminal Inspection",
+                "Doorstep Service"
+              ]
+            },
+            {
+              "name": "Car Engine Scanning",
+              "price": 599,
+              "originalPrice": 999,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Complete OBD-II diagnostic scan",
+              "includes": [
+                "Visual Inspection for Engine Issues",
+                "Complete OBD-II Diagnostic Scan",
+                "Engine Warning Light Check & Reset",
+                "Diagnostic Report"
+              ]
+            },
+            {
+              "name": "Car Fluid Leakage",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Identification of leakage source & recommendations",
+              "includes": [
+                "Identification of Leakage Source",
+                "Estimate & Recommendations",
+                "Fluid Level Check and Top-up",
+                "Doorstep Service"
+              ]
+            },
+            {
+              "name": "Wheel-Lift Tow (20 Kms)",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "On-site vehicle pick-up and delivery (up to 20 km)",
+              "includes": [
+                "On-site Vehicle Pick-up",
+                "Vehicle Loading & Unloading Assistance",
+                "Delivery up to 20 Kms",
+                "Safe Transport"
+              ]
+            },
+            {
+              "name": "Car Self Starter Issue",
+              "price": 599,
+              "originalPrice": 999,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Available at your doorstep",
+              "includes": [
+                "Battery Jumpstart Included",
+                "Fuse and Relay Inspection",
+                "Starter Motor Check",
+                "Doorstep Service"
+              ]
+            },
+            {
+              "name": "Flat-Bed Tow (20 Kms)",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "On-site vehicle pick-up and delivery (20 km included)",
+              "includes": [
+                "On-site Vehicle Pick-up",
+                "Flat-Bed Loading",
+                "Delivery up to 20 Kms",
+                "Doorstep Service"
+              ]
+            },
+            {
+              "name": "Clutch Breakdown",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Reliable roadside support with towing",
+              "includes": [
+                "Reliable Roadside Support",
+                "Wheel Lift Tow (up to 20 Kms)",
+                "Doorstep Service",
+                "Safe Transport"
+              ]
+            },
+            {
+              "name": "Car Flooding",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Car flood assistance & safe towing",
+              "includes": [
+                "Electrical System Inspection",
+                "Safe Vehicle Towing",
+                "Car Flood Assistance",
+                "Damage Assessment"
+              ]
+            },
+            {
+              "name": "Insurance Accident",
+              "price": 0,
+              "originalPrice": 0,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Safe towing with hassle-free insurance support",
+              "includes": [
+                "Safe Towing to Workshop",
+                "Hassle-free Insurance Support",
+                "Claim Assistance",
+                "Documentation Help"
+              ]
+            },
+            {
+              "name": "Brake Failure",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "EMERGENCY",
+              "recommended": false,
+              "description": "Quick & safe assistance at doorstep",
+              "includes": [
+                "Wheel Lift Tow (up to 10 Kms)",
+                "Doorstep Service",
+                "Quick & Safe Assistance",
+                "Brake Inspection"
+              ]
+            },
+            {
+              "name": "Wrong Fuel Emergency",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Available 24/7",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents major engine damage",
+              "includes": [
+                "Towing to Workshop",
+                "Wheel Lift Tow (up to 10 Kms)",
+                "Fuel System Flush",
+                "Prevents Engine Damage"
+              ]
+            },
+            {
+              "name": "Critical Dashboard Light",
+              "price": 599,
+              "originalPrice": 999,
+              "duration": "Takes up to 1 Hour",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Quick resolution of dashboard alerts",
+              "includes": [
+                "Dashboard Alert Diagnosis",
+                "Early Issue Detection",
+                "Avoid Costly Repairs",
+                "Diagnostic Report"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "suspension-fitments",
+      "name": "Suspension & Fitments",
+      "sections": [
+        {
+          "name": "Steering",
+          "packages": [
+            {
+              "name": "EPS Module Repair",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "NEW",
+              "recommended": false,
+              "description": "Improves steering performance",
+              "includes": [
+                "EPS Module Inspection",
+                "Module Repair",
+                "Calibration",
+                "Steering Test"
+              ]
+            },
+            {
+              "name": "Steering Rack Repair",
+              "price": 4499,
+              "originalPrice": 5999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves steering handling",
+              "includes": [
+                "Rack Inspection",
+                "Seal Replacement",
+                "Rack Repair",
+                "Power Steering Fluid Top-up",
+                "Test Drive"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Suspension",
+          "packages": [
+            {
+              "name": "Front Shock Absorber Replacement",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "FREE CAR WASH",
+              "recommended": false,
+              "description": "Reduces suspension noise - Cost for single unit",
+              "includes": [
+                "Old Shock Absorber Removal",
+                "New Shock Absorber Installation",
+                "Suspension Alignment",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Rear Shock Absorber Replacement",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Reduces suspension noise - Cost for single unit",
+              "includes": [
+                "Old Shock Absorber Removal",
+                "New Shock Absorber Installation",
+                "Suspension Check",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Suspension Lower Arm Replacement",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Cost for single unit - Spare part price only",
+              "includes": [
+                "Old Lower Arm Removal",
+                "New Lower Arm Installation",
+                "Wheel Alignment",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Link Rod Replacement",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Cost for single unit - Spare part price only",
+              "includes": [
+                "Old Link Rod Removal",
+                "New Link Rod Installation",
+                "Suspension Check"
+              ]
+            },
+            {
+              "name": "Tie Rod End Replacement",
+              "price": 1299,
+              "originalPrice": 1799,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Cost for single unit - Spare part price only",
+              "includes": [
+                "Old Tie Rod End Removal",
+                "New Tie Rod End Installation",
+                "Wheel Alignment"
+              ]
+            },
+            {
+              "name": "Complete Suspension Inspection",
+              "price": 499,
+              "originalPrice": 799,
+              "duration": "Takes 4 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "25 points check with upfront estimate",
+              "includes": [
+                "Shock Absorber Check",
+                "Spring Inspection",
+                "Bushing Check",
+                "Steering Linkage Inspection",
+                "Report & Estimate"
+              ]
+            },
+            {
+              "name": "Front Shocker Mount Replacement",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents suspension component failure - Cost for single unit",
+              "includes": [
+                "Old Mount Removal",
+                "New Mount Installation",
+                "Alignment Check",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Front Axle Repair",
+              "price": 2999,
+              "originalPrice": 3999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents car breakdown",
+              "includes": [
+                "Axle Inspection",
+                "CV Joint Repair",
+                "Boot Replacement",
+                "Greasing",
+                "Test Drive"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fitments",
+          "packages": [
+            {
+              "name": "Engine Mounting Replacement",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine damage - Spare part price only",
+              "includes": [
+                "Old Mount Removal",
+                "New Engine Mount Installation",
+                "Vibration Check"
+              ]
+            },
+            {
+              "name": "Gear Box Mounting Replacement",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine damage - Spare part price only",
+              "includes": [
+                "Old Mount Removal",
+                "New Gearbox Mount Installation",
+                "Vibration Check"
+              ]
+            },
+            {
+              "name": "Fuel Pump Replacement",
+              "price": 3499,
+              "originalPrice": 4999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Better fuel efficiency - Spare part price only",
+              "includes": [
+                "Old Pump Removal",
+                "New Fuel Pump Installation",
+                "Fuel Line Check",
+                "Performance Test"
+              ]
+            },
+            {
+              "name": "ECM Repair",
+              "price": 4999,
+              "originalPrice": 6999,
+              "duration": "Takes 8 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents electrical malfunction",
+              "includes": [
+                "ECM Diagnostic",
+                "Circuit Repair",
+                "Reprogramming",
+                "System Test"
+              ]
+            },
+            {
+              "name": "Water Pump Replacement",
+              "price": 2499,
+              "originalPrice": 3499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Prevents engine overheating",
+              "includes": [
+                "Old Pump Removal",
+                "New Water Pump Installation",
+                "Coolant Refill",
+                "Leak Test"
+              ]
+            },
+            {
+              "name": "Starter Motor Repair",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 5 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Improves battery life",
+              "includes": [
+                "Starter Motor Inspection",
+                "Brush & Solenoid Repair",
+                "Reassembly",
+                "Crank Test"
+              ]
+            },
+            {
+              "name": "Power Window Repair",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Smooth window functioning",
+              "includes": [
+                "Window Motor Inspection",
+                "Regulator Check",
+                "Repair/Replacement",
+                "Operation Test"
+              ]
+            },
+            {
+              "name": "Door Latch Replacement",
+              "price": 999,
+              "originalPrice": 1499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Smooth door functioning",
+              "includes": [
+                "Old Latch Removal",
+                "New Latch Installation",
+                "Lock Alignment",
+                "Operation Test"
+              ]
+            },
+            {
+              "name": "Mud Flaps",
+              "price": 599,
+              "originalPrice": 899,
+              "duration": "Takes 2 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Enhanced durability - Set of 4",
+              "includes": [
+                "Old Flap Removal (if any)",
+                "New Mud Flap Fitting",
+                "Alignment Check"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "tyres-wheel-care",
+      "name": "Tyres & Wheel Care",
+      "sections": [
+        {
+          "name": "Apollo",
+          "packages": [
+            {
+              "name": "Apollo Alnac 4GS",
+              "price": 3999,
+              "originalPrice": 4799,
+              "duration": "Fitting Included",
+              "warranty": "5 Years Warranty",
+              "badge": "RECOMMENDED",
+              "recommended": true,
+              "description": "Size - 175/65 R15 84H • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MRF",
+          "packages": [
+            {
+              "name": "MRF ZVTV",
+              "price": 4299,
+              "originalPrice": 5199,
+              "duration": "Fitting Included",
+              "warranty": "6 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Size - 175/65 R15 84TL • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "JK",
+          "packages": [
+            {
+              "name": "JK UX Royale",
+              "price": 3499,
+              "originalPrice": 4299,
+              "duration": "Fitting Included",
+              "warranty": "5 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Size - 175/65 R15 • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Bridgestone",
+          "packages": [
+            {
+              "name": "Bridgestone B290",
+              "price": 4499,
+              "originalPrice": 5299,
+              "duration": "Fitting Included",
+              "warranty": "5 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Size - 175/65 R15 84T • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            },
+            {
+              "name": "Bridgestone B250",
+              "price": 4799,
+              "originalPrice": 5699,
+              "duration": "Fitting Included",
+              "warranty": "5 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Size - 175/65 R15 87H • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GoodYear",
+          "packages": [
+            {
+              "name": "GoodYear Assurance TripleMax",
+              "price": 4199,
+              "originalPrice": 4999,
+              "duration": "Fitting Included",
+              "warranty": "5 Years Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Size - 175/65 R15 88S • Tubeless",
+              "includes": [
+                "Tyre Fitting",
+                "Wheel Balancing",
+                "Valve Replacement",
+                "Old Tyre Disposal"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wheel Care Services",
+          "packages": [
+            {
+              "name": "Complete Wheel Care",
+              "price": 1049,
+              "originalPrice": 1499,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "EVERY 5000 KMS / 6 MONTHS",
+              "recommended": false,
+              "description": "Alignment, balancing & rotation included",
+              "includes": [
+                "Wheel Alignment",
+                "Wheel Balancing",
+                "Tyre Rotation",
+                "Tyre Pressure Check",
+                "Visual Inspection"
+              ]
+            },
+            {
+              "name": "Mud Flaps",
+              "price": 599,
+              "originalPrice": 899,
+              "duration": "Takes 2 Hours",
+              "warranty": "No Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Enhanced durability - Set of 4",
+              "includes": [
+                "Old Flap Removal (if any)",
+                "New Mud Flap Fitting",
+                "Alignment Check"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "windshields-lights",
+      "name": "Windshield & Lights",
+      "sections": [
+        {
+          "name": "Windshields",
+          "packages": [
+            {
+              "name": "Front Windshield Replacement",
+              "price": 3999,
+              "originalPrice": 5499,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "ISI APPROVED",
+              "recommended": true,
+              "description": "ISI approved windshield - Labour Included",
+              "includes": [
+                "Old Windshield Removal",
+                "New ISI Approved Windshield Fitting",
+                "Adhesive & Sealant Application",
+                "Leak Test",
+                "Wiper Alignment"
+              ]
+            },
+            {
+              "name": "Rear Windshield Replacement",
+              "price": 2999,
+              "originalPrice": 4299,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "ISI approved windshield - Labour Included",
+              "includes": [
+                "Old Windshield Removal",
+                "New ISI Approved Windshield Fitting",
+                "Adhesive & Sealant Application",
+                "Leak Test",
+                "Defogger Connection Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Glasses",
+          "packages": [
+            {
+              "name": "Door Glass Replacement",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 6 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "AIS approved glass - Labour Included",
+              "includes": [
+                "Old Glass Removal",
+                "New AIS Approved Glass Fitting",
+                "Window Regulator Check",
+                "Seal Replacement",
+                "Operation Test"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lights",
+          "packages": [
+            {
+              "name": "Front Headlight Replacement",
+              "price": 2999,
+              "originalPrice": 4299,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "ENHANCES NIGHT DRIVING",
+              "recommended": false,
+              "description": "Enhances night driving experience",
+              "includes": [
+                "Old Headlight Removal",
+                "New Headlight Installation",
+                "Beam Alignment",
+                "Wiring Check",
+                "Light Output Test"
+              ]
+            },
+            {
+              "name": "Rear Taillight Replacement",
+              "price": 1999,
+              "originalPrice": 2999,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "Easy installation with perfect fitment",
+              "includes": [
+                "Old Taillight Removal",
+                "New Taillight Installation",
+                "Wiring Check",
+                "Bulb Test"
+              ]
+            },
+            {
+              "name": "Fog Light Replacement",
+              "price": 1499,
+              "originalPrice": 2299,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty on Fitting",
+              "badge": "",
+              "recommended": false,
+              "description": "Improved visibility in poor weather",
+              "includes": [
+                "Old Fog Light Removal",
+                "New Fog Light Installation",
+                "Beam Alignment",
+                "Wiring Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Side Mirror",
+          "packages": [
+            {
+              "name": "Side Mirror Replacement",
+              "price": 1499,
+              "originalPrice": 2199,
+              "duration": "Takes 4 Hours",
+              "warranty": "1 Month Warranty",
+              "badge": "",
+              "recommended": false,
+              "description": "Enhances overall rear visibility",
+              "includes": [
+                "Old Mirror Removal",
+                "New Mirror Installation",
+                "Adjustment & Alignment",
+                "Electrical Connection Check"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
