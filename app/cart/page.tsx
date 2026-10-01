@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/CartContext";
+import { getMccServices } from "@/lib/mcc-api";
 import { X, ShieldCheck, ChevronRight, ArrowRight, MapPin, ArrowLeft } from "lucide-react";
 
 export default function CartPage() {
@@ -27,10 +28,23 @@ export default function CartPage() {
     flatNo: "104",
   };
 
+  // Use the browser's local calendar date. `toISOString()` converts to UTC and
+  // can turn a selected Indian date into the previous day around midnight.
+  const formatLocalDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
   const days = Array.from({ length: 6 }, (_, i) => {
     const d = new Date();
     d.setDate(d.getDate() + i);
-    return { date: d.getDate(), day: d.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(), full: d.toISOString().split("T")[0] };
+    return {
+      date: d.getDate(),
+      day: d.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
+      full: formatLocalDate(d),
+    };
   });
 
   return (
@@ -238,36 +252,106 @@ export default function CartPage() {
                       isSubmitting.current = true;
 
                       const orderTotal = couponApplied ? total - 500 : total;
+                      const bookingDate = days[selectedDate].full;
+                      const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL?.replace(/\/$/, "");
 
-                      // Build order payload
-                      const orderData = {
-                        car: selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected",
-                        items: items.map(i => ({ name: i.name, price: i.price })),
-                        date: days[selectedDate].full,
-                        timeSlot: selectedSlot,
-                        address: `${name ? name + " | " : ""}${mobile ? mobile + " | " : ""}${locality} ${flatNo}`.trim(),
-                        paymentMethod,
-                        total: orderTotal,
-                      };
-
-                      // P0-2: call /api/send-order — failure must NOT block WhatsApp flow
                       try {
-                        await fetch("/api/send-order", {
+                        if (!apiBaseUrl) {
+                          throw new Error("MCC API URL is not configured.");
+                        }
+
+                        if (!items.length) {
+                          throw new Error("Your cart is empty.");
+                        }
+
+                        // The WP booking schema stores one service ID. Use the
+                        // first cart service as the primary service and keep all
+                        // cart items in notes so no selected service is lost.
+                        const services = await getMccServices();
+                        const primaryItem = items[0];
+                        const primaryService = services.find(
+                          (service) => service.title.trim().toLowerCase() === primaryItem.name.trim().toLowerCase()
+                        );
+
+                        if (!primaryService) {
+                          throw new Error(`Service "${primaryItem.name}" could not be found in the booking system.`);
+                        }
+
+                        const fuel = (selectedCar?.fuel || "").trim().toLowerCase();
+                        const supportedFuelTypes = ["petrol", "diesel", "cng", "electric", "hybrid"];
+                        const fuelType = supportedFuelTypes.includes(fuel) ? fuel : "";
+                        const address = [locality.trim(), flatNo.trim()].filter(Boolean).join(", ");
+                        const cartItemsNote = items
+                          .map((item) => `${item.name} - ₹${item.price}`)
+                          .join(", ");
+
+                        // Create the real booking in WordPress before showing
+                        // order success. This prevents a false-success order
+                        // when the backend booking was not created.
+                        const bookingResponse = await fetch(`${apiBaseUrl}/bookings`, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify(orderData),
+                          body: JSON.stringify({
+                            customer_name: name.trim(),
+                            customer_mobile: mobile.trim(),
+                            locality: address,
+                            booking_date: bookingDate,
+                            time_slot: selectedSlot,
+                            service_id: primaryService.id,
+                            vehicle_brand: selectedCar?.brand || "",
+                            vehicle_model: selectedCar?.model || "",
+                            fuel_type: fuelType,
+                            total_amount: orderTotal,
+                            payment_method: paymentMethod,
+                            vehicle_number: "",
+                            notes: `Cart services: ${cartItemsNote}`,
+                          }),
                         });
-                      } catch {
-                        // Email failure is non-blocking — continue to WhatsApp
-                        console.warn("Order email could not be sent. Continuing with WhatsApp flow.");
+
+                        let bookingResult: { success?: boolean; booking_id?: number; message?: string } = {};
+                        try {
+                          bookingResult = await bookingResponse.json();
+                        } catch {
+                          // Keep the HTTP error below as the source of truth.
+                        }
+
+                        if (!bookingResponse.ok || !bookingResult.success) {
+                          throw new Error(bookingResult.message || `Booking creation failed (HTTP ${bookingResponse.status}).`);
+                        }
+
+                        // Build order payload for the existing email flow.
+                        const orderData = {
+                          car: selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected",
+                          items: items.map(i => ({ name: i.name, price: i.price })),
+                          date: bookingDate,
+                          timeSlot: selectedSlot,
+                          address: `${name ? name + " | " : ""}${mobile ? mobile + " | " : ""}${address}`.trim(),
+                          paymentMethod,
+                          total: orderTotal,
+                        };
+
+                        // Email failure is non-blocking after the WP booking exists.
+                        try {
+                          await fetch("/api/send-order", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(orderData),
+                          });
+                        } catch {
+                          console.warn("Order email could not be sent. Continuing with WhatsApp flow.");
+                        }
+
+                        // Open WhatsApp order message (existing flow — preserved).
+                        const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${bookingDate}%0ATime: ${selectedSlot}%0AAddress: ${address}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}%0ABooking ID: ${bookingResult.booking_id || "N/A"}`;
+                        window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
+
+                        router.push("/order");
+                      } catch (error) {
+                        console.error("Booking submission failed:", error);
+                        window.alert(error instanceof Error ? error.message : "Booking could not be created. Please try again.");
+                      } finally {
+                        isSubmitting.current = false;
                       }
-
-                      // Open WhatsApp order message (existing flow — preserved)
-                      const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${days[selectedDate].full}%0ATime: ${selectedSlot}%0AAddress: ${locality} ${flatNo}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}`;
-                      window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
-
-                      isSubmitting.current = false;
-                      router.push("/order");
                     }} className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-lg flex items-center gap-2 transition-colors">
                       Place Order <ArrowRight size={18} />
                     </button>
