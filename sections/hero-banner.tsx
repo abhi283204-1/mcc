@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/lib/CartContext";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -30,6 +32,8 @@ const brandModels: Record<string, string[]> = {
 const fuelTypes = ["Petrol", "Diesel", "CNG", "Electric"];
 
 export default function HeroBanner() {
+  const router = useRouter();
+  const { setSelectedCar } = useCart();
   const [step, setStep] = useState(1);
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
@@ -50,10 +54,56 @@ export default function HeroBanner() {
     if (otp === "1234") setVerified(true);
   };
 
-  const handleSubmit = () => {
-    const msg = `New Lead:\nName: ${name}\nMobile: ${mobile}\nBrand: ${brand}\nModel: ${model}\nFuel: ${fuel}`;
-    const url = `https://wa.me/919873370404?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
+  const createLead = async () => {
+    const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL;
+
+    if (!apiBaseUrl) {
+      throw new Error("MCC API URL is not configured.");
+    }
+
+    const response = await fetch(`${apiBaseUrl.replace(/\/$/, "")}/leads`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        mobile,
+        service: "Car Service",
+        message: `Car: ${brand} ${model}; Fuel: ${fuel}`,
+        source: "website",
+      }),
+    });
+
+    const data = await response.json().catch(() => null);
+
+    if (!response.ok || !data?.success) {
+      throw new Error(data?.message || "Unable to create lead.");
+    }
+
+    return data;
+  };
+
+  const handleSubmit = async () => {
+    try {
+      // Create the website lead first. The homepage wizard does not
+      // collect service/date/time, so it must not create a booking here.
+      await createLead();
+
+      // Preserve the selected car in the shared cart context so the
+      // existing service → cart → checkout → WordPress booking flow
+      // receives the vehicle details.
+      setSelectedCar({
+        brand,
+        model,
+        fuel,
+      });
+
+      router.push("/services/car-services");
+    } catch (error) {
+      console.error("MCC lead creation failed:", error);
+      window.alert("We could not save your enquiry. Please try again.");
+    }
   };
   return (
     <>
@@ -344,10 +394,28 @@ export default function HeroBanner() {
                       disabled={!verified || !name}
                       className="flex h-[48px] w-full items-center justify-center gap-2 rounded-full bg-green-600 text-[14px] font-semibold text-white hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit via WhatsApp <ArrowRight size={16} />
+                      Continue to Book Service <ArrowRight size={16} />
                     </button>
                   )}
-                  <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      try {
+                        await createLead();
+                        const msg = `New Lead:\nName: ${name}\nMobile: ${mobile}\nBrand: ${brand}\nModel: ${model}\nFuel: ${fuel}`;
+                        const url = `https://wa.me/919873370404?text=${encodeURIComponent(msg)}`;
+                        window.open(url, "_blank");
+                      } catch (error) {
+                        console.error("MCC lead creation failed:", error);
+                        window.alert("We could not save your enquiry. Please try again.");
+                      }
+                    }}
+                    disabled={!verified || !name}
+                    className="mt-3 w-full text-[11px] font-semibold text-[#0A5BFF] hover:underline disabled:opacity-40 disabled:no-underline"
+                  >
+                    Or continue via WhatsApp
+                  </button>
+                  <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
                     <Lock size={12} />
                     Your information is safe with us
                   </p>

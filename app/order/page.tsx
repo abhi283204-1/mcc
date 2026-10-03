@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/lib/CartContext";
 import { Car, Calendar, CreditCard, FileText, ChevronDown, ChevronUp } from "lucide-react";
+
+// Basic GSTIN format: 2-digit state code + 10-char PAN + 1 digit + Z + 1 alphanumeric
+const GSTIN_REGEX = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
 
 const faqs = [
   { q: "How should I proceed after booking my car service?", a: "You can relax now! Our Service Buddy will assign the nearest workshop and a dedicated valet for the pickup of your car. Moreover, you can also take advantage of real-time service updates available right on the app." },
@@ -14,10 +17,72 @@ const faqs = [
 ];
 
 export default function OrderPage() {
-  const { total, selectedCar } = useCart();
+  const { selectedCar } = useCart();
   const [openFaq, setOpenFaq] = useState(0);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const orderId = `MCC${Date.now()}`;
+
+  // Customer name — written by cart page after successful booking
+  const [customerName, setCustomerName] = useState<string>("");
+
+  // Server-authoritative financial figures — written by cart page from booking API response.
+  // These come from the WordPress booking record (_mcc_total_amount, _mcc_coupon_discount,
+  // _mcc_cart_subtotal) and are stored in sessionStorage immediately after booking creation.
+  const [orderTotal, setOrderTotal] = useState<number>(0);
+  const [couponDiscount, setCouponDiscount] = useState<number>(0);
+  const [couponCode, setCouponCode] = useState<string>("");
+  const [bookingId, setBookingId] = useState<string>("");
+
+  // GSTIN state
+  const [gstin, setGstin] = useState("");
+  const [gstinSaved, setGstinSaved] = useState(false);
+  const [gstinError, setGstinError] = useState("");
+  const [savedGstin, setSavedGstin] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("mcc_customer_name");
+    if (stored) setCustomerName(stored);
+
+    // Server-side financial figures stored by cart page after booking API response.
+    // total_amount is the server-calculated final total (after coupon deduction).
+    const storedTotal    = sessionStorage.getItem("mcc_order_total");
+    const storedDiscount = sessionStorage.getItem("mcc_order_coupon_discount");
+    const storedCode     = sessionStorage.getItem("mcc_order_coupon_code");
+    const storedId       = sessionStorage.getItem("mcc_order_booking_id");
+
+    if (storedTotal    !== null) setOrderTotal(parseFloat(storedTotal) || 0);
+    if (storedDiscount !== null) setCouponDiscount(parseFloat(storedDiscount) || 0);
+    if (storedCode     !== null) setCouponCode(storedCode);
+    if (storedId       !== null) setBookingId(storedId);
+
+    // Restore any previously saved GSTIN for this session
+    const storedGstin = sessionStorage.getItem("mcc_order_gstin");
+    if (storedGstin) {
+      setSavedGstin(storedGstin);
+      setGstin(storedGstin);
+      setGstinSaved(true);
+    }
+  }, []);
+
+  const handleGstinSubmit = () => {
+    const trimmed = gstin.trim().toUpperCase();
+    if (!trimmed) {
+      setGstinError("Please enter your GSTIN.");
+      return;
+    }
+    if (!GSTIN_REGEX.test(trimmed)) {
+      setGstinError("Invalid GSTIN format. Please check and re-enter.");
+      return;
+    }
+    sessionStorage.setItem("mcc_order_gstin", trimmed);
+    setSavedGstin(trimmed);
+    setGstinSaved(true);
+    setGstinError("");
+  };
+
+  // Use the real booking ID from the server when available; otherwise
+  // generate a display-only ID. bookingId is stable because it is read
+  // once from sessionStorage inside useEffect.
+  const displayOrderId = bookingId ? `MCC${bookingId}` : "";
   const now = new Date();
   const dateStr = `${now.getDate()} ${now.toLocaleDateString("en-US", { month: "short" })} ${now.getFullYear()}, ${now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`;
 
@@ -37,13 +102,17 @@ export default function OrderPage() {
         <p className="text-sm mb-6">
           <span className="text-primary font-bold">ONGOING ORDERS</span>
           <span className="text-gray-500"> &gt; </span>
-          <span className="font-bold text-gray-900">ORDER # {orderId}</span>
+          <span className="font-bold text-gray-900">
+            {displayOrderId ? `ORDER # ${displayOrderId}` : "ORDER CONFIRMED"}
+          </span>
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
           {/* LEFT COLUMN */}
           <div>
-            <h2 className="text-primary font-bold text-lg mb-1">Hi Abhishek sharma!</h2>
+            <h2 className="text-primary font-bold text-lg mb-1">
+              Hi {customerName || "Customer"}!
+            </h2>
             <p className="text-gray-700 mb-8">We are working on your order.</p>
 
             {/* Order Details */}
@@ -52,14 +121,18 @@ export default function OrderPage() {
                 <Car size={24} className="text-gray-400 mt-0.5" />
                 <div>
                   <p className="text-sm text-gray-500">Car details</p>
-                  <p className="font-medium text-gray-900">{selectedCar ? `${selectedCar.brand} ${selectedCar.model}, ${selectedCar.fuel}` : "Selected Car"}</p>
+                  <p className="font-medium text-gray-900">
+                    {selectedCar ? `${selectedCar.brand} ${selectedCar.model}, ${selectedCar.fuel}` : "Selected Car"}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Calendar size={24} className="text-gray-400 mt-0.5" />
                 <div>
                   <p className="text-sm text-gray-500">Pickup Date</p>
-                  <p className="font-medium text-gray-900">{now.getDate()} {now.toLocaleDateString("en-US", { month: "long" })}, {now.getFullYear()}, 17:00:00</p>
+                  <p className="font-medium text-gray-900">
+                    {now.getDate()} {now.toLocaleDateString("en-US", { month: "long" })}, {now.getFullYear()}, 17:00:00
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -67,19 +140,66 @@ export default function OrderPage() {
                 <div className="flex items-center gap-4">
                   <div>
                     <p className="text-sm text-gray-500">Payment History</p>
-                    <p className="font-medium text-gray-900">Amount Pending: Rs. {total || 2198}</p>
+                    <p className="font-medium text-gray-900">
+                      Amount Pending: ₹{orderTotal.toFixed(2)}
+                    </p>
                   </div>
-                  <button onClick={() => setShowPaymentModal(true)} className="text-primary text-sm font-semibold hover:underline">View details</button>
+                  <button
+                    onClick={() => setShowPaymentModal(true)}
+                    className="text-primary text-sm font-semibold hover:underline"
+                  >
+                    View details
+                  </button>
                 </div>
               </div>
+
+              {/* GSTIN input */}
               <div className="flex items-start gap-4">
                 <FileText size={24} className="text-gray-400 mt-0.5" />
                 <div>
                   <p className="text-sm text-gray-500">Save GST on this Booking</p>
-                  <div className="flex items-center gap-2 mt-1">
-                    <input type="text" placeholder="Enter GSTIN" className="border border-gray-300 rounded px-3 py-2 text-sm w-48 focus:outline-none focus:border-primary" />
-                    <button className="text-primary font-semibold text-sm">Submit</button>
-                  </div>
+                  {gstinSaved && savedGstin ? (
+                    <div className="mt-1">
+                      <p className="text-sm text-green-700 font-medium">GSTIN saved: {savedGstin}</p>
+                      <button
+                        onClick={() => {
+                          setGstinSaved(false);
+                          setSavedGstin(null);
+                          setGstin("");
+                          setGstinError("");
+                          sessionStorage.removeItem("mcc_order_gstin");
+                        }}
+                        className="text-xs text-primary underline mt-1"
+                      >
+                        Change GSTIN
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="mt-1">
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          placeholder="Enter GSTIN"
+                          value={gstin}
+                          onChange={(e) => {
+                            setGstin(e.target.value.toUpperCase());
+                            setGstinError("");
+                          }}
+                          className="border border-gray-300 rounded px-3 py-2 text-sm w-48 focus:outline-none focus:border-primary"
+                          maxLength={15}
+                        />
+                        <button
+                          onClick={handleGstinSubmit}
+                          className="text-primary font-semibold text-sm hover:underline"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                      {gstinError && (
+                        <p className="text-xs text-red-600 mt-1">{gstinError}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -91,8 +211,13 @@ export default function OrderPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-500">Service Buddy</p>
-                <p className="font-medium text-gray-900 mb-1">A service buddy will be assigned soon. For any queries, call 9873370404</p>
-                <p className="text-sm text-gray-600">Mittal Car Care Service Buddy is your eyes and ears on the ground and will be managing your complete service experience. Please get in touch in case of any queries.</p>
+                <p className="font-medium text-gray-900 mb-1">
+                  A service buddy will be assigned soon. For any queries, call 9873370404
+                </p>
+                <p className="text-sm text-gray-600">
+                  Mittal Car Care Service Buddy is your eyes and ears on the ground and will be managing
+                  your complete service experience. Please get in touch in case of any queries.
+                </p>
               </div>
             </div>
           </div>
@@ -141,38 +266,55 @@ export default function OrderPage() {
 
       {/* Payment History Modal */}
       {showPaymentModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={() => setShowPaymentModal(false)}>
-          <div className="bg-white rounded-xl w-[90%] max-w-[700px] p-6 relative" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+          onClick={() => setShowPaymentModal(false)}
+        >
+          <div
+            className="bg-white rounded-xl w-[90%] max-w-[700px] p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-gray-900">Payment History</h3>
-              <button onClick={() => setShowPaymentModal(false)} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+              <button
+                onClick={() => setShowPaymentModal(false)}
+                className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+              >
+                &times;
+              </button>
             </div>
             <hr className="border-gray-200 mb-5" />
             <div className="grid grid-cols-2 gap-y-5 gap-x-8">
               <div>
                 <p className="text-sm text-gray-500">Order #</p>
-                <p className="font-medium text-gray-900">{orderId}</p>
+                <p className="font-medium text-gray-900">{displayOrderId || "—"}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Total Bill</p>
-                <p className="font-medium text-gray-900">Rs. {total || 2198}</p>
+                <p className="font-medium text-gray-900">₹{orderTotal.toFixed(2)}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Amount paid</p>
-                <p className="font-medium text-gray-900">Rs. 0</p>
+                <p className="text-sm text-gray-500">Amount Paid</p>
+                <p className="font-medium text-gray-900">₹0.00</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Amount Pending</p>
-                <p className="font-medium text-gray-900">Rs. {total || 2198}</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Go App Money</p>
-                <p className="font-medium text-gray-900">Rs. 0</p>
+                <p className="font-medium text-gray-900">₹{orderTotal.toFixed(2)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Discount Applied</p>
-                <p className="font-medium text-gray-900">Rs. 0</p>
+                <p className="font-medium text-gray-900">
+                  {couponDiscount > 0
+                    ? `₹${couponDiscount.toFixed(2)}${couponCode ? ` (${couponCode})` : ""}`
+                    : "₹0.00"}
+                </p>
               </div>
+              {savedGstin && (
+                <div>
+                  <p className="text-sm text-gray-500">GSTIN</p>
+                  <p className="font-medium text-gray-900">{savedGstin}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -6,6 +6,24 @@ import { useCart } from "@/lib/CartContext";
 import { getMccServices } from "@/lib/mcc-api";
 import { X, ShieldCheck, ChevronRight, ArrowRight, MapPin, ArrowLeft } from "lucide-react";
 
+// Shape of a coupon returned by GET /mcc/v1/coupons
+interface AvailableCoupon {
+  code: string;
+  discount_type: "percentage" | "fixed";
+  discount_value: number;
+  max_discount: number | null;
+  min_order: number | null;
+  expiry_date: string | null;
+}
+
+/** Format a coupon's headline discount text, e.g. "25% OFF" or "₹500 OFF" */
+function formatCouponHeadline(coupon: AvailableCoupon): string {
+  if (coupon.discount_type === "percentage") {
+    return `${coupon.discount_value}% OFF`;
+  }
+  return `₹${coupon.discount_value.toFixed(0)} OFF`;
+}
+
 export default function CartPage() {
   const { items, removeItem, total, selectedCar } = useCart();
   const router = useRouter();
@@ -13,7 +31,14 @@ export default function CartPage() {
   const [selectedSlot, setSelectedSlot] = useState("5 - 6PM");
   const [step, setStep] = useState<"datetime" | "address" | "payment">("datetime");
   const [showCoupon, setShowCoupon] = useState(false);
-  const [couponApplied, setCouponApplied] = useState(false);
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; discount: number } | null>(null);
+  const [couponError, setCouponError] = useState("");
+  const [couponLoading, setCouponLoading] = useState(false);
+  // Available coupons fetched from WordPress
+  const [availableCoupons, setAvailableCoupons] = useState<AvailableCoupon[]>([]);
+  const [couponsLoading, setCouponsLoading] = useState(false);
+  const [couponsError, setCouponsError] = useState("");
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [locality, setLocality] = useState("");
@@ -64,7 +89,11 @@ export default function CartPage() {
             {/* Logged In */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h2 className="text-lg font-bold text-gray-900 mb-1">Logged In</h2>
-              <p className="text-gray-500">Abhishek sharma | 8800752884</p>
+              <p className="text-gray-500">
+                {name || mobile
+                  ? [name, mobile].filter(Boolean).join(" | ")
+                  : "Please fill in your details below"}
+              </p>
             </div>
 
             {/* Date & Time Section */}
@@ -251,7 +280,7 @@ export default function CartPage() {
                       if (isSubmitting.current) return;
                       isSubmitting.current = true;
 
-                      const orderTotal = couponApplied ? total - 500 : total;
+                      const orderTotal = Math.max(0, total - (appliedCoupon?.discount || 0));
                       const bookingDate = days[selectedDate].full;
                       const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL?.replace(/\/$/, "");
 
@@ -298,17 +327,22 @@ export default function CartPage() {
                             booking_date: bookingDate,
                             time_slot: selectedSlot,
                             service_id: primaryService.id,
+                            cart_items: items.map((item) => ({
+                              id: item.id,
+                            })),
                             vehicle_brand: selectedCar?.brand || "",
                             vehicle_model: selectedCar?.model || "",
                             fuel_type: fuelType,
                             total_amount: orderTotal,
+                            coupon_code: appliedCoupon?.code || "",
+                            coupon_discount: appliedCoupon?.discount || 0,
                             payment_method: paymentMethod,
                             vehicle_number: "",
                             notes: `Cart services: ${cartItemsNote}`,
                           }),
                         });
 
-                        let bookingResult: { success?: boolean; booking_id?: number; message?: string } = {};
+                        let bookingResult: { success?: boolean; booking_id?: number; message?: string; total_amount?: number; cart_subtotal?: number; coupon_code?: string; coupon_discount?: number } = {};
                         try {
                           bookingResult = await bookingResponse.json();
                         } catch {
@@ -344,6 +378,21 @@ export default function CartPage() {
                         // Open WhatsApp order message (existing flow — preserved).
                         const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${bookingDate}%0ATime: ${selectedSlot}%0AAddress: ${address}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}%0ABooking ID: ${bookingResult.booking_id || "N/A"}`;
                         window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
+
+                        // Pass customer name to the order confirmation page via
+                        // sessionStorage. Mobile is intentionally NOT stored here.
+                        if (name.trim()) {
+                          sessionStorage.setItem("mcc_customer_name", name.trim());
+                        }
+
+                        // Store the server-authoritative financial figures so the
+                        // Order Confirmation page can display them without relying
+                        // on local cart state (which does not survive navigation).
+                        sessionStorage.setItem("mcc_order_total",            String(bookingResult.total_amount    ?? orderTotal));
+                        sessionStorage.setItem("mcc_order_subtotal",         String(bookingResult.cart_subtotal   ?? total));
+                        sessionStorage.setItem("mcc_order_coupon_discount",  String(bookingResult.coupon_discount ?? 0));
+                        sessionStorage.setItem("mcc_order_coupon_code",      bookingResult.coupon_code            ?? "");
+                        sessionStorage.setItem("mcc_order_booking_id",       String(bookingResult.booking_id      ?? ""));
 
                         router.push("/order");
                       } catch (error) {
@@ -388,16 +437,34 @@ export default function CartPage() {
               </div>
 
               {/* Apply Coupon */}
-              {couponApplied ? (
+              {appliedCoupon ? (
                 <div className="flex items-center justify-between py-3 px-4 border border-gray-200 rounded-lg mb-4 bg-green-50">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">🎟️</span>
-                    <span className="font-semibold text-gray-800">SAVINGS25 - Coupon Applied</span>
+                    <span className="font-semibold text-gray-800">{appliedCoupon.code} - Coupon Applied</span>
                   </div>
-                  <button onClick={() => setCouponApplied(false)} className="text-gray-400 hover:text-red-500"><X size={16} /></button>
+                  <button onClick={() => setAppliedCoupon(null)} className="text-gray-400 hover:text-red-500"><X size={16} /></button>
                 </div>
               ) : (
-                <button onClick={() => setShowCoupon(true)} className="w-full flex items-center justify-between py-3 px-4 border border-gray-200 rounded-lg mb-4 hover:bg-gray-50 transition-colors">
+                <button onClick={() => {
+                  setCouponError("");
+                  setShowCoupon(true);
+                  // Fetch available coupons when the panel opens (lazy load)
+                  const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL?.replace(/\/$/, "");
+                  if (apiBaseUrl && availableCoupons.length === 0 && !couponsLoading) {
+                    setCouponsLoading(true);
+                    setCouponsError("");
+                    fetch(`${apiBaseUrl}/coupons`)
+                      .then((r) => r.json())
+                      .then((data: AvailableCoupon[]) => {
+                        setAvailableCoupons(Array.isArray(data) ? data : []);
+                      })
+                      .catch(() => {
+                        setCouponsError("Could not load available coupons.");
+                      })
+                      .finally(() => setCouponsLoading(false));
+                  }
+                }} className="w-full flex items-center justify-between py-3 px-4 border border-gray-200 rounded-lg mb-4 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">🎟️</span>
                     <span className="font-semibold text-gray-800">Apply Coupon</span>
@@ -413,15 +480,15 @@ export default function CartPage() {
                   <span>Item Total</span>
                   <span>₹ {total}</span>
                 </div>
-                {couponApplied && (
+                {appliedCoupon && (
                   <div className="flex justify-between text-sm text-green-600 mb-2">
                     <span>Coupon Discount</span>
-                    <span>- ₹ 500</span>
+                    <span>- ₹ {appliedCoupon.discount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between font-bold text-gray-900 text-base pt-3 border-t border-gray-200">
                   <span>You Pay</span>
-                  <span>{couponApplied ? total - 500 : total}</span>
+                  <span>₹ {Math.max(0, total - (appliedCoupon?.discount || 0)).toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -436,46 +503,149 @@ export default function CartPage() {
           <div className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl overflow-y-auto">
             <div className="sticky top-0 bg-gray-800 text-white px-5 py-4 flex items-center gap-3">
               <button onClick={() => setShowCoupon(false)}><ArrowLeft size={20} /></button>
-              <h2 className="font-bold">Apply Coupon | MCC Money</h2>
+              <h2 className="font-bold">Apply Coupon</h2>
             </div>
 
             <div className="p-5">
-              {/* Coupon input */}
-              <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-6">
-                <input type="text" placeholder="Enter coupon code" className="flex-1 px-4 py-3 text-sm focus:outline-none" />
-                <button className="px-4 py-3 text-primary font-bold text-sm hover:bg-gray-50">APPLY</button>
+              {/* Manual coupon input — always visible */}
+              <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-2">
+                <input
+                  type="text"
+                  placeholder="Enter coupon code"
+                  value={couponCode}
+                  onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
+                  className="flex-1 px-4 py-3 text-sm focus:outline-none"
+                  disabled={couponLoading}
+                />
+                <button
+                  onClick={async () => {
+                    const code = couponCode.trim();
+                    if (!code) { setCouponError("Please enter a coupon code."); return; }
+                    const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL?.replace(/\/$/, "");
+                    if (!apiBaseUrl) { setCouponError("MCC API URL is not configured."); return; }
+                    setCouponLoading(true);
+                    setCouponError("");
+                    try {
+                      const response = await fetch(`${apiBaseUrl}/coupons/validate`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          code,
+                          cart_items: items.map((item) => ({ id: item.id })),
+                        }),
+                      });
+                      const result = await response.json();
+                      if (!response.ok || !result.success) throw new Error(result.message || "Invalid coupon.");
+                      setAppliedCoupon({
+                        code: result.coupon_code || code,
+                        discount: Number(result.discount) || 0,
+                      });
+                      setShowCoupon(false);
+                    } catch (error) {
+                      setCouponError(error instanceof Error ? error.message : "Coupon could not be applied.");
+                    } finally {
+                      setCouponLoading(false);
+                    }
+                  }}
+                  className="px-4 py-3 text-primary font-bold text-sm hover:bg-gray-50 disabled:opacity-50"
+                  disabled={couponLoading}
+                >
+                  {couponLoading ? "..." : "APPLY"}
+                </button>
               </div>
+              {couponError && <p className="text-sm text-red-600 mb-4">{couponError}</p>}
+              {!couponError && <div className="mb-4" />}
 
-              {/* MCC Money */}
-              <h3 className="font-bold text-gray-900 mb-3">MCC Money</h3>
-              <div className="border border-gray-200 rounded-lg p-4 mb-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <span className="text-yellow-600 font-bold text-sm">M</span>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Available Balance</p>
-                      <p className="font-bold text-gray-900">₹ 4500</p>
-                    </div>
+              {/* Available Coupons from WordPress */}
+              <div className="border-t border-gray-100 pt-4">
+                <h3 className="font-bold text-gray-900 text-sm mb-3">Available Coupons</h3>
+
+                {couponsLoading && (
+                  <p className="text-sm text-gray-400 py-4 text-center">Loading coupons…</p>
+                )}
+
+                {!couponsLoading && couponsError && (
+                  <p className="text-sm text-gray-400 py-2">{couponsError}</p>
+                )}
+
+                {!couponsLoading && !couponsError && availableCoupons.length === 0 && (
+                  <p className="text-sm text-gray-400 py-2">No active coupons available right now.</p>
+                )}
+
+                {!couponsLoading && !couponsError && availableCoupons.length > 0 && (
+                  <div className="space-y-3">
+                    {availableCoupons.map((coupon) => (
+                      <div
+                        key={coupon.code}
+                        className="border border-gray-200 rounded-xl p-4"
+                      >
+                        {/* Code + headline */}
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <div>
+                            <span className="inline-block border-2 border-dashed border-primary text-primary font-bold text-sm px-3 py-1 rounded mb-1">
+                              {coupon.code}
+                            </span>
+                            <p className="text-sm font-semibold text-gray-900">
+                              {formatCouponHeadline(coupon)}
+                            </p>
+                          </div>
+                          <button
+                            onClick={async () => {
+                              const apiBaseUrl = process.env.NEXT_PUBLIC_MCC_API_URL?.replace(/\/$/, "");
+                              if (!apiBaseUrl) { setCouponError("MCC API URL is not configured."); return; }
+                              setCouponLoading(true);
+                              setCouponError("");
+                              try {
+                                const response = await fetch(`${apiBaseUrl}/coupons/validate`, {
+                                  method: "POST",
+                                  headers: { "Content-Type": "application/json" },
+                                  body: JSON.stringify({
+                                    code: coupon.code,
+                                    cart_items: items.map((item) => ({ id: item.id })),
+                                  }),
+                                });
+                                const result = await response.json();
+                                if (!response.ok || !result.success) throw new Error(result.message || "Coupon could not be applied.");
+                                setAppliedCoupon({
+                                  code: result.coupon_code || coupon.code,
+                                  discount: Number(result.discount) || 0,
+                                });
+                                setShowCoupon(false);
+                              } catch (error) {
+                                setCouponError(error instanceof Error ? error.message : "Coupon could not be applied.");
+                              } finally {
+                                setCouponLoading(false);
+                              }
+                            }}
+                            disabled={couponLoading}
+                            className="text-primary font-bold text-sm hover:underline disabled:opacity-50 flex-shrink-0 mt-1"
+                          >
+                            {couponLoading ? "..." : "APPLY"}
+                          </button>
+                        </div>
+
+                        {/* Details */}
+                        <div className="space-y-0.5">
+                          {coupon.max_discount !== null && (
+                            <p className="text-xs text-gray-500">
+                              Maximum discount ₹{coupon.max_discount.toFixed(0)}
+                            </p>
+                          )}
+                          {coupon.min_order !== null && (
+                            <p className="text-xs text-gray-500">
+                              Minimum order ₹{coupon.min_order.toFixed(0)}
+                            </p>
+                          )}
+                          {coupon.expiry_date && (
+                            <p className="text-xs text-gray-400">
+                              Valid till {coupon.expiry_date}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <button className="text-primary font-bold text-sm">APPLY</button>
-                </div>
-                <p className="text-xs text-gray-500 mt-2">You Can Use 50% Of MCC Money On An Order</p>
-              </div>
-
-              {/* Available Offers */}
-              <h3 className="font-bold text-gray-900 mb-3">Available Offers</h3>
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <img src="/images/logo.png" alt="MCC" className="h-6" />
-                </div>
-                <p className="font-bold text-sm text-gray-900 mb-1">25% OFF (Up To ₹500) On All Services.</p>
-                <button className="text-xs text-gray-500 hover:text-gray-700 mb-3">View T&C ∨</button>
-                <div className="border-t border-gray-200 pt-3 flex items-center justify-between">
-                  <span className="border-2 border-dashed border-gray-400 px-3 py-1 rounded text-sm font-bold text-gray-800">SAVINGS25</span>
-                  <button onClick={() => { setCouponApplied(true); setShowCoupon(false); }} className="text-primary font-bold text-sm">APPLY</button>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -484,3 +654,4 @@ export default function CartPage() {
     </div>
   );
 }
+

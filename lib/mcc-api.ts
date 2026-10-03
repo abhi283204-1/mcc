@@ -125,6 +125,7 @@ export async function getMccServiceByTitle(
 }
 
 export interface MccPackage {
+  id?: number;
   name: string;
   duration: string;
   warranty: string;
@@ -148,6 +149,7 @@ export function mergePackageWithMccService(
 
   return {
     ...pkg,
+    id: service.id,
     price: service.price ?? pkg.price,
     originalPrice: service.original_price ?? pkg.originalPrice,
     duration: service.duration ?? pkg.duration,
@@ -186,3 +188,4 @@ export function mergePackagesWithMccServices(
     return mergePackageWithMccService(pkg, service ?? null);
   });
 }
+

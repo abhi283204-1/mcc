@@ -5,6 +5,7 @@ import { Clock, Award, CheckCircle2 } from "lucide-react";
 import { useCart } from "@/lib/CartContext";
 
 interface PackageCardProps {
+  id?: number;
   name: string;
   duration: string;
   warranty: string;
@@ -19,6 +20,7 @@ interface PackageCardProps {
 }
 
 export default function PackageCard({
+  id,
   name,
   duration,
   warranty,
@@ -35,7 +37,7 @@ export default function PackageCard({
 
   const handleAddToCart = () => {
     if (price) {
-      addItem({ name, price, originalPrice });
+      addItem({ id, name, price, originalPrice });
       router.push("/cart");
     }
   };
