@@ -1,131 +1,106 @@
 "use client";
+
 import { MapPin, Mail, Phone } from "lucide-react";
 import { FOOTER_LINKS, CONTACT_INFO } from "@/lib/constants";
 
+const SOCIAL_ICONS = {
+  facebook: "/images/Icons/fb.png",
+  instagram: "/images/Icons/insta.png",
+  whatsapp: "/images/Icons/whatsapp.png",
+  youtube: "/images/Icons/yt.png",
+} as const;
+
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto max-w-7xl px-4 py-12">
-        {/* Desktop layout - 4 columns */}
-        <div className="hidden md:grid md:grid-cols-4 gap-8">
-          {/* Logo & About */}
-          <div>
-            <img src="/images/logo.png" alt="Mittal Car Care" className="h-24 mb-3" />
-            <p className="text-sm leading-relaxed mb-4">Professional car care services with trust, quality & transparency. Your car is in safe hands.</p>
-            <div className="flex gap-3">
-              {(["facebook", "instagram", "whatsapp", "youtube"] as const).map((s) => {
-                const icons: Record<string, string> = { facebook: "/images/Icons/fb.png", instagram: "/images/Icons/insta.png", whatsapp: "/images/Icons/whatsapp.png", youtube: "/images/Icons/yt.png" };
-                return (
-                  <a key={s} href={CONTACT_INFO.socials[s]} className="flex items-center justify-center hover:opacity-80 transition-opacity">
-                    <img src={icons[s]} alt={s} className="h-7" />
-                  </a>
-                );
-              })}
+    <footer id="footer" className="w-full overflow-hidden bg-gray-900 text-gray-300">
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+        <div className="grid min-w-0 grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1.15fr_1.35fr] lg:gap-x-6 xl:gap-x-8">
+          {/* Logo and company information */}
+          <div className="min-w-0">
+            <img
+              src="/images/logo.png"
+              alt="Mittal Car Care"
+              className="mb-3 h-20 w-auto max-w-full object-contain object-left sm:h-24"
+            />
+            <p className="mb-4 max-w-sm text-sm leading-relaxed">
+              Professional car care services with trust, quality &amp; transparency. Your car is in safe hands.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              {(Object.keys(SOCIAL_ICONS) as Array<keyof typeof SOCIAL_ICONS>).map((social) => (
+                <a
+                  key={social}
+                  href={CONTACT_INFO.socials[social]}
+                  aria-label={social}
+                  className="flex shrink-0 items-center justify-center transition-opacity hover:opacity-80"
+                >
+                  <img src={SOCIAL_ICONS[social]} alt="" className="h-7 w-auto object-contain" loading="lazy" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold mb-4">Quick Links</h4>
-            <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
+          {/* Quick links */}
+          <div className="min-w-0">
+            <h4 className="mb-4 font-bold text-white">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-x-3 gap-y-2 sm:gap-x-4">
               {FOOTER_LINKS.quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</a>
+                <li key={link.label} className="min-w-0">
+                  <a
+                    href={link.href}
+                    className="break-words text-sm leading-6 transition-colors hover:text-primary [overflow-wrap:anywhere]"
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Our Services - 2 sub-columns */}
-          <div>
-            <h4 className="text-white font-bold mb-4">Our Services</h4>
-            <ul className="columns-2 gap-x-4">
+          {/* Services */}
+          <div className="min-w-0">
+            <h4 className="mb-4 font-bold text-white">Our Services</h4>
+            <ul className="grid grid-cols-2 gap-x-3 gap-y-2 sm:gap-x-4">
               {FOOTER_LINKS.services.map((service) => (
-                <li key={service.label} className="mb-1">
-                  <a href={service.href} className="text-sm hover:text-primary transition-colors leading-tight">{service.label}</a>
+                <li key={service.label} className="min-w-0">
+                  <a
+                    href={service.href}
+                    className="break-words text-sm leading-6 transition-colors hover:text-primary [overflow-wrap:anywhere]"
+                  >
+                    {service.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Us */}
-          <div>
-            <h4 className="text-white font-bold mb-4">Contact Us</h4>
+          {/* Contact */}
+          <div className="min-w-0">
+            <h4 className="mb-4 font-bold text-white">Contact Us</h4>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm">
-                <MapPin className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
-                <span className="font-semibold text-white uppercase">{CONTACT_INFO.address}</span>
+              <li className="flex min-w-0 items-start gap-2 text-sm">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white" />
+                <span className="min-w-0 break-words font-semibold uppercase leading-6 text-white [overflow-wrap:anywhere]">
+                  {CONTACT_INFO.address}
+                </span>
               </li>
-              <li className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-white flex-shrink-0" />
-                <span>{CONTACT_INFO.email}</span>
+              <li className="flex min-w-0 items-start gap-2 text-sm">
+                <Mail className="mt-1 h-4 w-4 shrink-0 text-white" />
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="min-w-0 break-all leading-6 transition-colors hover:text-primary"
+                >
+                  {CONTACT_INFO.email}
+                </a>
               </li>
               {CONTACT_INFO.phones.map((phone) => (
-                <li key={phone} className="flex items-center gap-2 text-sm">
-                  <Phone className="w-4 h-4 text-white flex-shrink-0" />
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-white font-semibold hover:opacity-80 transition-opacity">{phone}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Mobile layout - stacked */}
-        <div className="md:hidden">
-          <div className="text-center mb-8">
-            <div className="flex justify-center mb-4">
-              <img src="/images/logo.png" alt="Mittal Car Care" className="h-20" />
-            </div>
-            <p className="text-sm leading-relaxed max-w-md mx-auto mb-5">Professional car care services with trust, quality & transparency. Your car is in safe hands.</p>
-            <div className="flex justify-center gap-4">
-              {(["facebook", "instagram", "whatsapp", "youtube"] as const).map((s) => {
-                const icons: Record<string, string> = { facebook: "/images/Icons/fb.png", instagram: "/images/Icons/insta.png", whatsapp: "/images/Icons/whatsapp.png", youtube: "/images/Icons/yt.png" };
-                return (
-                  <a key={s} href={CONTACT_INFO.socials[s]} className="flex items-center justify-center hover:opacity-80 transition-opacity">
-                    <img src={icons[s]} alt={s} className="h-9" />
+                <li key={phone} className="flex min-w-0 items-start gap-2 text-sm">
+                  <Phone className="mt-1 h-4 w-4 shrink-0 text-white" />
+                  <a
+                    href={`tel:${phone.replace(/\\s/g, "")}`}
+                    className="min-w-0 break-words font-semibold leading-6 text-white transition-opacity hover:opacity-80 [overflow-wrap:anywhere]"
+                  >
+                    {phone}
                   </a>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <h4 className="text-white font-bold mb-4">Quick Links</h4>
-            <ul className="grid grid-cols-2 gap-y-2 gap-x-8">
-              {FOOTER_LINKS.quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mb-8">
-            <h4 className="text-white font-bold mb-4">Our Services</h4>
-            <ul className="grid grid-cols-2 gap-y-2 gap-x-8">
-              {FOOTER_LINKS.services.map((service) => (
-                <li key={service.label}>
-                  <a href={service.href} className="text-sm hover:text-primary transition-colors">{service.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mb-8">
-            <h4 className="text-white font-bold mb-4">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm">
-                <MapPin className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
-                <span className="font-semibold text-white uppercase">{CONTACT_INFO.address}</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm">
-                <Mail className="w-5 h-5 text-white flex-shrink-0" />
-                <span>{CONTACT_INFO.email}</span>
-              </li>
-              {CONTACT_INFO.phones.map((phone) => (
-                <li key={phone} className="flex items-center gap-3 text-sm">
-                  <Phone className="w-5 h-5 text-white flex-shrink-0" />
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-white font-semibold hover:opacity-80 transition-opacity">{phone}</a>
                 </li>
               ))}
             </ul>
@@ -133,10 +108,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="border-t border-gray-800">
-        <div className="container mx-auto max-w-7xl px-4 py-4">
-          <p className="text-center text-sm text-white">© {new Date().getFullYear()} Mittal Car Care. All Rights Reserved.</p>
+        <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs leading-5 text-white sm:text-sm">
+            © {new Date().getFullYear()} Mittal Car Care. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>

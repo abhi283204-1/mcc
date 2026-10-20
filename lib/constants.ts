@@ -102,6 +102,33 @@ export const BRANDS = [
   { name: "Audi", logo: "/images/brands/audi.png" },
 ];
 
+/**
+ * Canonical model list per brand.
+ * Single source of truth used by CarBrandGrid, HeroBanner, and SelectCarPage.
+ */
+export const BRAND_MODELS: Record<string, string[]> = {
+  "Maruti Suzuki": ["Swift", "Baleno", "Dzire", "Brezza", "Alto", "WagonR", "Ertiga", "Ciaz", "Ignis", "S-Cross", "XL6"],
+  "Hyundai": ["i20", "Creta", "Venue", "Verna", "i10 Grand", "Tucson", "Alcazar", "Aura", "Santro", "Exter"],
+  "Tata": ["Nexon", "Punch", "Harrier", "Safari", "Altroz", "Tiago", "Tigor", "Zest"],
+  "Honda": ["City", "Amaze", "WR-V", "Jazz", "Civic", "Elevate"],
+  "Toyota": ["Innova", "Fortuner", "Glanza", "Urban Cruiser", "Camry", "Hilux"],
+  "KIA": ["Seltos", "Sonet", "Carens", "EV6", "Carnival"],
+  "Mahindra": ["XUV700", "Thar", "Scorpio", "XUV300", "Bolero", "XUV400"],
+  "BMW": ["3 Series", "5 Series", "X1", "X3", "X5", "7 Series"],
+  "Mercedes-Benz": ["C-Class", "E-Class", "GLC", "GLE", "A-Class", "S-Class"],
+  "Audi": ["A3", "A4", "A5", "A6", "A7", "A8", "Q3", "Q5", "Q7", "Q8", "e-tron"],
+  "MG": ["Hector", "Astor", "ZS EV", "Gloster", "Comet"],
+  "Skoda": ["Kushaq", "Slavia", "Octavia", "Superb", "Kodiaq"],
+  "Ford": ["EcoSport", "Endeavour", "Figo", "Aspire"],
+  "Volkswagen": ["Polo", "Vento", "Taigun", "Virtus", "Tiguan"],
+  "Renault": ["Kwid", "Triber", "Kiger", "Duster"],
+  "Nissan": ["Magnite", "Kicks"],
+  "Jeep": ["Compass", "Meridian", "Wrangler", "Grand Cherokee"],
+};
+
+/** Canonical fuel type list used across the vehicle-selection flow. */
+export const FUEL_TYPES = ["Petrol", "Diesel", "CNG", "Electric"] as const;
+
 export const VIDEO_REVIEWS = [
   { thumbnail: "/images/video-1.jpg", duration: "02:15", title: "Customer Review 1" },
   { thumbnail: "/images/video-2.jpg", duration: "01:40", title: "Customer Review 2" },

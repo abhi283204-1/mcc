@@ -2,31 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { BRANDS } from "@/lib/constants";
+import { BRANDS, BRAND_MODELS, FUEL_TYPES } from "@/lib/constants";
 import { useCart } from "@/lib/CartContext";
 import { ArrowLeft } from "lucide-react";
-
-const brandModels: Record<string, string[]> = {
-  "Maruti Suzuki": ["Swift", "Baleno", "Dzire", "Brezza", "Alto", "WagonR", "Ertiga", "Ciaz", "Ignis", "XL6"],
-  "Hyundai": ["i20", "Creta", "Venue", "Verna", "i10 Grand", "Tucson", "Alcazar", "Aura", "Santro", "Exter"],
-  "Tata": ["Nexon", "Punch", "Harrier", "Safari", "Altroz", "Tiago", "Tigor"],
-  "Honda": ["City", "Amaze", "WR-V", "Jazz", "Civic", "Elevate"],
-  "Toyota": ["Innova", "Fortuner", "Glanza", "Urban Cruiser", "Camry", "Hilux"],
-  "KIA": ["Seltos", "Sonet", "Carens", "EV6", "Carnival"],
-  "Mahindra": ["XUV700", "Thar", "Scorpio", "XUV300", "Bolero", "XUV400"],
-  "BMW": ["3 Series", "5 Series", "X1", "X3", "X5", "7 Series"],
-  "Mercedes-Benz": ["C-Class", "E-Class", "GLC", "GLE", "A-Class", "S-Class"],
-  "Audi": ["A3", "A4", "A5", "A6", "A7", "A8", "Q3", "Q5", "Q7", "Q8", "e-tron"],
-  "MG": ["Hector", "Astor", "ZS EV", "Gloster", "Comet"],
-  "Skoda": ["Kushaq", "Slavia", "Octavia", "Superb", "Kodiaq"],
-  "Ford": ["EcoSport", "Endeavour", "Figo", "Aspire"],
-  "Volkswagen": ["Polo", "Vento", "Taigun", "Virtus", "Tiguan"],
-  "Renault": ["Kwid", "Triber", "Kiger", "Duster"],
-  "Nissan": ["Magnite", "Kicks"],
-  "Jeep": ["Compass", "Meridian", "Wrangler", "Grand Cherokee"],
-};
-
-const fuelTypes = ["Petrol", "Diesel", "CNG", "Electric"];
 
 export default function CarBrandGrid() {
   const { setSelectedCar } = useCart();
@@ -89,7 +67,7 @@ export default function CarBrandGrid() {
           <h3 className="font-bold text-gray-900 text-lg text-center py-3">Select {brand} Model</h3>
           <div className="h-[460px] overflow-y-auto p-4">
             <div className="grid grid-cols-2 gap-3">
-              {(brandModels[brand] || []).map((m) => (
+              {(BRAND_MODELS[brand] || []).map((m) => (
                 <button key={m} onClick={() => handleModelSelect(m)} className="flex flex-col items-center justify-center p-4 rounded-xl border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all">
                   <span className="text-sm font-medium text-gray-800">{m}</span>
                 </button>
@@ -108,7 +86,7 @@ export default function CarBrandGrid() {
           <h3 className="font-bold text-gray-900 text-lg text-center py-3">Select Fuel Type</h3>
           <div className="p-4">
             <div className="grid grid-cols-2 gap-3">
-              {fuelTypes.map((f) => (
+              {FUEL_TYPES.map((f) => (
                 <button key={f} onClick={() => handleFuelSelect(f)} className="flex flex-col items-center justify-center p-5 rounded-xl border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all">
                   <span className="text-sm font-bold text-gray-800">{f}</span>
                 </button>

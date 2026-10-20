@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/CartContext";
 import { getMccServices } from "@/lib/mcc-api";
@@ -27,6 +27,14 @@ function formatCouponHeadline(coupon: AvailableCoupon): string {
 export default function CartPage() {
   const { items, removeItem, total, selectedCar } = useCart();
   const router = useRouter();
+
+  // Safety gate: checkout must always have a vehicle selected. This also
+  // protects against old/deep links that bypass the normal booking journey.
+  useEffect(() => {
+    if (items.length > 0 && !selectedCar) {
+      router.replace("/select-car?next=/cart");
+    }
+  }, [items.length, selectedCar, router]);
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState("5 - 6PM");
   const [step, setStep] = useState<"datetime" | "address" | "payment">("datetime");
@@ -291,6 +299,10 @@ export default function CartPage() {
 
                         if (!items.length) {
                           throw new Error("Your cart is empty.");
+                        }
+
+                        if (!selectedCar) {
+                          throw new Error("Please select your car before placing the order.");
                         }
 
                         // The WP booking schema stores one service ID. Use the

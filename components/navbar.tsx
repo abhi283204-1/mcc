@@ -1,161 +1,140 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { Phone, CalendarCheck, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, CalendarCheck, Menu, X } from "lucide-react";
+import { NAV_LINKS } from "@/lib/constants";
+import Button from "@/components/ui/Button";
 import Link from "next/link";
-
-const navLinks = [
-  { label: "Home", href: "/", active: true },
-  { label: "Services", href: "/#services", hasDropdown: true },
-  { label: "Brands", href: "/#brands" },
-  { label: "About Us", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact Us", href: "/contact" },
-];
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <>
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : "shadow-[0_1px_3px_rgba(0,0,0,0.05)]"
-        }`}
-      >
-        <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-[74px]">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="/images/logo.png"
-              alt="Mittal Car Care"
-              width={140}
-              height={100}
-              className="h-[100px] w-auto object-contain"
-              priority
-            />
-          </Link>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
+      }`}
+    >
+      {/* Blue information strip: stats kept at opposite ends */}
+      <div className="bg-[#174A8B] text-white">
+        <div className="mx-auto flex h-7 max-w-7xl items-center justify-between gap-2 px-3 sm:px-4">
+          <span className="text-[10px] font-semibold sm:text-xs">40+ Years of Experience</span>
+          <span className="text-right text-[10px] font-semibold sm:text-xs">10,00,000+ Cars Serviced</span>
+        </div>
+      </div>
 
-          {/* Center Navigation */}
-          <ul className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className={`relative flex items-center gap-1 text-[14px] font-semibold transition-colors ${
-                    link.active ? "text-[#0A5BFF]" : "text-gray-800 hover:text-[#0A5BFF]"
-                  }`}
-                >
-                  {link.label}
-                  {link.hasDropdown && <ChevronDown size={13} strokeWidth={2.5} />}
-                  {link.active && (
-                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[#0A5BFF] rounded-full" />
-                  )}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Right CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center">
-                <Phone size={14} className="text-green-600" />
-              </div>
-              <div>
-                <p className="text-[10px] text-gray-400 leading-none">Call Us Now</p>
-                <p className="text-[13px] font-bold text-gray-900">+91 98733 70404</p>
-              </div>
+      <div className="container mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-1 px-2 sm:h-20 sm:px-4">
+        {/* Brand */}
+        <Link
+          href="/"
+          aria-label="Mittal Car Care home"
+          className="flex min-w-0 shrink items-center gap-1.5 sm:gap-3"
+        >
+          <Image
+            src="/images/logo.png"
+            alt="Mittal Car Care logo"
+            width={100}
+            height={64}
+            priority
+            className="h-[44px] w-[54px] shrink-0 object-contain sm:h-[62px] sm:w-[90px]"
+          />
+          <div className="min-w-0 leading-[1.05]">
+            <div className="whitespace-nowrap text-[12px] font-black tracking-tight sm:text-lg">
+              <span className="text-[#C62828]">MITTAL</span>{" "}
+              <span className="text-[#174A8B]">CAR CARE</span>
             </div>
-            <Link
-              href="/contact#enquiry-form"
-              className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-[13px] font-semibold px-5 h-[44px] rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <CalendarCheck size={15} />
-              Book Service
-            </Link>
+            <span className="mt-1 block whitespace-nowrap text-[8px] font-normal text-slate-500 sm:text-[10px]">
+              Expertise. Trust. Quality.
+            </span>
           </div>
+        </Link>
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-gray-700"
-            aria-label="Toggle menu"
+        {/* Desktop navigation */}
+        <nav className="hidden items-center gap-8 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-gray-700 transition-colors hover:text-primary"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop actions */}
+        <div className="hidden items-center gap-4 lg:flex">
+          <a href="tel:+919873370404" className="flex items-center gap-2 text-sm">
+            <Phone className="h-4 w-4 text-primary" />
+            <span className="text-gray-600">+91 98733 70404</span>
+          </a>
+          <Link href="/select-car">
+            <Button size="sm">Book Now</Button>
+          </Link>
+        </div>
+
+        {/* Compact mobile actions, in the same row as the logo */}
+        <div className="flex shrink-0 items-center gap-1 lg:hidden">
+          <a
+            href="tel:+919873370404"
+            aria-label="Call Mittal Car Care at 9873370404"
+            className="flex h-8 items-center gap-1 rounded-md bg-[#C62828] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <span>Call</span>
+          </a>
+          <Link
+            href="/select-car"
+            className="flex h-8 items-center gap-1 rounded-md bg-[#174A8B] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
+          >
+            <CalendarCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <span>Book</span>
+          </Link>
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            className="ml-0.5 rounded-md p-1.5 text-slate-700 hover:bg-slate-100 sm:p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-      </motion.nav>
+      </div>
 
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 z-40 lg:hidden"
-              onClick={() => setMobileOpen(false)}
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[270px] bg-white z-50 shadow-2xl p-5 flex flex-col lg:hidden"
-            >
-              <button
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="border-t bg-white shadow-lg lg:hidden">
+          <nav className="flex flex-col gap-1 p-4">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="self-end p-1.5 text-gray-500"
-                aria-label="Close menu"
+                className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-primary/5 hover:text-primary"
               >
-                <X size={20} />
-              </button>
-              <ul className="mt-5 space-y-0.5">
-                {navLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`block px-4 py-2.5 rounded-lg text-[14px] font-medium ${
-                        link.active ? "text-[#0A5BFF] bg-blue-50" : "text-gray-700 hover:bg-gray-50"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto pt-5 border-t border-gray-100 space-y-3">
-                <a href="tel:+919873370404" className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                  <Phone size={15} className="text-[#0A5BFF]" />
-                  +91 98733 70404
-                </a>
-                <Link
-                  href="/contact#enquiry-form"
-                  className="flex items-center justify-center gap-2 w-full bg-[#0A5BFF] text-white font-semibold py-3 rounded-lg text-sm"
-                >
-                  <CalendarCheck size={15} />
-                  Book Service
-                </Link>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+                {link.label}
+              </a>
+            ))}
+            <div className="mt-2 flex flex-col gap-3 border-t pt-4">
+              <a href="tel:+919873370404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
+                <Phone className="h-4 w-4 text-primary" /> +91 98733 70404
+              </a>
+              <Link href="/select-car" onClick={() => setMobileOpen(false)}>
+                <Button className="w-full">Book Now</Button>
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 }

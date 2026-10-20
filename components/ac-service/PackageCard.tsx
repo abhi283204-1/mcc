@@ -33,13 +33,21 @@ export default function PackageCard({
   image,
 }: PackageCardProps) {
   const router = useRouter();
-  const { addItem } = useCart();
+  const { addItem, selectedCar } = useCart();
 
   const handleAddToCart = () => {
-    if (price) {
-      addItem({ id, name, price, originalPrice });
-      router.push("/cart");
+    if (!price) return;
+
+    // Keep the selected service in the cart, then force vehicle selection
+    // before allowing the customer to continue to checkout.
+    addItem({ id, name, price, originalPrice });
+
+    if (!selectedCar) {
+      router.push("/select-car?next=/cart");
+      return;
     }
+
+    router.push("/cart");
   };
 
   return (

@@ -14,22 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const brandModels: Record<string, string[]> = {
-  "Maruti Suzuki": ["Swift", "Baleno", "Dzire", "Brezza", "Alto", "WagonR", "Ertiga", "Ciaz", "Ignis", "S-Cross", "XL6"],
-  "Hyundai": ["i20", "Creta", "Venue", "Verna", "i10 Grand", "Tucson", "Alcazar", "Aura", "Santro", "Exter"],
-  "Tata": ["Nexon", "Punch", "Harrier", "Safari", "Altroz", "Tiago", "Tigor", "Zest"],
-  "Honda": ["City", "Amaze", "WR-V", "Jazz", "Civic", "Elevate"],
-  "Toyota": ["Innova", "Fortuner", "Glanza", "Urban Cruiser", "Camry", "Hilux"],
-  "Kia": ["Seltos", "Sonet", "Carens", "EV6", "Carnival"],
-  "Mahindra": ["XUV700", "Thar", "Scorpio", "XUV300", "Bolero", "XUV400"],
-  "BMW": ["3 Series", "5 Series", "X1", "X3", "X5", "7 Series"],
-  "Mercedes-Benz": ["C-Class", "E-Class", "GLC", "GLE", "A-Class", "S-Class"],
-  "Audi": ["A3", "A4", "A6", "Q3", "Q5", "Q7", "A8", "Q8", "RS5"],
-  "MG": ["Hector", "Astor", "ZS EV", "Gloster", "Comet"],
-  "Skoda": ["Kushaq", "Slavia", "Octavia", "Superb", "Kodiaq"],
-};
-
-const fuelTypes = ["Petrol", "Diesel", "CNG", "Electric"];
+import { BRAND_MODELS, FUEL_TYPES } from "@/lib/constants";
 
 export default function HeroBanner() {
   const router = useRouter();
@@ -141,13 +126,13 @@ export default function HeroBanner() {
             </p>
 
             <div className="flex items-center gap-3">
-              <a
-                href="#book"
+              <button
+                onClick={() => router.push("/select-car")}
                 className="flex-1 inline-flex h-[40px] items-center justify-center gap-2 rounded-lg bg-[#0A5BFF] px-5 py-[10px] text-[13px] font-semibold text-white"
               >
                 <img src="/images/Icons/book-service.svg" alt="" className="w-5 h-5" />
                 Book Service
-              </a>
+              </button>
               <a
                 href="tel:+919873370404"
                 className="flex-1 inline-flex h-[40px] items-center justify-center gap-2 rounded-lg bg-white px-5 py-[10px] text-[13px] font-semibold text-[#5e5e60]"
@@ -206,14 +191,14 @@ export default function HeroBanner() {
         />
 
         {/* Container */}
-        <div className="relative z-10 mx-auto h-full max-w-[1280px] px-6 py-5 lg:py-6">
-          <div className="grid h-full grid-cols-[1fr_340px] lg:grid-cols-[1fr_370px] gap-6 lg:gap-10">
+       <div className="relative z-10 mx-auto h-full w-full max-w-[1280px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10 xl:py-12">
+          <div className="grid h-full min-w-0 grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_370px] xl:items-stretch xl:gap-10">
             {/* LEFT COLUMN */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex h-full flex-col justify-between"
+              className="flex h-full min-w-0 flex-col justify-between"
             >
               <div>
                 <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[#0A5BFF]/80 px-4 py-[6px] text-[10px] font-semibold tracking-wide text-white">
@@ -235,14 +220,14 @@ export default function HeroBanner() {
                 <div className="flex items-center gap-3">
                   <a
                     href="#book"
-                    className="inline-flex h-[40px] items-center gap-2 rounded-lg bg-[#0A5BFF] px-[26px] py-[25px] text-[14px] font-semibold text-white hover:bg-blue-700 transition-colors"
+                    className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-[#0A5BFF] px-4 sm:px-6 text-[14px] font-semibold text-white transition-colors hover:bg-blue-700"
                   >
                     <img src="/images/Icons/book-service.svg" alt="" className="w-5 h-5" />
                     Book Service
                   </a>
                   <a
                     href="tel:+919873370404"
-                    className="inline-flex h-[40px] items-center gap-2 rounded-lg bg-white px-[26px] py-[25px] text-[14px] font-semibold text-[#5e5e60] hover:bg-gray-50 transition-colors"
+                    className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-white px-4 sm:px-6 text-[14px] font-semibold text-[#5e5e60] transition-colors hover:bg-gray-50"
                   >
                     <img src="/images/Icons/call-us.svg" alt="Call" className="w-5 h-5" />
                     Call Now
@@ -251,7 +236,7 @@ export default function HeroBanner() {
               </div>
 
               {/* Bottom: Stats */}
-              <div className="flex items-center gap-2 lg:gap-3">
+              <div className="flex flex-wrap items-stretch gap-2 lg:gap-3 xl:flex-nowrap">
                 {[
                   { icon: null, img: "/images/Icons/experience-icon.svg", value: "10+", label: "Years Experience" },
                   { icon: null, img: "/images/Icons/car-icon.svg", value: "5000+", label: "Cars Serviced" },
@@ -260,7 +245,7 @@ export default function HeroBanner() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="flex items-center gap-2 rounded-xl bg-white px-3 py-2.5 shadow-md lg:px-4 lg:py-3"
+                    className="flex min-w-0 flex-1 basis-[calc(50%-0.5rem)] items-center gap-2 rounded-xl bg-white px-3 py-2.5 shadow-md lg:px-4 lg:py-3 xl:basis-auto"
                   >
                     {stat.img ? (
                       <img src={stat.img} alt={stat.label} className="w-7 h-7"/>
@@ -281,11 +266,11 @@ export default function HeroBanner() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="flex items-stretch"
+              className="mx-auto flex w-full min-w-0 max-w-2xl items-stretch xl:max-w-none"
             >
-              <div className="w-full rounded-2xl bg-white p-6 lg:p-8 shadow-2xl flex flex-col justify-between">
+              <div className="flex w-full min-w-0 flex-col justify-between rounded-2xl bg-white p-5 shadow-2xl sm:p-6 xl:p-7">
                 <div>
-                  <h3 className="mb-2 text-[18px] font-bold text-gray-900">
+                  <h3 className="mb-2 break-words text-[18px] font-bold leading-snug text-gray-900">
                     Get Instant{" "}
                     <span className="text-[#0A5BFF]">Car Service Quote</span>
                   </h3>
@@ -294,7 +279,7 @@ export default function HeroBanner() {
                   </p>
 
                   {/* Step Indicators */}
-                  <div className="mb-5 flex items-start justify-between">
+                  <div className="mb-5 flex min-w-0 items-start justify-between gap-1">
                     {[1, 2, 3, 4].map((s, i) => (
                       <div key={s} className={`flex items-center ${i < 3 ? "flex-1" : ""}`}>
                         <div className="flex flex-col items-center">
@@ -317,7 +302,7 @@ export default function HeroBanner() {
                         <div className="absolute left-3 top-1/2 -translate-y-1/2"><Car size={16} className="text-gray-400" /></div>
                         <select value={brand} onChange={(e) => setBrand(e.target.value)} className="h-[48px] w-full cursor-pointer appearance-none rounded-lg border border-gray-200 bg-white pl-10 pr-10 text-[13px] font-medium text-gray-700 focus:border-[#0A5BFF] focus:outline-none focus:ring-2 focus:ring-[#0A5BFF]/10">
                           <option value="">Select Brand</option>
-                          {Object.keys(brandModels).map((b) => (<option key={b}>{b}</option>))}
+                          {Object.keys(BRAND_MODELS).map((b) => (<option key={b}>{b}</option>))}
                         </select>
                         <ChevronDown size={16} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
                       </div>
@@ -333,7 +318,7 @@ export default function HeroBanner() {
                         <div className="absolute left-3 top-1/2 -translate-y-1/2"><Car size={16} className="text-gray-400" /></div>
                         <select value={model} onChange={(e) => setModel(e.target.value)} className="h-[48px] w-full cursor-pointer appearance-none rounded-lg border border-gray-200 bg-white pl-10 pr-10 text-[13px] font-medium text-gray-700 focus:border-[#0A5BFF] focus:outline-none focus:ring-2 focus:ring-[#0A5BFF]/10">
                           <option value="">Select Model</option>
-                          {(brandModels[brand] || []).map((m) => (<option key={m}>{m}</option>))}
+                          {(BRAND_MODELS[brand] || []).map((m) => (<option key={m}>{m}</option>))}
                         </select>
                         <ChevronDown size={16} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
                       </div>
@@ -346,7 +331,7 @@ export default function HeroBanner() {
                       <p className="mb-1.5 text-[11px] text-gray-400">Step 3 of 4</p>
                       <p className="mb-4 text-[14px] font-bold text-gray-900">Select Fuel Type</p>
                       <div className="grid grid-cols-2 gap-3 mb-5">
-                        {fuelTypes.map((f) => (
+                        {FUEL_TYPES.map((f) => (
                           <button key={f} onClick={() => setFuel(f)} className={`py-3 rounded-lg border-2 text-sm font-medium transition-all ${fuel === f ? "border-[#0A5BFF] bg-[#0A5BFF]/5 text-[#0A5BFF]" : "border-gray-200 text-gray-600 hover:border-gray-300"}`}>{f}</button>
                         ))}
                       </div>
