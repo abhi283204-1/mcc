@@ -148,9 +148,9 @@ export default function PrivacyPolicy() {
                 If you have any questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please contact us at:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li><strong>Email:</strong> mittalcarscanning@gmail.com</li>
-                <li><strong>Phone:</strong> +91 9873370404, +91 9873492828, +91 9650407276</li>
-                <li><strong>Address:</strong> 251-A, Block-E, Dilshad Garden, Delhi-110095 (Opp. St Lawrence Public School)</li>
+                <li><strong>Email:</strong> mittalcarcare@gmail.com</li>
+                <li><strong>Phone:</strong> +91 9654700404, +91 8796084609</li>
+                <li><strong>Address:</strong> S5 Vrindavan Garden, Raj Bagh, Sahibabad, Ghaziabad, Uttar Pradesh 201005</li>
                 <li><strong>Working Hours:</strong> Monday to Sunday, 9:30 AM – 7:00 PM (Tuesday Closed)</li>
               </ul>
               <p className="text-gray-700 mt-3">

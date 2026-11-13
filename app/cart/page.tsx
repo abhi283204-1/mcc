@@ -389,7 +389,7 @@ export default function CartPage() {
 
                         // Open WhatsApp order message (existing flow — preserved).
                         const message = `New Order - Mittal Car Care%0A%0AName: ${name}%0AMobile: ${mobile}%0ACar: ${selectedCar ? `${selectedCar.brand} ${selectedCar.model} (${selectedCar.fuel})` : "Not selected"}%0AServices: ${items.map(i => `${i.name} - ₹${i.price}`).join(", ")}%0ADate: ${bookingDate}%0ATime: ${selectedSlot}%0AAddress: ${address}%0APayment: ${paymentMethod}%0ATotal: ₹${orderTotal}%0ABooking ID: ${bookingResult.booking_id || "N/A"}`;
-                        window.open(`https://wa.me/919873370404?text=${message}`, "_blank");
+                        window.open(`https://wa.me/919654700404?text=${message}`, "_blank");
 
                         // Pass customer name to the order confirmation page via
                         // sessionStorage. Mobile is intentionally NOT stored here.

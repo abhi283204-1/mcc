@@ -84,18 +84,18 @@ export default function AboutPage() {
             <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 w-fit">
               ABOUT MITTAL CAR CARE
             </motion.span>
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-2xl md:text-4xl lg:text-[42px] font-bold text-white leading-tight max-w-2xl">
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-xl md:text-3xl lg:text-[36px] font-bold text-white leading-tight max-w-2xl">
               Your Trusted Multi-Brand Car Service Partner in Delhi
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-gray-200 text-sm md:text-base mt-4 max-w-xl leading-relaxed">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-gray-200 text-xs md:text-sm mt-4 max-w-xl leading-relaxed">
               We provide professional car repair, detailing, diagnostics, denting-painting and premium car care services with transparency, genuine parts, and expert technicians.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="flex gap-3 mt-6">
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#0047CC] transition-colors">
-                <CalendarCheck size={16} /> Book Service
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-xs font-semibold px-4 py-2 rounded-xl hover:bg-[#0047CC] transition-colors">
+                <CalendarCheck size={14} /> Book Service
               </Link>
-              <Link href="#footer" className="inline-flex items-center gap-2 bg-white text-gray-900 text-sm font-semibold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
-                <PhoneIcon size={16} /> Contact Us
+              <Link href="#footer" className="inline-flex items-center gap-2 bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+                <PhoneIcon size={14} /> Contact Us
               </Link>
             </motion.div>
           </div>

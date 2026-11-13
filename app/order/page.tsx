@@ -10,7 +10,7 @@ const GSTIN_REGEX = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
 const faqs = [
   { q: "How should I proceed after booking my car service?", a: "You can relax now! Our Service Buddy will assign the nearest workshop and a dedicated valet for the pickup of your car. Moreover, you can also take advantage of real-time service updates available right on the app." },
   { q: "How can I track my order/booking?", a: "You can track your order status on this page. We will also send you updates via WhatsApp and SMS." },
-  { q: "How can I reschedule my car service booking?", a: "Please call our helpline at +91 9873370404 to reschedule your booking." },
+  { q: "How can I reschedule my car service booking?", a: "Please call our helpline at +91 9654700404 to reschedule your booking." },
   { q: "How can I add more services to my ongoing order?", a: "Contact our service buddy or call our helpline to add more services to your existing order." },
   { q: "How can I cancel my order/Booking?", a: "You can cancel your order by calling our helpline. Cancellation is free if done 4 hours before the scheduled pickup." },
   { q: "What if something happens to my car during pick-up/delivery?", a: "Your car is fully insured during transit. Any damage during pick-up or delivery will be covered by us." },
@@ -92,8 +92,8 @@ export default function OrderPage() {
       <div className="bg-white border-b border-gray-200 px-4 md:px-8 py-4">
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <img src="/images/logo.png" alt="Mittal Car Care" className="h-14" />
-          <a href="tel:+919873370404" className="bg-primary text-white text-sm font-bold px-4 py-2 rounded-lg">
-            24x7 Helpline: 9873370404
+          <a href="tel:+919654700404" className="bg-primary text-white text-sm font-bold px-4 py-2 rounded-lg">
+            24x7 Helpline: 9654700404
           </a>
         </div>
       </div>
@@ -212,7 +212,7 @@ export default function OrderPage() {
               <div>
                 <p className="text-sm text-gray-500">Service Buddy</p>
                 <p className="font-medium text-gray-900 mb-1">
-                  A service buddy will be assigned soon. For any queries, call 9873370404
+                  A service buddy will be assigned soon. For any queries, call 9654700404
                 </p>
                 <p className="text-sm text-gray-600">
                   Mittal Car Care Service Buddy is your eyes and ears on the ground and will be managing

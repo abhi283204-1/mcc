@@ -11,11 +11,11 @@ export default function MobileBottomNav() {
           <Home size={20} />
           <span className="text-[10px] font-medium">Home</span>
         </Link>
-        <Link href="#services" className="flex flex-col items-center gap-0.5 text-gray-600">
+        <Link href="/#services" className="flex flex-col items-center gap-0.5 text-gray-600">
           <Wrench size={20} />
           <span className="text-[10px] font-medium">Services</span>
         </Link>
-        <a href="tel:+919873370404" className="flex flex-col items-center gap-0.5 text-gray-600">
+        <a href="tel:+919654700404" className="flex flex-col items-center gap-0.5 text-gray-600">
           <Phone size={20} />
           <span className="text-[10px] font-medium">Call us</span>
         </a>
@@ -23,7 +23,7 @@ export default function MobileBottomNav() {
           <User size={20} />
           <span className="text-[10px] font-medium">Account</span>
         </Link>
-        <a href="https://wa.me/919873370404" target="_blank" className="flex flex-col items-center gap-0.5 text-green-600">
+        <a href="https://wa.me/919654700404" target="_blank" className="flex flex-col items-center gap-0.5 text-green-600">
           <img src="/images/Icons/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
           <span className="text-[10px] font-medium">WhatsApp</span>
         </a>

@@ -79,9 +79,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex min-w-0 items-start gap-2 text-sm">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white" />
-                <span className="min-w-0 break-words font-semibold uppercase leading-6 text-white [overflow-wrap:anywhere]">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-0 break-words font-semibold uppercase leading-6 text-white transition-opacity hover:opacity-80 [overflow-wrap:anywhere]"
+                >
                   {CONTACT_INFO.address}
-                </span>
+                </a>
               </li>
               <li className="flex min-w-0 items-start gap-2 text-sm">
                 <Mail className="mt-1 h-4 w-4 shrink-0 text-white" />

@@ -26,9 +26,9 @@ const fadeUp = {
 };
 
 const contactCards = [
-  { icon: MapPin, title: "Workshop Address", detail: "251-A, Block-E, Dilshad Garden,\nDelhi-110095" },
-  { icon: Phone, title: "Phone Number", detail: "+91 98733 70404\n+91 98734 92828" },
-  { icon: Mail, title: "Email Address", detail: "mittalcarscanning@gmail.com" },
+  { icon: MapPin, title: "Workshop Address", detail: "S5 Vrindavan Garden, Raj Bagh,\nSahibabad, Ghaziabad, UP 201005" },
+  { icon: Phone, title: "Phone Number", detail: "+91 96547 00404\n+91 87960 84609" },
+  { icon: Mail, title: "Email Address", detail: "mittalcarcare@gmail.com" },
   { icon: Clock, title: "Working Hours", detail: "Mon - Sun: 9:30 AM - 7:00 PM\n(Tuesday Closed)" },
 ];
 
@@ -119,7 +119,7 @@ export default function ContactPage() {
       setSubmitted(true);
 
       // Preserve the existing WhatsApp hand-off after the lead is saved.
-      const whatsappNumber = "919873370404";
+      const whatsappNumber = "919654700404";
       const text = `🚗 *New Service Enquiry - Mittal Car Care*\n\n👤 *Name:* ${formData.name}\n📞 *Phone:* ${formData.phone}\n📧 *Email:* ${formData.email || "N/A"}\n🚘 *Car Brand:* ${formData.carBrand || "N/A"}\n🔧 *Service:* ${formData.service || "N/A"}\n💬 *Message:* ${formData.message || "N/A"}`;
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, "_blank");
@@ -157,7 +157,7 @@ export default function ContactPage() {
               <Link href="#enquiry-form" className="inline-flex items-center gap-2 bg-[#0A5BFF] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#0047CC] transition-colors">
                 <CalendarCheck size={16} /> Book Service
               </Link>
-              <a href="tel:+919873370404" className="inline-flex items-center gap-2 bg-white text-gray-900 text-sm font-semibold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+              <a href="tel:+919654700404" className="inline-flex items-center gap-2 bg-white text-gray-900 text-sm font-semibold px-6 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
                 <Phone size={16} /> Call Now
               </a>
             </motion.div>
@@ -223,11 +223,11 @@ export default function ContactPage() {
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Visit Our Workshop</h2>
-              <p className="text-gray-500 mt-3 text-sm">Conveniently located in Dilshad Garden, Delhi.</p>
+              <p className="text-gray-500 mt-3 text-sm">Conveniently located in Raj Bagh, Sahibabad, Ghaziabad.</p>
             </div>
             <div className="rounded-3xl overflow-hidden border border-gray-200 h-[320px] md:h-[500px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9!2d77.3120!3d28.6800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb5a5e5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sDilshad%20Garden%2C%20Delhi!5e0!3m2!1sen!2sin!4v1"
+                src="https://maps.google.com/maps?q=S5%20Vrindavan%20Garden%20Raj%20Bagh%20Sahibabad%20Ghaziabad%20Uttar%20Pradesh%20201005&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -311,7 +311,7 @@ export default function ContactPage() {
                 <Link href="#enquiry-form" className="inline-flex items-center gap-2 bg-white text-[#0A5BFF] text-sm font-bold px-8 py-3.5 rounded-xl hover:bg-gray-50 transition-colors shadow-lg">
                   <CalendarCheck size={16} /> Book Service Now
                 </Link>
-                <a href="tel:+919873370404" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-sm font-semibold px-8 py-3.5 rounded-xl hover:bg-white/20 transition-colors">
+                <a href="tel:+919654700404" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-sm font-semibold px-8 py-3.5 rounded-xl hover:bg-white/20 transition-colors">
                   <Phone size={16} /> Call Us
                 </a>
               </div>

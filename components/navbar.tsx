@@ -24,7 +24,7 @@ export default function Navbar() {
       }`}
     >
       {/* Blue information strip: stats kept at opposite ends */}
-      <div className="bg-[#174A8B] text-white">
+      <div className="bg-[#0A5BFF] text-white">
         <div className="mx-auto flex h-7 max-w-7xl items-center justify-between gap-2 px-3 sm:px-4">
           <span className="text-[10px] font-semibold sm:text-xs">40+ Years of Experience</span>
           <span className="text-right text-[10px] font-semibold sm:text-xs">10,00,000+ Cars Serviced</span>
@@ -60,21 +60,21 @@ export default function Navbar() {
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-gray-700 transition-colors hover:text-primary"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="tel:+919873370404" className="flex items-center gap-2 text-sm">
+          <a href="tel:+919654700404" className="flex items-center gap-2 text-sm">
             <Phone className="h-4 w-4 text-primary" />
-            <span className="text-gray-600">+91 98733 70404</span>
+            <span className="text-gray-600">+91 96547 00404</span>
           </a>
           <Link href="/select-car">
             <Button size="sm">Book Now</Button>
@@ -84,8 +84,8 @@ export default function Navbar() {
         {/* Compact mobile actions, in the same row as the logo */}
         <div className="flex shrink-0 items-center gap-1 lg:hidden">
           <a
-            href="tel:+919873370404"
-            aria-label="Call Mittal Car Care at 9873370404"
+            href="tel:+919654700404"
+            aria-label="Call Mittal Car Care at 9654700404"
             className="flex h-8 items-center gap-1 rounded-md bg-[#C62828] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
           >
             <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -93,7 +93,7 @@ export default function Navbar() {
           </a>
           <Link
             href="/select-car"
-            className="flex h-8 items-center gap-1 rounded-md bg-[#174A8B] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
+            className="flex h-8 items-center gap-1 rounded-md bg-[#0A5BFF] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
           >
             <CalendarCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             <span>Book</span>
@@ -115,18 +115,18 @@ export default function Navbar() {
         <div className="border-t bg-white shadow-lg lg:hidden">
           <nav className="flex flex-col gap-1 p-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-primary/5 hover:text-primary"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="mt-2 flex flex-col gap-3 border-t pt-4">
-              <a href="tel:+919873370404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
-                <Phone className="h-4 w-4 text-primary" /> +91 98733 70404
+              <a href="tel:+919654700404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
+                <Phone className="h-4 w-4 text-primary" /> +91 96547 00404
               </a>
               <Link href="/select-car" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full">Book Now</Button>

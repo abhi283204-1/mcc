@@ -72,9 +72,9 @@ export default function Navbar() {
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="tel:+919873370404" className="flex items-center gap-2 text-sm">
+          <a href="tel:+919654700404" className="flex items-center gap-2 text-sm">
             <Phone className="h-4 w-4 text-primary" />
-            <span className="text-gray-600">+91 98733 70404</span>
+            <span className="text-gray-600">+91 96547 00404</span>
           </a>
           <Link href="/select-car">
             <Button size="sm">Book Now</Button>
@@ -84,8 +84,8 @@ export default function Navbar() {
         {/* Compact mobile actions, in the same row as the logo */}
         <div className="flex shrink-0 items-center gap-1 lg:hidden">
           <a
-            href="tel:+919873370404"
-            aria-label="Call Mittal Car Care at 9873370404"
+            href="tel:+919654700404"
+            aria-label="Call Mittal Car Care at 9654700404"
             className="flex h-8 items-center gap-1 rounded-md bg-[#C62828] px-2 text-[10px] font-bold text-white sm:h-9 sm:px-2.5 sm:text-xs"
           >
             <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -125,8 +125,8 @@ export default function Navbar() {
               </a>
             ))}
             <div className="mt-2 flex flex-col gap-3 border-t pt-4">
-              <a href="tel:+919873370404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
-                <Phone className="h-4 w-4 text-primary" /> +91 98733 70404
+              <a href="tel:+919654700404" className="flex items-center gap-2 px-4 text-sm text-gray-600">
+                <Phone className="h-4 w-4 text-primary" /> +91 96547 00404
               </a>
               <Link href="/select-car" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full">Book Now</Button>

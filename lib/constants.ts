@@ -1,10 +1,10 @@
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/#services" },
   { label: "Brands", href: "/#brands" },
-  { label: "About Us", href: "#why-choose-us" },
-  { label: "Gallery", href: "#before-after" },
-  { label: "Contact Us", href: "#footer" },
+  { label: "About Us", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const STATS = [
@@ -169,11 +169,11 @@ export const FOOTER_LINKS = {
 };
 
 export const CONTACT_INFO = {
-  address: "251-A, Block-E, Dilshad Garden, Delhi-110095 (Opp. St Lawrence Public School)",
-  address2: "Defence Colony, Bhopura, Sahibabad, Noida, Ghaziabad, Uttar Pradesh 201006",
-  email: "mittalcarscanning@gmail.com",
-  phones: ["+91 9873370404", "+91 9873492828", "+91 9650407276"],
+  address: "S5 Vrindavan Garden, Raj Bagh, Sahibabad, Ghaziabad, Uttar Pradesh 201005",
+  address2: "S5 Vrindavan Garden, Raj Bagh, Sahibabad, Ghaziabad, Uttar Pradesh 201005",
+  email: "mittalcarcare@gmail.com",
+  phones: ["+91 9654700404", "+91 8796084609"],
   workingHours: "9:30 AM – 7:00 PM",
   workingDays: "Monday – Sunday (Tuesday Closed)",
-  socials: { facebook: "#", instagram: "#", whatsapp: "https://wa.me/919873370404", youtube: "#" },
+  socials: { facebook: "#", instagram: "#", whatsapp: "https://wa.me/919654700404", youtube: "#" },
 };

@@ -134,7 +134,7 @@ export default function HeroBanner() {
                 Book Service
               </button>
               <a
-                href="tel:+919873370404"
+                href="tel:+919654700404"
                 className="flex-1 inline-flex h-[40px] items-center justify-center gap-2 rounded-lg bg-white px-5 py-[10px] text-[13px] font-semibold text-[#5e5e60]"
               >
                 <img src="/images/Icons/call-us.svg" alt="Call" className="w-5 h-5" />
@@ -145,8 +145,8 @@ export default function HeroBanner() {
             {/* Stats - 2x2 grid */}
             <div className="grid grid-cols-2 gap-3 mt-4">
               {[
-                { img: "/images/Icons/experience-icon.svg", value: "10+", label: "Years Experience" },
-                { img: "/images/Icons/car-icon.svg", value: "5000+", label: "Cars Serviced" },
+                { img: "/images/Icons/experience-icon.svg", value: "40+", label: "Years Experience" },
+                { img: "/images/Icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
                 { icon: CheckCircle, value: "Multi-Brand", label: "Experts" },
                 { icon: Shield, value: "100%", label: "Customer Satisfaction" },
               ].map((stat) => (
@@ -226,7 +226,7 @@ export default function HeroBanner() {
                     Book Service
                   </a>
                   <a
-                    href="tel:+919873370404"
+                    href="tel:+919654700404"
                     className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-white px-4 sm:px-6 text-[14px] font-semibold text-[#5e5e60] transition-colors hover:bg-gray-50"
                   >
                     <img src="/images/Icons/call-us.svg" alt="Call" className="w-5 h-5" />
@@ -238,8 +238,8 @@ export default function HeroBanner() {
               {/* Bottom: Stats */}
               <div className="flex flex-wrap items-stretch gap-2 lg:gap-3 xl:flex-nowrap">
                 {[
-                  { icon: null, img: "/images/Icons/experience-icon.svg", value: "10+", label: "Years Experience" },
-                  { icon: null, img: "/images/Icons/car-icon.svg", value: "5000+", label: "Cars Serviced" },
+                  { icon: null, img: "/images/Icons/experience-icon.svg", value: "40+", label: "Years Experience" },
+                  { icon: null, img: "/images/Icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
                   { icon: CheckCircle, img: null, value: "Multi-Brand", label: "Experts" },
                   { icon: Shield, img: null, value: "100%", label: "Customer Satisfaction" },
                 ].map((stat) => (
@@ -388,7 +388,7 @@ export default function HeroBanner() {
                       try {
                         await createLead();
                         const msg = `New Lead:\nName: ${name}\nMobile: ${mobile}\nBrand: ${brand}\nModel: ${model}\nFuel: ${fuel}`;
-                        const url = `https://wa.me/919873370404?text=${encodeURIComponent(msg)}`;
+                        const url = `https://wa.me/919654700404?text=${encodeURIComponent(msg)}`;
                         window.open(url, "_blank");
                       } catch (error) {
                         console.error("MCC lead creation failed:", error);
