@@ -40,9 +40,15 @@ const processSteps = [
 ];
 
 const teamMembers = [
-  { name: "Ravi Mittal", position: "Founder & CEO", desc: "20+ years of experience in automotive care with a vision for premium service quality." },
-  { name: "Sunil Kumar", position: "Head Technician", desc: "Expert mechanic specializing in multi-brand diagnostics and engine repairs." },
-  { name: "Amit Sharma", position: "Service Manager", desc: "Ensures smooth operations and timely delivery with customer-first approach." },
+  { name: "Harish Mittal", position: "Founder & CEO" },
+  { name: "Saurav Mittal", position: "CMO" },
+  { name: "Naveen Sharma", position: "GM" },
+  { name: "Suhail Alvi", position: "Head of Operations" },
+  {
+    name: "Rohit",
+    position: "Head Technician",
+    desc: "20 years of experience",
+  },
 ];
 
 const trustBadges = [
@@ -399,15 +405,15 @@ export default function AboutPage() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Meet Our Experts</h2>
               <p className="text-gray-500 mt-3 max-w-md mx-auto text-sm">Dedicated professionals committed to excellence in car care.</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-6">
               {teamMembers.map((member, i) => (
-                <motion.div key={member.name} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white rounded-2xl p-6 text-center border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <motion.div key={member.name} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className={`bg-white rounded-2xl p-6 text-center border border-gray-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 lg:col-span-2 ${i === 3 ? "lg:col-start-2" : i === 4 ? "lg:col-start-4" : ""}`}>
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#0A5BFF] to-blue-400 mx-auto mb-4 flex items-center justify-center">
                     <Users size={32} className="text-white" />
                   </div>
                   <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
                   <p className="text-[#0A5BFF] text-sm font-medium mt-1">{member.position}</p>
-                  <p className="text-gray-500 text-sm mt-3 leading-relaxed">{member.desc}</p>
+                  {member.desc && <p className="text-gray-500 text-sm mt-3 leading-relaxed">{member.desc}</p>}
                 </motion.div>
               ))}
             </div>
