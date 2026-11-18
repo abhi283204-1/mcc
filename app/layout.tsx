@@ -9,7 +9,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600
 
 export const metadata: Metadata = {
   title: "Mittal Car Care - Trusted Multi-Brand Car Service Center in Delhi",
-  description: "Professional diagnostics, repair, detailing, denting-painting and premium car care services under one roof. 10+ years experience, 5000+ cars serviced.",
+  description: "Professional diagnostics, repair, detailing, denting-painting and premium car care services under one roof. 40+ years experience, 1 Lakh+ cars serviced.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
