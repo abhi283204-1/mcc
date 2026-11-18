@@ -216,7 +216,7 @@ export default async function InsuranceClaimsPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-[74px] bg-white min-h-screen">
+      <main className="pt-[96px] sm:pt-[108px] bg-white min-h-screen">
         <ServiceCategoryTabs />
 
         <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-8">

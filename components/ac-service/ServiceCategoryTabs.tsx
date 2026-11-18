@@ -20,6 +20,8 @@ const categories = [
   { name: "Insurance Claims", icon: "/images/Icons/insurance-claim.svg", href: "/services/insurance-claims" },
   { name: "SOS Service", icon: "/images/Icons/pick-droup.svg", href: "/services/sos-service" },
   { name: "Batteries", icon: "/images/Icons/battery.svg", href: "/services/batteries" },
+  { name: "Engine Work & Turbo", icon: "/images/Icons/engine-work.svg", href: "/services/engine-work-turbo" },
+  { name: "Body Type Conversion", icon: "/images/Icons/body-conversion.svg", href: "/services/body-type-conversion" },
 ];
 
 export default function ServiceCategoryTabs() {
@@ -31,7 +33,7 @@ export default function ServiceCategoryTabs() {
   };
 
   return (
-    <div className="border-b border-gray-200 bg-white sticky top-[74px] z-30">
+    <div className="border-b border-gray-200 bg-white sticky top-[96px] sm:top-[108px] z-30">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 relative">
         {/* Left arrow */}
         <button onClick={() => scroll("left")} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-50 md:hidden">

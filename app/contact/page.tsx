@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -69,6 +70,28 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+// Tiny component that reads query params and prefills the form.
+// Isolated here so it can be wrapped in <Suspense> (Next.js requirement for useSearchParams).
+function SearchParamsPrefill({
+  onPrefill,
+}: {
+  onPrefill: (service: string, message: string) => void;
+}) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const serviceParam = searchParams.get("service") || "";
+    const messageParam = searchParams.get("message") || "";
+    if (serviceParam || messageParam) {
+      onPrefill(serviceParam, messageParam);
+      setTimeout(() => {
+        document.getElementById("enquiry-form")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -81,6 +104,19 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+
+  const handlePrefill = (serviceParam: string, messageParam: string) => {
+    const matchedDropdown = services.find(
+      (s) => s.toLowerCase() === serviceParam.toLowerCase()
+    );
+    setFormData((prev) => ({
+      ...prev,
+      service: matchedDropdown || prev.service,
+      message: serviceParam
+        ? `Enquiry about: ${serviceParam}${messageParam ? `\n${messageParam}` : ""}`
+        : messageParam || prev.message,
+    }));
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -134,6 +170,10 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main className="pt-[74px]">
+        {/* Reads ?service= query param and prefills the form. Suspense required by Next.js for useSearchParams. */}
+        <Suspense fallback={null}>
+          <SearchParamsPrefill onPrefill={handlePrefill} />
+        </Suspense>
         {/* 1. HERO BANNER */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <img src="/images/mcc-banner.jpg" alt="Mittal Car Care Workshop" className="absolute inset-0 w-full h-full object-cover" />

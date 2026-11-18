@@ -16,6 +16,8 @@ const serviceMap = {
   "clutch-body-parts": "Clutch & Body Parts",
   "sos-service": "SOS Service",
   "insurance-claims": "Insurance Claims",
+  "engine-work-turbo": "Engine Work & Turbo",
+  "body-type-conversion": "Body Type Conversion",
 };
 
 const sectionNameMap = {
@@ -92,6 +94,19 @@ const sectionNameMap = {
     glasses: "Glasses",
     lights: "Lights",
     sideMirror: "Side Mirror",
+  },
+  "engine-work-turbo": {
+    engineDiagnosticsTuning: "Diagnostics and Tuning",
+    engineLeaksGaskets: "Leaks and Gaskets",
+    engineBeltsMounts: "Belts and Mounts",
+    engineOverhaul: "Engine Overhaul",
+    turbo: "Turbo",
+  },
+  "body-type-conversion": {
+    bodyFacelift: "Facelift Conversions",
+    bodyBumpers: "Bumper Conversions",
+    bodyLights: "Lights Upgrade",
+    bodyStyling: "Wheels and Styling",
   },
 };
 const files = fs.readdirSync(servicesDir, { withFileTypes: true })
@@ -272,13 +287,13 @@ for (const service of services) {
 
 console.log("");
 
-if (services.length !== 13) {
-  throw new Error(`Expected 13 services, found ${services.length}`);
+if (services.length !== 15) {
+  throw new Error(`Expected 15 services, found ${services.length}`);
 }
 
-if (totalPackages !== 149) {
-  throw new Error(`Expected 149 packages, found ${totalPackages}`);
+if (totalPackages !== 182) {
+  throw new Error(`Expected 182 packages, found ${totalPackages}`);
 }
 
-console.log("VALIDATION PASSED: 13 services / 149 packages");
+console.log("VALIDATION PASSED: 15 services / 182 packages");
 

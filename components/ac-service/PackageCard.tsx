@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Clock, Award, CheckCircle2 } from "lucide-react";
 import { useCart } from "@/lib/CartContext";
@@ -35,8 +36,10 @@ export default function PackageCard({
   const router = useRouter();
   const { addItem, selectedCar } = useCart();
 
+  const hasPrice = typeof price === "number" && price > 0;
+
   const handleAddToCart = () => {
-    if (!price) return;
+    if (!hasPrice) return;
 
     // Keep the selected service in the cart, then force vehicle selection
     // before allowing the customer to continue to checkout.
@@ -49,6 +52,8 @@ export default function PackageCard({
 
     router.push("/cart");
   };
+
+  const quoteHref = `/contact?service=${encodeURIComponent(name)}`;
 
   return (
     <div className="relative rounded-2xl border bg-white overflow-hidden border-gray-200 hover:border-primary hover:shadow-md transition-all">
@@ -94,12 +99,12 @@ export default function PackageCard({
             {/* Description bullets */}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs md:text-sm text-gray-600">
               <span>• {duration}</span>
-              <span>• {warranty}</span>
+              {warranty && <span>• {warranty}</span>}
               {description && <span>• {description}</span>}
             </div>
 
             {/* Price */}
-            {typeof price === "number" && (
+            {hasPrice ? (
               <div className="flex items-center gap-2 mt-3">
                 <span className="text-xl md:text-2xl font-bold text-gray-900">
                   ₹{price.toLocaleString("en-IN")}
@@ -112,6 +117,10 @@ export default function PackageCard({
                     </span>
                   )}
               </div>
+            ) : (
+              <p className="text-sm font-semibold text-primary mt-3">
+                Price on inspection — Get a free quote
+              </p>
             )}
           </div>
         </div>
@@ -136,13 +145,21 @@ export default function PackageCard({
 
         {/* Bottom: CTA */}
         <div className="flex items-center justify-end mt-4 pt-4 border-t border-gray-100">
-          <button
-            onClick={handleAddToCart}
-            disabled={!price}
-            className="bg-white border-2 border-primary text-primary text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            + ADD TO CART
-          </button>
+          {hasPrice ? (
+            <button
+              onClick={handleAddToCart}
+              className="bg-white border-2 border-primary text-primary text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors"
+            >
+              + ADD TO CART
+            </button>
+          ) : (
+            <Link
+              href={quoteHref}
+              className="bg-white border-2 border-primary text-primary text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors"
+            >
+              Get Free Quote
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T09:40:49.321Z",
+  "generatedAt": "2026-11-18T06:22:08.940Z",
   "services": [
     {
       "serviceSlug": "ac-service-repair",
@@ -407,6 +407,276 @@
                 "Brush & Bearing Replacement",
                 "Regulator Check",
                 "Charging Output Test"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "body-type-conversion",
+      "name": "Body Type Conversion",
+      "sections": [
+        {
+          "name": "Facelift Conversions",
+          "packages": [
+            {
+              "name": "New Generation Facelift Conversion",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 7-10 Days",
+              "warranty": "",
+              "badge": "FACTORY-LIKE FINISH",
+              "recommended": true,
+              "description": "Convert an older model to the latest-generation look, with matching panels, lights and paint",
+              "includes": [
+                "Front & Rear Bumper Conversion",
+                "Headlamp, Tail Lamp & Grille Upgrade",
+                "Panel Fitting & Alignment",
+                "Paint & Colour Matching",
+                "Final Finishing & Quality Check"
+              ]
+            },
+            {
+              "name": "Front Look Conversion",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4-5 Days",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Give your car the new-generation front look",
+              "includes": [
+                "Front Bumper & Grille Conversion",
+                "Headlamp Fitting",
+                "Bonnet & Fender Alignment",
+                "Paint & Colour Matching",
+                "Finishing & Quality Check"
+              ]
+            },
+            {
+              "name": "Rear Look Conversion",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3-4 Days",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Give your car the new-generation rear look",
+              "includes": [
+                "Rear Bumper Conversion",
+                "Tail Lamp Fitting",
+                "Boot Garnish & Trim Fitting",
+                "Paint & Colour Matching",
+                "Finishing & Quality Check"
+              ]
+            },
+            {
+              "name": "Top Variant Upgrade",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3-5 Days",
+              "warranty": "",
+              "badge": "BASE TO TOP LOOK",
+              "recommended": false,
+              "description": "Give your base or mid variant the look and features of the top model",
+              "includes": [
+                "Alloy Wheels",
+                "Fog Lamps & Projector Headlamps",
+                "Grille & Chrome Garnish",
+                "Body-Colour Mirrors & Door Handles",
+                "Fitting & Alignment"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Bumper Conversions",
+          "packages": [
+            {
+              "name": "Front Bumper Conversion",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Days",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Change to a new-style or top-variant front bumper",
+              "includes": [
+                "Old Bumper Removal",
+                "New Bumper Fitting",
+                "Grille & Fog Lamp Fitting",
+                "Paint & Colour Matching"
+              ]
+            },
+            {
+              "name": "Rear Bumper Conversion",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Days",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Change to a new-style or top-variant rear bumper",
+              "includes": [
+                "Old Bumper Removal",
+                "New Bumper Fitting",
+                "Reflector & Trim Fitting",
+                "Paint & Colour Matching"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lights Upgrade",
+          "packages": [
+            {
+              "name": "Projector Headlamp Upgrade",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4 Hours",
+              "warranty": "",
+              "badge": "BETTER NIGHT VISIBILITY",
+              "recommended": true,
+              "description": "Brighter, sharper night visibility with a premium look",
+              "includes": [
+                "Old Headlamp Removal",
+                "Projector Headlamp Fitting",
+                "Wiring & Relay Setup",
+                "Beam Alignment",
+                "Night Test"
+              ]
+            },
+            {
+              "name": "LED Tail Lamp Upgrade",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Modern LED tail lamps for a fresh look",
+              "includes": [
+                "Old Tail Lamp Removal",
+                "LED Tail Lamp Fitting",
+                "Wiring & Connector Setup",
+                "Brake & Indicator Function Test"
+              ]
+            },
+            {
+              "name": "Fog Lamp Fitting",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Better visibility in fog and rain",
+              "includes": [
+                "Fog Lamp Set Fitting",
+                "Wiring & Switch Setup",
+                "Bumper Fitment Check",
+                "Beam Alignment"
+              ]
+            },
+            {
+              "name": "DRL Fitting",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Daytime running lights for a modern, premium look",
+              "includes": [
+                "DRL Unit Fitting",
+                "Wiring & Auto On/Off Setup",
+                "Brightness Check"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wheels and Styling",
+          "packages": [
+            {
+              "name": "Steel to Alloy Wheel Upgrade",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": true,
+              "description": "Upgrade from steel wheels to alloy wheels for a better look and ride",
+              "includes": [
+                "Alloy Wheel Set Fitting",
+                "Wheel Balancing",
+                "Wheel Alignment",
+                "Tyre Fitment Check"
+              ]
+            },
+            {
+              "name": "Chrome Garnish Kit Fitting",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Adds a premium chrome finish to the grille, doors and body trim",
+              "includes": [
+                "Chrome Garnish Set Fitting",
+                "Surface Cleaning",
+                "Final Fitment Check"
+              ]
+            },
+            {
+              "name": "Body Kit Fitting (Skirts and Diffuser)",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3 Days",
+              "warranty": "",
+              "badge": "CUSTOMISE YOUR CAR",
+              "recommended": false,
+              "description": "Body kit parts fitted and painted to match your car",
+              "includes": [
+                "Side Skirts Fitting",
+                "Front & Rear Lip / Diffuser Fitting",
+                "Surface Preparation & Painting",
+                "Colour Matching",
+                "Finishing & Polishing"
+              ]
+            },
+            {
+              "name": "Spoiler Fitting",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Sporty look with a rear spoiler",
+              "includes": [
+                "Spoiler Fitting",
+                "Surface Preparation",
+                "Painting to Match (if required)",
+                "Final Fitment Check"
+              ]
+            },
+            {
+              "name": "Roof Rails Fitting",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Stylish roof rails with support for roof carriers",
+              "includes": [
+                "Roof Rails Fitting",
+                "Mounting Point Check",
+                "Sealant Application",
+                "Final Fitment Check"
               ]
             }
           ]
@@ -1634,6 +1904,334 @@
                 "Scratch Removal",
                 "Primer Application",
                 "Paint & Clear Coat"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceSlug": "engine-work-turbo",
+      "name": "Engine Work & Turbo",
+      "sections": [
+        {
+          "name": "Diagnostics and Tuning",
+          "packages": [
+            {
+              "name": "Computer Scanning (Fault Codes)",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 1 Hour",
+              "warranty": "",
+              "badge": "CHECK ENGINE LIGHT?",
+              "recommended": true,
+              "description": "Scan to read fault codes and find the cause of warning lights",
+              "includes": [
+                "Engine ECU Scan",
+                "Fault Code Reading",
+                "Code Reset After Repair",
+                "Written Report & Advice"
+              ]
+            },
+            {
+              "name": "Engine Tuning",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Restores smooth running, better pickup and mileage",
+              "includes": [
+                "Spark Plug / Glow Plug Check",
+                "Air Filter Check",
+                "Idle & Throttle Adjustment",
+                "Injector & Fuel Mixture Check",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Spark Plug Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Better pickup, smoother idle and mileage for petrol engines",
+              "includes": [
+                "Old Spark Plugs Removal",
+                "New Spark Plugs Fitting",
+                "Ignition Coil Check",
+                "Idle Check"
+              ]
+            },
+            {
+              "name": "Throttle Body Cleaning",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Fixes rough idle, hesitation and poor pickup",
+              "includes": [
+                "Throttle Body Removal & Cleaning",
+                "Sensor Check",
+                "Idle Reset",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Engine Carbon Cleaning (Decarbonisation)",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Removes carbon build-up for better pickup and cleaner running",
+              "includes": [
+                "Intake System Cleaning",
+                "Combustion Chamber Cleaning",
+                "Injector & Throttle Check",
+                "Post-service Test Drive"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Leaks and Gaskets",
+          "packages": [
+            {
+              "name": "Valve Cover Gasket Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Stops oil leaks around the top of the engine",
+              "includes": [
+                "Old Gasket Removal",
+                "Surface Cleaning",
+                "New Gasket Fitting",
+                "Oil Leak Check"
+              ]
+            },
+            {
+              "name": "Oil Pan Gasket Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 6 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Stops oil dripping from under the engine",
+              "includes": [
+                "Engine Oil Drain",
+                "Old Gasket Removal",
+                "New Gasket Fitting",
+                "Fresh Engine Oil Fill",
+                "Leak Check"
+              ]
+            },
+            {
+              "name": "Head Gasket Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Days",
+              "warranty": "",
+              "badge": "MAJOR REPAIR",
+              "recommended": false,
+              "description": "For overheating, white smoke and coolant loss",
+              "includes": [
+                "Cylinder Head Removal",
+                "Head Surface Check",
+                "New Head Gasket Set",
+                "Reassembly & Coolant Refill",
+                "Test Drive"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Belts and Mounts",
+          "packages": [
+            {
+              "name": "Timing Belt / Chain Kit Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 8 Hours",
+              "warranty": "",
+              "badge": "PREVENT ENGINE DAMAGE",
+              "recommended": true,
+              "description": "Replace on time to avoid serious engine damage",
+              "includes": [
+                "Old Timing Belt / Chain Removal",
+                "New Kit Fitting",
+                "Tensioner & Idler Replacement",
+                "Timing Alignment Check",
+                "Test Drive"
+              ]
+            },
+            {
+              "name": "Drive Belt Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Fixes squealing noise and worn or cracked belts",
+              "includes": [
+                "Old Belt Removal",
+                "New Belt Fitting",
+                "Tensioner Check",
+                "Alignment Check"
+              ]
+            },
+            {
+              "name": "Water Pump Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 5 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "For overheating and coolant leaks",
+              "includes": [
+                "Old Water Pump Removal",
+                "New Water Pump Fitting",
+                "Coolant Refill",
+                "Leak & Temperature Check"
+              ]
+            },
+            {
+              "name": "Engine Mount Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 4 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Reduces engine vibration and shaking",
+              "includes": [
+                "Old Mount Removal",
+                "New Mount Fitting",
+                "Alignment Check",
+                "Vibration Test"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engine Overhaul",
+          "packages": [
+            {
+              "name": "Top (Head) Overhaul",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 3 Days",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "For loss of power, smoke and low compression",
+              "includes": [
+                "Cylinder Head Removal",
+                "Valve Grinding & Cleaning",
+                "Gasket Set & Seals Replacement",
+                "Reassembly & Tuning",
+                "Road Test"
+              ]
+            },
+            {
+              "name": "Complete Engine Overhaul",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 5-7 Days",
+              "warranty": "",
+              "badge": "COMPLETE REBUILD",
+              "recommended": false,
+              "description": "Full rebuild with genuine parts for engines with major wear or knocking",
+              "includes": [
+                "Engine Removal & Dismantling",
+                "Parts Inspection & Measurement",
+                "Genuine Parts Replacement",
+                "Reassembly & Tuning",
+                "Final Road Test"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Turbo",
+          "packages": [
+            {
+              "name": "Turbo Inspection and Boost Test",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 2 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Find out why your turbo is losing power",
+              "includes": [
+                "Boost Pressure Test",
+                "Turbo Shaft Play Check",
+                "Oil Feed Line Check",
+                "Intercooler Hose Check",
+                "Written Findings"
+              ]
+            },
+            {
+              "name": "Turbo Cleaning",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 6 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Restores power and reduces smoke",
+              "includes": [
+                "Turbo Cleaning",
+                "Actuator Check",
+                "Intake & Hose Check",
+                "Boost Test After Cleaning"
+              ]
+            },
+            {
+              "name": "Turbo Repair and Rebuild",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 24 Hours",
+              "warranty": "",
+              "badge": "TURBO SPECIALISTS",
+              "recommended": true,
+              "description": "For whistling noise, smoke and power loss",
+              "includes": [
+                "Turbo Removal & Dismantling",
+                "Inspection & Worn Parts Replacement",
+                "Balancing",
+                "Refitting",
+                "Boost Test & Road Test"
+              ]
+            },
+            {
+              "name": "Turbo Replacement",
+              "price": 0,
+              "originalPrice": null,
+              "duration": "Takes 24 Hours",
+              "warranty": "",
+              "badge": "",
+              "recommended": false,
+              "description": "Complete turbo replacement when repair is not possible",
+              "includes": [
+                "Old Turbo Removal",
+                "New Turbo Fitting",
+                "Oil Line & Gasket Replacement",
+                "Boost Test",
+                "Road Test"
               ]
             }
           ]

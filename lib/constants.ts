@@ -28,6 +28,8 @@ export const SERVICES = [
   { title: "Clutch & Body Parts", img: "/images/Icons/clutch.svg", href: "/services/clutch-body-parts" },
   { title: "SOS Service", img: "/images/Icons/pick-droup.svg", href: "/services/sos-service" },
   { title: "Insurance Claims", img: "/images/Icons/insurance-claim.svg", href: "/services/insurance-claims" },
+  { title: "Engine Work & Turbo", img: "/images/Icons/engine-work.svg", href: "/services/engine-work-turbo" },
+  { title: "Body Type Conversion", img: "/images/Icons/body-conversion.svg", href: "/services/body-type-conversion" },
 ];
 
 export const BEFORE_AFTER = [
@@ -165,6 +167,8 @@ export const FOOTER_LINKS = {
     { label: "Ceramic Coating", href: "/services/car-detailing" },
     { label: "SOS Service", href: "/services/sos-service" },
     { label: "Insurance Claims", href: "/services/insurance-claims" },
+    { label: "Engine Work & Turbo", href: "/services/engine-work-turbo" },
+    { label: "Body Type Conversion", href: "/services/body-type-conversion" },
   ],
 };
 
