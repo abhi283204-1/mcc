@@ -56,6 +56,7 @@ const bodyFacelift = [
       "Paint & Colour Matching",
       "Finishing & Quality Check",
     ],
+    image: "/images/Icons/front-look-conversion.jpeg",
   },
   {
     name: "Rear Look Conversion",
@@ -74,6 +75,7 @@ const bodyFacelift = [
       "Paint & Colour Matching",
       "Finishing & Quality Check",
     ],
+    image: "/images/Icons/rear-look-conversion.jpeg",
   },
   {
     name: "Top Variant Upgrade",
@@ -112,6 +114,7 @@ const bodyBumpers = [
       "Grille & Fog Lamp Fitting",
       "Paint & Colour Matching",
     ],
+    image: "/images/Icons/front-bumper-conversion.jpeg",
   },
   {
     name: "Rear Bumper Conversion",
@@ -129,6 +132,7 @@ const bodyBumpers = [
       "Reflector & Trim Fitting",
       "Paint & Colour Matching",
     ],
+    image: "/images/Icons/rear-bumper-conversion.jpeg",
   },
 ];
 
@@ -150,6 +154,7 @@ const bodyLights = [
       "Beam Alignment",
       "Night Test",
     ],
+    image: "/images/Icons/projector-headlamp.jpeg",
   },
   {
     name: "LED Tail Lamp Upgrade",
@@ -167,6 +172,7 @@ const bodyLights = [
       "Wiring & Connector Setup",
       "Brake & Indicator Function Test",
     ],
+    image: "/images/Icons/led-tail-lamp.jpeg",
   },
   {
     name: "Fog Lamp Fitting",
@@ -184,6 +190,7 @@ const bodyLights = [
       "Bumper Fitment Check",
       "Beam Alignment",
     ],
+    image: "/images/Icons/fog-lamp-fitting.jpeg",
   },
   {
     name: "DRL Fitting",
@@ -200,6 +207,7 @@ const bodyLights = [
       "Wiring & Auto On/Off Setup",
       "Brightness Check",
     ],
+    image: "/images/Icons/drl-fitting.jpeg",
   },
 ];
 
@@ -220,6 +228,7 @@ const bodyStyling = [
       "Wheel Alignment",
       "Tyre Fitment Check",
     ],
+    image: "/images/Icons/alloy-wheel-upgrade.jpeg",
   },
   {
     name: "Chrome Garnish Kit Fitting",
@@ -254,6 +263,7 @@ const bodyStyling = [
       "Colour Matching",
       "Finishing & Polishing",
     ],
+    image: "/images/Icons/body-kit-fitting.jpeg",
   },
   {
     name: "Spoiler Fitting",
@@ -271,6 +281,7 @@ const bodyStyling = [
       "Painting to Match (if required)",
       "Final Fitment Check",
     ],
+    image: "/images/Icons/spoiler-fitting.jpeg",
   },
   {
     name: "Roof Rails Fitting",

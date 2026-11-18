@@ -37,6 +37,7 @@ const engineDiagnosticsTuning = [
       "Code Reset After Repair",
       "Written Report & Advice",
     ],
+    image: "/images/Icons/engine-scanning.jpg",
   },
   {
     name: "Engine Tuning",
@@ -55,6 +56,7 @@ const engineDiagnosticsTuning = [
       "Injector & Fuel Mixture Check",
       "Test Drive",
     ],
+    image: "/images/Icons/engine-tuning.jpeg",
   },
   {
     name: "Spark Plug Replacement",
@@ -72,6 +74,7 @@ const engineDiagnosticsTuning = [
       "Ignition Coil Check",
       "Idle Check",
     ],
+    image: "/images/Icons/spark-plug.jpeg",
   },
   {
     name: "Throttle Body Cleaning",
@@ -89,6 +92,7 @@ const engineDiagnosticsTuning = [
       "Idle Reset",
       "Test Drive",
     ],
+    image: "/images/Icons/throttle-body-cleaning.jpeg",
   },
   {
     name: "Engine Carbon Cleaning (Decarbonisation)",
@@ -106,6 +110,7 @@ const engineDiagnosticsTuning = [
       "Injector & Throttle Check",
       "Post-service Test Drive",
     ],
+    image: "/images/Icons/engine-carbon-cleaning.jpeg",
   },
 ];
 
@@ -200,6 +205,7 @@ const engineBeltsMounts = [
       "Tensioner Check",
       "Alignment Check",
     ],
+    image: "/images/Icons/drive-belt-pulleys.jpeg",
   },
   {
     name: "Water Pump Replacement",
@@ -294,6 +300,7 @@ const turbo = [
       "Intercooler Hose Check",
       "Written Findings",
     ],
+    image: "/images/Icons/turbo-inspection.jpeg",
   },
   {
     name: "Turbo Cleaning",
@@ -311,6 +318,7 @@ const turbo = [
       "Intake & Hose Check",
       "Boost Test After Cleaning",
     ],
+    image: "/images/Icons/turbo-cleaning.jpeg",
   },
   {
     name: "Turbo Repair and Rebuild",
@@ -329,6 +337,7 @@ const turbo = [
       "Refitting",
       "Boost Test & Road Test",
     ],
+    image: "/images/Icons/turbo-rebuild.jpeg",
   },
   {
     name: "Turbo Replacement",
@@ -347,6 +356,7 @@ const turbo = [
       "Boost Test",
       "Road Test",
     ],
+    image: "/images/Icons/turbo-replacement.jpeg",
   },
 ];
 
