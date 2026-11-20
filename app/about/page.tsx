@@ -115,7 +115,7 @@ export default function AboutPage() {
               <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
                 <img src="/images/mcc-banner.jpg" alt="Mittal Car Care Service Center" className="w-full h-[300px] md:h-[400px] object-cover rounded-2xl" />
                 <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-[#0A5BFF] text-white px-5 py-3 rounded-xl shadow-lg">
-                  <p className="text-2xl font-bold">10+</p>
+                  <p className="text-2xl font-bold">40+</p>
                   <p className="text-xs font-medium">Years Experience</p>
                 </div>
               </motion.div>
@@ -340,11 +340,11 @@ export default function AboutPage() {
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: "5000+", label: "Cars Serviced" },
-                { value: "10+", label: "Years Experience" },
-                { value: "98%", label: "Customer Satisfaction" },
-                { value: "15+", label: "Expert Technicians" },
-              ].map((stat, i) => (
+  { value: "1 Lakh+", label: "Cars Serviced" },
+  { value: "40+", label: "Years Experience" },
+  { value: "98%", label: "Customer Satisfaction" },
+  { value: "20+", label: "Expert Technicians" },
+].map((stat, i) => (
                 <motion.div key={stat.label} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.4 }}>
                   <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">{stat.value}</p>
                   <p className="text-blue-100 text-sm mt-2 font-medium">{stat.label}</p>
