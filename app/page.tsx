@@ -22,11 +22,11 @@ export default function Home() {
         <BeforeAfter />
         <WhyChooseUs />
         <Testimonials />
-        <FAQ />
+        <VideoReviews />
         <Process />
         <Areas />
         <Brands />
-        <VideoReviews />
+        <FAQ />
         <CTAStrip />
       </main>
       <Footer />
