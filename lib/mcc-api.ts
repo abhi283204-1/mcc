@@ -21,6 +21,13 @@ export interface MccService {
 }
 
 const MCC_API_URL = process.env.NEXT_PUBLIC_MCC_API_URL;
+function normalizeServiceTitle(title: string): string {
+  return title
+    .replace(/&#0*38;|&amp;/gi, "&")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
 
 export async function getMccServices(): Promise<MccService[]> {
   if (!MCC_API_URL) {
@@ -28,55 +35,63 @@ export async function getMccServices(): Promise<MccService[]> {
     return [];
   }
 
-  try {
-   const firstResponse = await fetch(`${MCC_API_URL}/services`, {
-  next: { revalidate: 60 },
-});
-
-    if (!firstResponse.ok) {
-      console.error(
-        `MCC services API failed: ${firstResponse.status} ${firstResponse.statusText}`
-      );
-      return [];
-    }
-
-    const firstPage = await firstResponse.json();
-
-    if (!Array.isArray(firstPage)) {
-      console.error("MCC services API returned an invalid response.");
-      return [];
-    }
-
-    const totalPages = Number(
-      firstResponse.headers.get("X-WP-TotalPages") ?? "1"
-    );
-
-    if (totalPages <= 1) {
-      return firstPage;
-    }
-
-    const remainingPages = await Promise.all(
-      Array.from({ length: totalPages - 1 }, (_, index) => {
-        const page = index + 2;
-
-       return fetch(`${MCC_API_URL}/services?page=${page}`, {
-  next: { revalidate: 60 },
-}).then(async (response) => {
-          if (!response.ok) {
-            console.error(
-              `MCC services API page ${page} failed: ${response.status}`
-            );
-            return [];
+  const fetchPage = async (page: number): Promise<MccService[]> => {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const response = await fetch(
+          `${MCC_API_URL}/services?per_page=100&page=${page}`,
+          {
+            next: { revalidate: 60 },
           }
+        );
 
+        if (!response.ok) {
+          console.error(
+            `MCC services API page ${page} failed: ${response.status}, attempt ${attempt}`
+          );
+        } else {
           const data = await response.json();
 
-          return Array.isArray(data) ? data : [];
-        });
-      })
+          if (Array.isArray(data)) {
+            return data;
+          }
+
+          console.error(
+            `MCC services API page ${page} returned invalid data.`
+          );
+        }
+      } catch (error) {
+        console.error(
+          `MCC services API page ${page} error, attempt ${attempt}:`,
+          error
+        );
+      }
+
+      if (attempt < 3) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, attempt * 1000)
+        );
+      }
+    }
+
+    console.error(
+      `MCC services API page ${page} failed after 3 attempts.`
     );
 
-    return [firstPage, ...remainingPages].flat();
+    return [];
+  };
+
+  try {
+    const firstResponse = await fetchPage(1);
+
+    if (firstResponse.length === 0) {
+      console.error("MCC services API first page returned no data.");
+      return [];
+    }
+
+    const secondPage = await fetchPage(2);
+
+    return [...firstResponse, ...secondPage];
   } catch (error) {
     console.error("Failed to fetch MCC services:", error);
     return [];
@@ -115,13 +130,14 @@ export async function getMccServiceByTitle(
 ): Promise<MccService | null> {
   const services = await getMccServices();
 
-  const normalizedTitle = title.trim().toLowerCase();
+  const normalizedTitle = normalizeServiceTitle(title);
 
-  return (
-    services.find(
-      (service) => service.title.trim().toLowerCase() === normalizedTitle
-    ) ?? null
-  );
+return (
+  services.find(
+    (service) =>
+      normalizeServiceTitle(service.title) === normalizedTitle
+  ) ?? null
+);
 }
 
 export interface MccPackage {
@@ -169,12 +185,12 @@ export function getActiveMccService(
   title: string,
   services: MccService[]
 ): MccService | null {
-  const normalizedTitle = title.trim().toLowerCase();
+  const normalizedTitle = normalizeServiceTitle(title);
 
   return (
     services.find(
       (service) =>
-        service.title.trim().toLowerCase() === normalizedTitle &&
+        normalizeServiceTitle(service.title) === normalizedTitle &&
         service.is_active
     ) ?? null
   );
@@ -184,11 +200,12 @@ export function mergePackagesWithMccServices(
   services: MccService[]
 ): MccPackage[] {
   return packages.map((pkg) => {
-    const normalizedTitle = pkg.name.trim().toLowerCase();
+   const normalizedTitle = normalizeServiceTitle(pkg.name);
 
-    const service = services.find(
-      (item) => item.title.trim().toLowerCase() === normalizedTitle
-    );
+const service = services.find(
+  (item) =>
+    normalizeServiceTitle(item.title) === normalizedTitle
+);
 
     return mergePackageWithMccService(pkg, service ?? null);
   });
