@@ -160,7 +160,7 @@ export function mergePackageWithMccService(
     image: service.image_url
   ? service.image_url.replace(
       /\/images\/Icons\//g,
-      "/images/icons/"
+      "/images/Icons/"
     )
   : pkg.image,
   };

@@ -56,7 +56,7 @@ const engineDiagnosticsTuning = [
       "Injector & Fuel Mixture Check",
       "Test Drive",
     ],
-    image: "/images/icons/engine-tuning.jpeg",
+    image: "/images/Icons/engine-tuning.jpeg",
   },
   {
     name: "Spark Plug Replacement",
@@ -74,7 +74,7 @@ const engineDiagnosticsTuning = [
       "Ignition Coil Check",
       "Idle Check",
     ],
-    image: "/images/icons/spark-plug.jpeg",
+    image: "/images/Icons/spark-plug.jpeg",
   },
   {
     name: "Throttle Body Cleaning",
@@ -92,7 +92,7 @@ const engineDiagnosticsTuning = [
       "Idle Reset",
       "Test Drive",
     ],
-    image: "/images/icons/throttle-body-cleaning.jpeg",
+    image: "/images/Icons/throttle-body-cleaning.jpeg",
   },
   {
     name: "Engine Carbon Cleaning (Decarbonisation)",
@@ -110,7 +110,7 @@ const engineDiagnosticsTuning = [
       "Injector & Throttle Check",
       "Post-service Test Drive",
     ],
-    image: "/images/icons/engine-carbon-cleaning.jpeg",
+    image: "/images/Icons/engine-carbon-cleaning.jpeg",
   },
 ];
 
@@ -205,7 +205,7 @@ const engineBeltsMounts = [
       "Tensioner Check",
       "Alignment Check",
     ],
-    image: "/images/icons/drive-belt-pulleys.jpeg",
+    image: "/images/Icons/drive-belt-pulleys.jpeg",
   },
   {
     name: "Water Pump Replacement",
@@ -300,7 +300,7 @@ const turbo = [
       "Intercooler Hose Check",
       "Written Findings",
     ],
-    image: "/images/icons/turbo-inspection.jpeg",
+    image: "/images/Icons/turbo-inspection.jpeg",
   },
   {
     name: "Turbo Cleaning",
@@ -318,7 +318,7 @@ const turbo = [
       "Intake & Hose Check",
       "Boost Test After Cleaning",
     ],
-    image: "/images/icons/turbo-cleaning.jpeg",
+    image: "/images/Icons/turbo-cleaning.jpeg",
   },
   {
     name: "Turbo Repair and Rebuild",
@@ -337,7 +337,7 @@ const turbo = [
       "Refitting",
       "Boost Test & Road Test",
     ],
-    image: "/images/icons/turbo-rebuild.jpeg",
+    image: "/images/Icons/turbo-rebuild.jpeg",
   },
   {
     name: "Turbo Replacement",
@@ -356,7 +356,7 @@ const turbo = [
       "Boost Test",
       "Road Test",
     ],
-    image: "/images/icons/turbo-replacement.jpeg",
+    image: "/images/Icons/turbo-replacement.jpeg",
   },
 ];
 

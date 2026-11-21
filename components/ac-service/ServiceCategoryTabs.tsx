@@ -8,21 +8,21 @@ import { usePathname } from "next/navigation";
 const STORAGE_KEY = "service-category-tabs-scroll";
 
 const categories = [
-  { name: "Car Repair & Services", icon: "/images/icons/car-service.svg", href: "/services/car-services" },
-  { name: "Denting & Painting", icon: "/images/icons/painting.svg", href: "/services/denting-painting" },
-  { name: "AC Service & Repair", icon: "/images/icons/ac-service.svg", href: "/services/ac-service-repair" },
-  { name: "Detailing Services", icon: "/images/icons/detailing.svg", href: "/services/car-detailing" },
-  { name: "Car Spa & Cleaning", icon: "/images/icons/car-wash.svg", href: "/services/car-spa-cleaning" },
-  { name: "Clutch & Body Parts", icon: "/images/icons/clutch.svg", href: "/services/clutch-body-parts" },
-  { name: "Suspension & Fitments", icon: "/images/icons/suspension.svg", href: "/services/suspension-fitments" },
-  { name: "Tyres & Wheel Care", icon: "/images/icons/tyre.svg", href: "/services/tyres-wheel-care" },
-  { name: "Car Inspections", icon: "/images/icons/vehicle-inspection.svg", href: "/services/car-inspections" },
-  { name: "Windshields & Lights", icon: "/images/icons/wiper.svg", href: "/services/windshields-lights" },
-  { name: "Insurance Claims", icon: "/images/icons/insurance-claim.svg", href: "/services/insurance-claims" },
-  { name: "SOS Service", icon: "/images/icons/pick-droup.svg", href: "/services/sos-service" },
-  { name: "Batteries", icon: "/images/icons/battery.svg", href: "/services/batteries" },
-  { name: "Engine Work & Turbo", icon: "/images/icons/engine-work.svg", href: "/services/engine-work-turbo" },
-  { name: "Body Type Conversion", icon: "/images/icons/body-conversion.svg", href: "/services/body-type-conversion" },
+  { name: "Car Repair & Services", icon: "/images/Icons/car-service.svg", href: "/services/car-services" },
+  { name: "Denting & Painting", icon: "/images/Icons/painting.svg", href: "/services/denting-painting" },
+  { name: "AC Service & Repair", icon: "/images/Icons/ac-service.svg", href: "/services/ac-service-repair" },
+  { name: "Detailing Services", icon: "/images/Icons/detailing.svg", href: "/services/car-detailing" },
+  { name: "Car Spa & Cleaning", icon: "/images/Icons/car-wash.svg", href: "/services/car-spa-cleaning" },
+  { name: "Clutch & Body Parts", icon: "/images/Icons/clutch.svg", href: "/services/clutch-body-parts" },
+  { name: "Suspension & Fitments", icon: "/images/Icons/suspension.svg", href: "/services/suspension-fitments" },
+  { name: "Tyres & Wheel Care", icon: "/images/Icons/tyre.svg", href: "/services/tyres-wheel-care" },
+  { name: "Car Inspections", icon: "/images/Icons/vehicle-inspection.svg", href: "/services/car-inspections" },
+  { name: "Windshields & Lights", icon: "/images/Icons/wiper.svg", href: "/services/windshields-lights" },
+  { name: "Insurance Claims", icon: "/images/Icons/insurance-claim.svg", href: "/services/insurance-claims" },
+  { name: "SOS Service", icon: "/images/Icons/pick-droup.svg", href: "/services/sos-service" },
+  { name: "Batteries", icon: "/images/Icons/battery.svg", href: "/services/batteries" },
+  { name: "Engine Work & Turbo", icon: "/images/Icons/engine-work.svg", href: "/services/engine-work-turbo" },
+  { name: "Body Type Conversion", icon: "/images/Icons/body-conversion.svg", href: "/services/body-type-conversion" },
 ];
 
 export default function ServiceCategoryTabs() {

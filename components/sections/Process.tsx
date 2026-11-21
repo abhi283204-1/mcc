@@ -25,13 +25,13 @@ export default function Process() {
                 >
                   <div className="w-20 h-20 mx-auto rounded-full bg-white border-2 border-primary/20 flex items-center justify-center mb-4 shadow-sm">
                     {i === 0 ? (
-                      <Image src="/images/icons/book-service1.svg" alt={item.title} width={32} height={32} />
+                      <Image src="/images/Icons/book-service1.svg" alt={item.title} width={32} height={32} />
                     ) : i === 1 ? (
-                      <Image src="/images/icons/inspection.svg" alt={item.title} width={32} height={32} />
+                      <Image src="/images/Icons/inspection.svg" alt={item.title} width={32} height={32} />
                     ) : i === 2 ? (
-                      <Image src="/images/icons/service-repair.svg" alt={item.title} width={32} height={32} />
+                      <Image src="/images/Icons/service-repair.svg" alt={item.title} width={32} height={32} />
                     ) : (
-                      <Image src="/images/icons/fast-delivery.svg" alt={item.title} width={32} height={32} />
+                      <Image src="/images/Icons/fast-delivery.svg" alt={item.title} width={32} height={32} />
                     )}
                   </div>
                   <span className="text-primary font-bold text-2xl">{item.step}</span>

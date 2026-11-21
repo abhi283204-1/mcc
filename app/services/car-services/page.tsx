@@ -33,7 +33,7 @@ const scheduledPackages = [
     includes: ["Engine Oil Replacement", "Oil Filter Replacement", "Air Filter Cleaning", "Coolant Top-up", "Wiper Fluid Replacement", "Battery Water Top-up", "Interior Vacuuming", "Car Wash", "Brake Inspection"],
     price: 2099,
     originalPrice: 3178,
-    image: "/images/icons/basic-service.jpeg",
+    image: "/images/Icons/basic-service.jpeg",
   },
   {
     name: "Standard Service",
@@ -46,7 +46,7 @@ const scheduledPackages = [
     includes: ["Basic Service Inclusions", "Front Brake Pads Inspection", "Spark Plug Cleaning", "Car Scanning", "Fuel Filter Check", "AC Gas Top-up", "AC Filter Cleaning", "Suspension Inspection", "Tyre Rotation"],
     price: 3999,
     originalPrice: 5378,
-    image: "/images/icons/standard-service.jpeg",
+    image: "/images/Icons/standard-service.jpeg",
   },
   {
     name: "Comprehensive Service",
@@ -59,7 +59,7 @@ const scheduledPackages = [
     includes: ["Standard Service Inclusions", "Transmission Fluid Replacement", "Brake Fluid Replacement", "Coolant Flush & Replace", "Throttle Body Cleaning", "Fuel Injector Cleaning", "Wheel Alignment", "Wheel Balancing", "Complete Underbody Wash"],
     price: 5999,
     originalPrice: 8308,
-    image: "/images/icons/Comprehensive-Service.jpeg",
+    image: "/images/Icons/Comprehensive-Service.jpeg",
   },
 ];
 
@@ -74,7 +74,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Brake Pads Removal", "New Brake Pads Installation", "Brake Performance Check"],
     price: 1299,
     originalPrice: 2048,
-    image: "/images/icons/front-break-pads.jpeg",
+    image: "/images/Icons/front-break-pads.jpeg",
   },
   {
     name: "Rear Brake Shoes",
@@ -86,7 +86,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Brake Shoes Removal", "New Brake Shoes Installation", "Brake Performance Check"],
     price: 1599,
     originalPrice: 2398,
-    image: "/images/icons/rear-break-shoes.jpeg",
+    image: "/images/Icons/rear-break-shoes.jpeg",
   },
   {
     name: "Front Brake Discs",
@@ -99,7 +99,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Disc Removal", "New Brake Disc Installation", "Brake Performance Check"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/icons/break-disc.jpeg",
+    image: "/images/Icons/break-disc.jpeg",
   },
   {
     name: "Caliper Pin Replacement",
@@ -111,7 +111,7 @@ const brakeMaintenancePackages = [
     includes: ["Caliper Inspection", "Old Pin Removal", "New Caliper Pin Fitting", "Brake Performance Test"],
     price: 899,
     originalPrice: 1299,
-    image: "/images/icons/Caliper-Pin.jpeg",
+    image: "/images/Icons/Caliper-Pin.jpeg",
   },
   {
     name: "Disc Turning",
@@ -124,7 +124,7 @@ const brakeMaintenancePackages = [
     includes: ["Disc Inspection", "Disc Turning/Resurfacing", "Brake Performance Check"],
     price: 999,
     originalPrice: 1499,
-    image: "/images/icons/disc-turning.jpeg",
+    image: "/images/Icons/disc-turning.jpeg",
   },
   {
     name: "Handbrake Wire Replacement",
@@ -136,7 +136,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Wire Removal", "New Handbrake Wire Fitting", "Handbrake Adjustment"],
     price: 799,
     originalPrice: 1199,
-    image: "/images/icons/handbreak-wire.jpeg",
+    image: "/images/Icons/handbreak-wire.jpeg",
   },
   {
     name: "Brake Drums Turning",
@@ -149,7 +149,7 @@ const brakeMaintenancePackages = [
     includes: ["Drum Inspection", "Drum Turning/Resurfacing", "Brake Performance Check"],
     price: 999,
     originalPrice: 1499,
-    image: "/images/icons/break-drum-turning.jpeg",
+    image: "/images/Icons/break-drum-turning.jpeg",
   },
   {
     name: "Wheel Cylinder Replacement",
@@ -161,7 +161,7 @@ const brakeMaintenancePackages = [
     includes: ["Old Cylinder Removal", "New Wheel Cylinder Fitting", "Brake Fluid Top-up"],
     price: 1299,
     originalPrice: 1899,
-    image: "/images/icons/wheel-cylinder.jpeg",
+    image: "/images/Icons/wheel-cylinder.jpeg",
   },
 ];
 

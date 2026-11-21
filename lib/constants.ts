@@ -15,21 +15,21 @@ export const STATS = [
 ];
 
 export const SERVICES = [
-  { title: "Car Services", icon: "Car", img: "/images/icons/car-service.svg", href: "/services/car-services" },
-  { title: "AC Service & Repair", img: "/images/icons/ac-service.svg", href: "/services/ac-service-repair" },
-  { title: "Denting & Painting", img: "/images/icons/painting.svg", href: "/services/denting-painting" },
-  { title: "Car Spa & Cleaning", img: "/images/icons/car-wash.svg", href: "/services/car-spa-cleaning" },
-  { title: "Tyres & Wheel Care", img: "/images/icons/tyre.svg", href: "/services/tyres-wheel-care" },
-  { title: "Batteries", img: "/images/icons/battery.svg", href: "/services/batteries" },
-  { title: "Detailing Services", img: "/images/icons/detailing.svg", href: "/services/car-detailing" },
-  { title: "Car Inspections", img: "/images/icons/vehicle-inspection.svg", href: "/services/car-inspections" },
-  { title: "Windshield & Lights", img: "/images/icons/wiper.svg", href: "/services/windshields-lights" },
-  { title: "Suspension & Fitments", img: "/images/icons/suspension.svg", href: "/services/suspension-fitments" },
-  { title: "Clutch & Body Parts", img: "/images/icons/clutch.svg", href: "/services/clutch-body-parts" },
-  { title: "SOS Service", img: "/images/icons/pick-droup.svg", href: "/services/sos-service" },
-  { title: "Insurance Claims", img: "/images/icons/insurance-claim.svg", href: "/services/insurance-claims" },
-  { title: "Engine Work & Turbo", img: "/images/icons/engine-work.svg", href: "/services/engine-work-turbo" },
-  { title: "Body Type Conversion", img: "/images/icons/body-conversion.svg", href: "/services/body-type-conversion" },
+  { title: "Car Services", icon: "Car", img: "/images/Icons/car-service.svg", href: "/services/car-services" },
+  { title: "AC Service & Repair", img: "/images/Icons/ac-service.svg", href: "/services/ac-service-repair" },
+  { title: "Denting & Painting", img: "/images/Icons/painting.svg", href: "/services/denting-painting" },
+  { title: "Car Spa & Cleaning", img: "/images/Icons/car-wash.svg", href: "/services/car-spa-cleaning" },
+  { title: "Tyres & Wheel Care", img: "/images/Icons/tyre.svg", href: "/services/tyres-wheel-care" },
+  { title: "Batteries", img: "/images/Icons/battery.svg", href: "/services/batteries" },
+  { title: "Detailing Services", img: "/images/Icons/detailing.svg", href: "/services/car-detailing" },
+  { title: "Car Inspections", img: "/images/Icons/vehicle-inspection.svg", href: "/services/car-inspections" },
+  { title: "Windshield & Lights", img: "/images/Icons/wiper.svg", href: "/services/windshields-lights" },
+  { title: "Suspension & Fitments", img: "/images/Icons/suspension.svg", href: "/services/suspension-fitments" },
+  { title: "Clutch & Body Parts", img: "/images/Icons/clutch.svg", href: "/services/clutch-body-parts" },
+  { title: "SOS Service", img: "/images/Icons/pick-droup.svg", href: "/services/sos-service" },
+  { title: "Insurance Claims", img: "/images/Icons/insurance-claim.svg", href: "/services/insurance-claims" },
+  { title: "Engine Work & Turbo", img: "/images/Icons/engine-work.svg", href: "/services/engine-work-turbo" },
+  { title: "Body Type Conversion", img: "/images/Icons/body-conversion.svg", href: "/services/body-type-conversion" },
 ];
 
 export const BEFORE_AFTER = [
@@ -42,19 +42,19 @@ export const BEFORE_AFTER = [
 ];
 
 export const WHY_CHOOSE_US = [
-  { title: "Experienced Mechanics", description: "Skilled & certified professionals", img: "/images/icons/mechanic.svg" },
-  { title: "Genuine Parts", description: "100% genuine parts for your car", img: "/images/icons/genuine-parts.svg" },
-  { title: "Latest Diagnostics", description: "Advanced tools & technology", img: "/images/icons/tool-box.svg" },
-  { title: "Fast Delivery", description: "On-time delivery promise", img: "/images/icons/fast-delivery.svg" },
-  { title: "Affordable Pricing", description: "Best quality at fair prices", img: "/images/icons/affordable-pricing.svg" },
-  { title: "Customer Satisfaction", description: "Happy customers are our priority", img: "/images/icons/customer-review.svg" },
+  { title: "Experienced Mechanics", description: "Skilled & certified professionals", img: "/images/Icons/mechanic.svg" },
+  { title: "Genuine Parts", description: "100% genuine parts for your car", img: "/images/Icons/genuine-parts.svg" },
+  { title: "Latest Diagnostics", description: "Advanced tools & technology", img: "/images/Icons/tool-box.svg" },
+  { title: "Fast Delivery", description: "On-time delivery promise", img: "/images/Icons/fast-delivery.svg" },
+  { title: "Affordable Pricing", description: "Best quality at fair prices", img: "/images/Icons/affordable-pricing.svg" },
+  { title: "Customer Satisfaction", description: "Happy customers are our priority", img: "/images/Icons/customer-review.svg" },
 ];
 
 export const TESTIMONIALS = [
-  { name: "Rahul Sharma", car: "Hyundai i20", rating: 5, text: "Excellent service and very professional staff. My car feels like new now. Highly recommended!", image: "/images/icons/rahul.jpeg" },
-  { name: "Vikram Malhotra", car: "Honda City", rating: 5, text: "Very transparent pricing and genuine parts used. Will definitely come again for my next service.", image: "/images/icons/vikram.jpeg" },
-  { name: "Amit Verma", car: "Maruti Swift", rating: 5, text: "Best car service center in East Delhi. Quick service and friendly behavior.", image: "/images/icons/amit.jpeg" },
-  { name: "Priya Singh", car: "Toyota Innova", rating: 5, text: "Amazing ceramic coating work. My car looks brand new. Great value for money!", image: "/images/icons/priya.jpeg" },
+  { name: "Rahul Sharma", car: "Hyundai i20", rating: 5, text: "Excellent service and very professional staff. My car feels like new now. Highly recommended!", image: "/images/Icons/rahul.jpeg" },
+  { name: "Vikram Malhotra", car: "Honda City", rating: 5, text: "Very transparent pricing and genuine parts used. Will definitely come again for my next service.", image: "/images/Icons/vikram.jpeg" },
+  { name: "Amit Verma", car: "Maruti Swift", rating: 5, text: "Best car service center in East Delhi. Quick service and friendly behavior.", image: "/images/Icons/amit.jpeg" },
+  { name: "Priya Singh", car: "Toyota Innova", rating: 5, text: "Amazing ceramic coating work. My car looks brand new. Great value for money!", image: "/images/Icons/priya.jpeg" },
 ];
 
 export const FAQS = [
