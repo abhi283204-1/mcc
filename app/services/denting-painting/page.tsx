@@ -32,7 +32,7 @@ const frontSide = [
     includes: ["Dent Repair (if any)", "Surface Preparation", "Primer Application", "Paint Color Matching", "Clear Coat Finish"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/front-bumper-paint.jpeg",
+    image: "/images/icons/front-bumper-paint.jpeg",
   },
   {
     name: "Bonnet Paint",
@@ -44,7 +44,7 @@ const frontSide = [
     includes: ["Dent Removal", "Sanding & Primer", "Base Coat Application", "Clear Coat & Polish"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/bonnet-paint.jpeg",
+    image: "/images/icons/bonnet-paint.jpeg",
   },
 ];
 
@@ -59,7 +59,7 @@ const rearSide = [
     includes: ["Dent Repair (if any)", "Surface Preparation", "Primer Application", "Paint Color Matching", "Clear Coat Finish"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/rear-bumper-paint.jpeg",
+    image: "/images/icons/rear-bumper-paint.jpeg",
   },
   {
     name: "Boot Paint",
@@ -71,7 +71,7 @@ const rearSide = [
     includes: ["Dent Removal", "Surface Prep & Primer", "Color Matching", "Paint & Clear Coat"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/boot-paint.jpeg",
+    image: "/images/icons/boot-paint.jpeg",
   },
 ];
 
@@ -86,7 +86,7 @@ const leftSide = [
     includes: ["Dent Repair", "Surface Preparation", "Primer & Paint", "Clear Coat Finish"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/left-fender.jpeg",
+    image: "/images/icons/left-fender.jpeg",
   },
   {
     name: "Left Front Door Paint",
@@ -98,7 +98,7 @@ const leftSide = [
     includes: ["Dent Removal", "Sanding & Primer", "Color Match Paint", "Clear Coat & Polish"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/left-front-door.jpeg",
+    image: "/images/icons/left-front-door.jpeg",
   },
   {
     name: "Left Rear Door Paint",
@@ -110,7 +110,7 @@ const leftSide = [
     includes: ["Dent Removal", "Sanding & Primer", "Color Match Paint", "Clear Coat & Polish"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/left-rear-door.jpeg",
+    image: "/images/icons/left-rear-door.jpeg",
   },
   {
     name: "Left Quarter Panel Paint",
@@ -122,7 +122,7 @@ const leftSide = [
     includes: ["Dent Repair", "Surface Prep", "Primer & Paint Application", "Clear Coat"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/left-quarter-panel-paint.jpeg",
+    image: "/images/icons/left-quarter-panel-paint.jpeg",
   },
   {
     name: "Left Running Board Paint",
@@ -134,7 +134,7 @@ const leftSide = [
     includes: ["Scratch Filling", "Primer Coat", "Paint Application", "Clear Coat Finish"],
     price: 1999,
     originalPrice: 2799,
-    image: "/images/Icons/left-running-board.jpeg",
+    image: "/images/icons/left-running-board.jpeg",
   },
 ];
 
@@ -149,7 +149,7 @@ const rightSide = [
     includes: ["Dent Repair", "Surface Preparation", "Primer & Paint", "Clear Coat Finish"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/right-fender-paint.jpeg",
+    image: "/images/icons/right-fender-paint.jpeg",
   },
   {
     name: "Right Front Door Paint",
@@ -161,7 +161,7 @@ const rightSide = [
     includes: ["Dent Removal", "Sanding & Primer", "Color Match Paint", "Clear Coat & Polish"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/right-front-door-paint.jpeg",
+    image: "/images/icons/right-front-door-paint.jpeg",
   },
   {
     name: "Right Rear Door Paint",
@@ -173,7 +173,7 @@ const rightSide = [
     includes: ["Dent Removal", "Sanding & Primer", "Color Match Paint", "Clear Coat & Polish"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/right-rear-door-paint.jpeg",
+    image: "/images/icons/right-rear-door-paint.jpeg",
   },
   {
     name: "Right Quarter Panel Paint",
@@ -185,7 +185,7 @@ const rightSide = [
     includes: ["Dent Repair", "Surface Prep", "Primer & Paint Application", "Clear Coat"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/right-Q-panel.jpeg",
+    image: "/images/icons/right-Q-panel.jpeg",
   },
   {
     name: "Right Running Board Paint",
@@ -197,7 +197,7 @@ const rightSide = [
     includes: ["Scratch Filling", "Primer Coat", "Paint Application", "Clear Coat Finish"],
     price: 1999,
     originalPrice: 2799,
-    image: "/images/Icons/right-running-board-paint.jpeg",
+    image: "/images/icons/right-running-board-paint.jpeg",
   },
 ];
 
@@ -213,7 +213,7 @@ const wholeBody = [
     includes: ["Full Body Dent Repair", "Complete Surface Prep", "Primer Application", "Base & Clear Coat", "Final Polishing & QC"],
     price: 25999,
     originalPrice: 34999,
-    image: "/images/Icons/full-body-dent-paint.jpeg",
+    image: "/images/icons/full-body-dent-paint.jpeg",
   },
 ];
 
@@ -228,7 +228,7 @@ const alloyPaint = [
     includes: ["Surface Cleaning", "Scratch Removal", "Primer Application", "Paint & Clear Coat"],
     price: 799,
     originalPrice: 1199,
-    image: "/images/Icons/alloy-wheel-paint.jpeg",
+    image: "/images/icons/alloy-wheel-paint.jpeg",
   },
 ];
 

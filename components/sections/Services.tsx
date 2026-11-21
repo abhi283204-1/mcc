@@ -108,6 +108,7 @@ export default function Services() {
             <Link
               key={service.title}
               href={service.href}
+              prefetch={true}
               aria-label={`Explore ${service.title}`}
               className="group relative isolate flex aspect-[1.08/1] min-h-[150px] min-w-0 items-end overflow-hidden rounded-2xl bg-slate-800 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl sm:aspect-[1.25/1] sm:min-h-[190px]"
             >

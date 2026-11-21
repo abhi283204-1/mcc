@@ -85,7 +85,11 @@ export default function ServiceCard({
 
   if (href) {
     return (
-      <Link href={href} className="block h-full min-w-0">
+      <Link
+  href={href}
+  prefetch={true}
+  className="block h-full min-w-0"
+>
         {content}
       </Link>
     );

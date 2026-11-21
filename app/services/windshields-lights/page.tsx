@@ -32,7 +32,7 @@ const windshields = [
     includes: ["Old Windshield Removal", "New ISI Approved Windshield Fitting", "Adhesive & Sealant Application", "Leak Test", "Wiper Alignment"],
     price: 3999,
     originalPrice: 5499,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
   {
     name: "Rear Windshield Replacement",
@@ -44,7 +44,7 @@ const windshields = [
     includes: ["Old Windshield Removal", "New ISI Approved Windshield Fitting", "Adhesive & Sealant Application", "Leak Test", "Defogger Connection Check"],
     price: 2999,
     originalPrice: 4299,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
 ];
 
@@ -59,7 +59,7 @@ const glasses = [
     includes: ["Old Glass Removal", "New AIS Approved Glass Fitting", "Window Regulator Check", "Seal Replacement", "Operation Test"],
     price: 1999,
     originalPrice: 2999,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
 ];
 
@@ -75,7 +75,7 @@ const lights = [
     includes: ["Old Headlight Removal", "New Headlight Installation", "Beam Alignment", "Wiring Check", "Light Output Test"],
     price: 2999,
     originalPrice: 4299,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
   {
     name: "Rear Taillight Replacement",
@@ -87,7 +87,7 @@ const lights = [
     includes: ["Old Taillight Removal", "New Taillight Installation", "Wiring Check", "Bulb Test"],
     price: 1999,
     originalPrice: 2999,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
   {
     name: "Fog Light Replacement",
@@ -99,7 +99,7 @@ const lights = [
     includes: ["Old Fog Light Removal", "New Fog Light Installation", "Beam Alignment", "Wiring Check"],
     price: 1499,
     originalPrice: 2299,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
 ];
 
@@ -114,7 +114,7 @@ const sideMirror = [
     includes: ["Old Mirror Removal", "New Mirror Installation", "Adjustment & Alignment", "Electrical Connection Check"],
     price: 1499,
     originalPrice: 2199,
-    image: "/images/Icons/wiper.svg",
+    image: "/images/icons/wiper.svg",
   },
 ];
 

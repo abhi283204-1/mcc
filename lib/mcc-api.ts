@@ -29,9 +29,9 @@ export async function getMccServices(): Promise<MccService[]> {
   }
 
   try {
-    const firstResponse = await fetch(`${MCC_API_URL}/services`, {
-      cache: "no-store",
-    });
+   const firstResponse = await fetch(`${MCC_API_URL}/services`, {
+  next: { revalidate: 60 },
+});
 
     if (!firstResponse.ok) {
       console.error(
@@ -59,9 +59,9 @@ export async function getMccServices(): Promise<MccService[]> {
       Array.from({ length: totalPages - 1 }, (_, index) => {
         const page = index + 2;
 
-        return fetch(`${MCC_API_URL}/services?page=${page}`, {
-          cache: "no-store",
-        }).then(async (response) => {
+       return fetch(`${MCC_API_URL}/services?page=${page}`, {
+  next: { revalidate: 60 },
+}).then(async (response) => {
           if (!response.ok) {
             console.error(
               `MCC services API page ${page} failed: ${response.status}`
@@ -157,7 +157,12 @@ export function mergePackageWithMccService(
     recommended: service.recommended,
     badge: service.badge ?? pkg.badge,
     description: service.short_description ?? pkg.description,
-    image: service.image_url ?? pkg.image,
+    image: service.image_url
+  ? service.image_url.replace(
+      /\/images\/Icons\//g,
+      "/images/icons/"
+    )
+  : pkg.image,
   };
 }
 export function getActiveMccService(

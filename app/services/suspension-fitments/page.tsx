@@ -60,7 +60,7 @@ const suspension = [
     includes: ["Old Shock Absorber Removal", "New Shock Absorber Installation", "Suspension Alignment", "Test Drive"],
     price: 2999,
     originalPrice: 3999,
-    image: "/images/Icons/suspension.svg",
+    image: "/images/icons/suspension.svg",
   },
   {
     name: "Rear Shock Absorber Replacement",
@@ -72,7 +72,7 @@ const suspension = [
     includes: ["Old Shock Absorber Removal", "New Shock Absorber Installation", "Suspension Check", "Test Drive"],
     price: 2499,
     originalPrice: 3499,
-    image: "/images/Icons/suspension.svg",
+    image: "/images/icons/suspension.svg",
   },
   {
     name: "Suspension Lower Arm Replacement",

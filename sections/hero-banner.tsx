@@ -130,14 +130,14 @@ export default function HeroBanner() {
                 onClick={() => router.push("/select-car")}
                 className="flex-1 inline-flex h-[40px] items-center justify-center gap-2 rounded-lg bg-[#0A5BFF] px-5 py-[10px] text-[13px] font-semibold text-white"
               >
-                <img src="/images/Icons/book-service.svg" alt="" className="w-5 h-5" />
+                <img src="/images/icons/book-service.svg" alt="" className="w-5 h-5" />
                 Book Service
               </button>
               <a
                 href="tel:+919654700404"
                 className="flex-1 inline-flex h-[40px] items-center justify-center gap-2 rounded-lg bg-white px-5 py-[10px] text-[13px] font-semibold text-[#5e5e60]"
               >
-                <img src="/images/Icons/call-us.svg" alt="Call" className="w-5 h-5" />
+                <img src="/images/icons/call-us.svg" alt="Call" className="w-5 h-5" />
                 Call Now
               </a>
             </div>
@@ -145,8 +145,8 @@ export default function HeroBanner() {
             {/* Stats - 2x2 grid */}
             <div className="grid grid-cols-2 gap-3 mt-4">
               {[
-                { img: "/images/Icons/experience-icon.svg", value: "40+", label: "Years Experience" },
-                { img: "/images/Icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
+                { img: "/images/icons/experience-icon.svg", value: "40+", label: "Years Experience" },
+                { img: "/images/icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
                 { icon: CheckCircle, value: "Multi-Brand", label: "Experts" },
                 { icon: Shield, value: "100%", label: "Customer Satisfaction" },
               ].map((stat) => (
@@ -222,14 +222,14 @@ export default function HeroBanner() {
                     href="#book"
                     className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-[#0A5BFF] px-4 sm:px-6 text-[14px] font-semibold text-white transition-colors hover:bg-blue-700"
                   >
-                    <img src="/images/Icons/book-service.svg" alt="" className="w-5 h-5" />
+                    <img src="/images/icons/book-service.svg" alt="" className="w-5 h-5" />
                     Book Service
                   </a>
                   <a
                     href="tel:+919654700404"
                     className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-white px-4 sm:px-6 text-[14px] font-semibold text-[#5e5e60] transition-colors hover:bg-gray-50"
                   >
-                    <img src="/images/Icons/call-us.svg" alt="Call" className="w-5 h-5" />
+                    <img src="/images/icons/call-us.svg" alt="Call" className="w-5 h-5" />
                     Call Now
                   </a>
                 </div>
@@ -238,8 +238,8 @@ export default function HeroBanner() {
               {/* Bottom: Stats */}
               <div className="flex flex-wrap items-stretch gap-2 lg:gap-3 xl:flex-nowrap">
                 {[
-                  { icon: null, img: "/images/Icons/experience-icon.svg", value: "40+", label: "Years Experience" },
-                  { icon: null, img: "/images/Icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
+                  { icon: null, img: "/images/icons/experience-icon.svg", value: "40+", label: "Years Experience" },
+                  { icon: null, img: "/images/icons/car-icon.svg", value: "1Lakh+", label: "Cars Serviced" },
                   { icon: CheckCircle, img: null, value: "Multi-Brand", label: "Experts" },
                   { icon: Shield, img: null, value: "100%", label: "Customer Satisfaction" },
                 ].map((stat) => (
@@ -413,3 +413,4 @@ export default function HeroBanner() {
     </>
   );
 }
+
