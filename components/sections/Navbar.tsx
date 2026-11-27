@@ -52,7 +52,7 @@ export default function Navbar() {
               <span className="text-[#174A8B]">CAR CARE</span>
             </div>
             <span className="mt-1 block whitespace-nowrap text-[8px] font-normal text-slate-500 sm:text-[10px]">
-              Expertise. Trust. Quality.
+              Experienced. Trusted. Genuine.
             </span>
           </div>
         </Link>
