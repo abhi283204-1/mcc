@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/CartContext";
-import { getMccServices } from "@/lib/mcc-api";
+import { getMccServices, getActiveMccService, } from "@/lib/mcc-api";
 import { X, ShieldCheck, ChevronRight, ArrowRight, MapPin, ArrowLeft } from "lucide-react";
 
 // Shape of a coupon returned by GET /mcc/v1/coupons
@@ -310,8 +310,8 @@ export default function CartPage() {
                         // cart items in notes so no selected service is lost.
                         const services = await getMccServices();
                         const primaryItem = items[0];
-                        const primaryService = services.find(
-                          (service) => service.title.trim().toLowerCase() === primaryItem.name.trim().toLowerCase()
+                        const primaryService = getActiveMccService(primaryItem.name, 
+                         services
                         );
 
                         if (!primaryService) {

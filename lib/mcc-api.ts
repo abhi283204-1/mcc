@@ -24,6 +24,8 @@ const MCC_API_URL = process.env.NEXT_PUBLIC_MCC_API_URL;
 function normalizeServiceTitle(title: string): string {
   return title
     .replace(/&#0*38;|&amp;/gi, "&")
+    .replace(/&trade;|&#0*8482;/gi, "")
+    .replace(/[™®©]/g, "")
     .trim()
     .replace(/\s+/g, " ")
     .toLowerCase();
